@@ -1,6 +1,11 @@
-var express = require("express");
+var express = require('express');
 var router = express.Router();
 
-const { isAllowed } = require("../middleware/authorization");
+const userController = require('../controllers/user');
+const { isAllowed } = require('../middleware/authorization');
+
+router.get('/', isAllowed, userController.getAllMyPlants);
+router.post('/', isAllowed, userController.addToMyPlants);
+router.delete('/:id', isAllowed, userController.deleteMyPlant);
 
 module.exports = router;
