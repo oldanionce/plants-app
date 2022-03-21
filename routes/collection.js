@@ -1,13 +1,13 @@
-const express = require("express");
+const express = require('express');
 
 const router = express.Router();
-const collectionControler = require("../controllers/collections");
+const collectionControler = require('../controllers/collection');
 
-router.get("/", collectionControler.getAllPlants);
-router.get("/petFriendly", collectionController.getByPetFriendly);
-router.get("/CareLevel", collectionController.getByCareLevel);
-router.get("/search", collectionControler.searchByTitle);
-router.get("/:id", collectionControler.getPlantById);
+router.get('/', collectionControler.getAllPlants);
+router.get('/pet-friendly', collectionController.getByPetFriendly);
+router.get('/care-level', collectionController.getByCareLevel);
+router.get('/search', collectionControler.searchByTitle);
+router.get('/:id', collectionControler.getPlantById);
 
 module.exports = router;
 
