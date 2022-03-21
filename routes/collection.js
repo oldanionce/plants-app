@@ -1,11 +1,16 @@
 const express = require("express");
 
 const router = express.Router();
-const catalogController = require("../controllers/collection");
+const collectionControler = require("../controllers/collections");
 
-router.get("/", catalogController.getAllPlants);
-// router.get("/categories/:category", collectionController.getByCategory);
-// router.get("/search", catalogController.searchByTitle);
-// router.get("/:id", catalogController.getMovieById);
+router.get("/", collectionControler.getAllPlants);
+router.get("/petFriendly", collectionController.getByPetFriendly);
+router.get("/CareLevel", collectionController.getByCareLevel);
+router.get("/search", collectionControler.searchByTitle);
+router.get("/:id", collectionControler.getPlantById);
 
 module.exports = router;
+
+// - pet friendly
+// - Interior/exterior (?)
+// - Care Level
