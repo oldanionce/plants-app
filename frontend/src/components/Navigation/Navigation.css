@@ -1,0 +1,22 @@
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	list-style-type: none;
+	align-items: center;
+	gap: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+div {
+	display: flex;
+	cursor: pointer;
+}
+
+.nav__icon {
+	margin-right: 10px;
+}

@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import Navigation from './components/Navigation/Navigation';
+import Collection from './pages/Collection';
+import Landing from './pages/Landing';
+import MyPlants from './pages/MyPlants';
+import Footer from './components/Footer/Footer';
+
+// import AuthenticationProvider from './AuthenticationContext';
+// import RequiredAuth from './RequiredAuth';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		//  <AuthenticationProvider>
+		<div className='App'>
+			<Router>
+				<Routes>
+					{/* 	<Route path='/' element={<Landing />} />
+					<Route path='/collection' element={<Collection />} />
+
+					<Route
+						path='/myplants'
+						element={
+							//	<RequiredAuth>
+							<MyPlants />
+							// 	</RequiredAuth>
+						}
+					/>
+					<Footer></Footer> */}
+				</Routes>
+			</Router>
+		</div>
+		// </AuthenticationProvider>
+	);
 }
 
 export default App;
