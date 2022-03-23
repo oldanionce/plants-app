@@ -14,3 +14,7 @@
     true
     false 
 	 
+     INTERIOR/EXTERIOR:
+     interior: 1
+     exterior: 2
+     int/ext: 3
