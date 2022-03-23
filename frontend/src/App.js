@@ -4,6 +4,7 @@ import Landing from './pages/Landing';
 import MyPlants from './pages/MyPlants';
 import Footer from './components/Footer/Footer';
 
+import LoginForm from './components/LoginForm/LoginForm';
 // import AuthenticationProvider from './AuthenticationContext';
 // import RequiredAuth from './RequiredAuth';
 
@@ -16,6 +17,7 @@ function App() {
 		<div className='App'>
 			<Router>
 				<Navigation></Navigation>
+
 				<Routes>
 					{/* 	<Route path='/' element={<Landing />} />
 					<Route path='/collection' element={<Collection />} />
