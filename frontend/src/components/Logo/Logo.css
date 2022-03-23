@@ -1,0 +1,10 @@
+.logo-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: inline;
+  width: 25%;
+  padding: 20px;
+}
