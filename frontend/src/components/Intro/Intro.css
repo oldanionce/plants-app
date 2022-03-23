@@ -1,0 +1,19 @@
+.intro {
+  align-items: center;
+}
+.claim {
+  color: #c58a47;
+  margin-right: 10px;
+  align-self: center;
+}
+.register-button {
+  border-radius: 30px;
+  border: 1px solid transparent;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  background-color: #c58a47;
+}
+.register-button:hover {
+  cursor: pointer;
+}
