@@ -22,31 +22,27 @@ export default function Navigation() {
 	return (
 		<nav>
 			{/* {!authData && ( */}
-			<div>
+			<div className='nav__div'>
 				<NavLink to='/login'>
-					<span className='nav__icon'>icon</span>
 					<span>Login</span>
 				</NavLink>
 			</div>
 			{/*)} 
 			{authData && ( */}
-			<div>
+			<div className='nav__div active'>
 				<NavLink to='/collection'>
-					<span className='nav__icon'>icon</span>
 					<span>Collection</span>
 				</NavLink>
 			</div>
-			<div>
+			<div className='nav__div'>
 				<NavLink to='/myplants'>
-					<span className='nav__icon'>icon</span>
 					<span>My Plants</span>
 				</NavLink>
 			</div>
 
-			<div>
+			<div className='nav__div'>
 				<span onClick={handleLogoutClick} className='nav__item'>
-					<span className='nav__icon'>icon</span>
-					<span>Logout</span>
+					<span>Log Out</span>
 				</span>
 			</div>
 			{/* )}*/}
