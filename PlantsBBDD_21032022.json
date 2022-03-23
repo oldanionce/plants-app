@@ -10,7 +10,7 @@
 		"irrigationWinter": 2,
 		"soil": "Necesita un drenaje perfecto. cada 3 semanas; pd. cada 2 meses",
 		"nickname": "",
-        "petFriendly": false,
+        "petFriendly": true,
         "image": "XXXXXXXXX"
 	},
 
@@ -37,7 +37,7 @@
 		"irrigationWinter": 3,
 		"soil": "Rico en nutrientes y un poco ácido; pero tolera suelos normales con buen drenaje.",
 		"nickname": "",
-        "petFriendly": true,
+        "petFriendly": false,
         "image": "XXXXXXXXX"
 	},
 	{
@@ -421,7 +421,7 @@
 		"irrigationWinter": 2,
 		"soil": "Las begonias prefieren un sustrato sin tierra, bien drenado y bien aireado que tenga una buena retención de agua.",
 		"nickname": "",
-        "petFriendly": true, 
+        "petFriendly": false, 
         "image": "XXXX"
 
 	},
