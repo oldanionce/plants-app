@@ -11,10 +11,18 @@
 	text-align: center;
 }
 
+button {
+	padding: 2px 15px 2px 15px;
+	border-radius: 5px;
+	border: none;
+	background-color: #c58a47;
+	color: white;
+	font-weight: 700;
+}
+
 input {
 	margin-top: 10px;
 	font-family: Poppins;
-	font-weight: 100;
 	font-size: 15px;
 	width: 100%;
 	border: 0;
@@ -28,8 +36,6 @@ input {
 }
 
 input::placeholder {
-	font-family: Poppins;
-	font-weight: 100;
 	font-size: 15px;
 }
 

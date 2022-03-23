@@ -17,7 +17,7 @@ function App() {
 		<div className='App'>
 			<Router>
 				<Navigation></Navigation>
-				<LoginForm></LoginForm>
+
 				<Routes>
 					{/* 	<Route path='/' element={<Landing />} />
 					<Route path='/collection' element={<Collection />} />
