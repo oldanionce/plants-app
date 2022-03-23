@@ -15,6 +15,7 @@ function App() {
 		//  <AuthenticationProvider>
 		<div className='App'>
 			<Router>
+				<Navigation></Navigation>
 				<Routes>
 					{/* 	<Route path='/' element={<Landing />} />
 					<Route path='/collection' element={<Collection />} />

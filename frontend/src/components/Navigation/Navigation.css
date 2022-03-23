@@ -1,22 +1,24 @@
 nav {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: row;
-	list-style-type: none;
-	align-items: center;
-	gap: 20px;
+	gap: 10px;
+}
+
+.nav__div {
+	background-color: #c58a47;
+	padding: 1px 10px 1px 10px;
+	border-radius: 5px;
+}
+
+.active {
+	background-color: #ab5723;
+}
+
+span {
+	color: white;
+	font-weight: 700;
 }
 
 a {
 	text-decoration: none;
-}
-
-div {
-	display: flex;
-	cursor: pointer;
-}
-
-.nav__icon {
-	margin-right: 10px;
+	color: white;
 }
