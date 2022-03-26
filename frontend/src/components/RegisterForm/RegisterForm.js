@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './SignUpForm.css';
 import { useNavigate } from 'react-router-dom';
-import { useAuthentication } from '../AuthenticationContext';
+import { useAuthentication } from '../../AuthenticationContext';
 
 export default function Register() {
 	const [inputEmail, setInputEmail] = useState('');
