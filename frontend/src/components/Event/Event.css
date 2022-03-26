@@ -1,0 +1,9 @@
+@import "add-to-calendar-button/assets/css/atcb.min";
+.atcb {
+  border-radius: 30px;
+  border: 1px solid transparent;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  background-color: #c58a47;
+}
