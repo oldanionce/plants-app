@@ -3,7 +3,7 @@ import Collection from './pages/Collection';
 import Landing from './pages/Landing';
 import MyPlants from './pages/MyPlants';
 import Footer from './components/Footer/Footer';
-
+import RegisterForm from './components/RegisterForm/RegisterForm';
 import LoginForm from './components/LoginForm/LoginForm';
 // import AuthenticationProvider from './AuthenticationContext';
 // import RequiredAuth from './RequiredAuth';
@@ -17,6 +17,8 @@ function App() {
 		<div className='App'>
 			<Router>
 				<Navigation></Navigation>
+				<LoginForm></LoginForm>
+				<RegisterForm></RegisterForm>
 
 				<Routes>
 					{/* 	<Route path='/' element={<Landing />} />

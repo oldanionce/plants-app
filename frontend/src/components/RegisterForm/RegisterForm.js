@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './SignUpForm.css';
 import { useNavigate } from 'react-router-dom';
-// import { useAuthentication } from '../AuthenticationContext';
+import { useAuthentication } from '../AuthenticationContext';
 
 export default function Register() {
 	const [inputEmail, setInputEmail] = useState('');
@@ -10,8 +10,8 @@ export default function Register() {
 	const [inputPassword2, setInputPassword2] = useState('');
 	const [inputName, setInputName] = useState('');
 
-	// const navigate = useNavigate();
-	// 	const { login } = useAuthentication();
+	const navigate = useNavigate();
+	const { login } = useAuthentication();
 
 	const handleInputChange = e => {
 		if (e.target.name === 'email__input') {
@@ -29,7 +29,7 @@ export default function Register() {
 		}
 	};
 
-	/*	async function register(event) {
+	async function register(event) {
 		event.preventDefault();
 		const data = {
 			name: inputName,
@@ -51,7 +51,6 @@ export default function Register() {
 			navigate('/', { replace: true });
 		}
 	}
- */
 
 	return (
 		<div class='container'>

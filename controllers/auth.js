@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const passport = require('passport');
 const { ONE_DAY } = require('../utils/constants');
-//const ErrorResponse = require("../utils/errorResponse");
+const ErrorResponse = require('../utils/errorResponse');
 
 //@access public
 exports.login = (req, res, next) => {

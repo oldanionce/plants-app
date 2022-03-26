@@ -5,7 +5,7 @@ export const AuthenticationContext = React.createContext();
 const AuthenticationProvider = ({ children }) => {
 	const [authData, setAuthData] = useState({});
 
-	/* async function getLoggedUser() {
+	async function getLoggedUser() {
 		const response = await fetch(`/api/auth/getuser`, {
 			method: 'GET',
 			// The following also for myplants url, for authenticated urls
@@ -26,7 +26,7 @@ const AuthenticationProvider = ({ children }) => {
 	useEffect(() => {
 		getLoggedUser();
 		// eslint-disable-next-line
-	}, []); */
+	}, []);
 
 	const login = data => {
 		setAuthData({ data });
