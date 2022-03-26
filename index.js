@@ -4,9 +4,10 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/errorHandler');
-connectDB();
 const logger = require('morgan');
 const connectDB = require('./config/db');
+connectDB();
+
 const passport = require('passport');
 const cors = require('cors');
 require('dotenv').config();
@@ -14,7 +15,7 @@ require('dotenv').config();
 const app = express();
 
 const userRouter = require('./routes/user');
-const collectionRouter = require('./routes/catalog');
+const collectionRouter = require('./routes/collection');
 const authRouter = require('./routes/auth');
 const { connect } = require('http2');
 
