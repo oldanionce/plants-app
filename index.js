@@ -6,11 +6,11 @@ const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/errorHandler');
 const logger = require('morgan');
 const connectDB = require('./config/db');
+require('dotenv').config();
 connectDB();
 
 const passport = require('passport');
 const cors = require('cors');
-require('dotenv').config();
 
 const app = express();
 
@@ -20,6 +20,17 @@ const authRouter = require('./routes/auth');
 const { connect } = require('http2');
 
 app.set('trust proxy', 1);
+
+app.use(require('./config/session'));
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Routes
 app.use('/', express.static('./public'));
@@ -59,8 +70,6 @@ app.use(function (err, req, res, next) {
 	res.status(err.status || 500);
 	res.render('error');
 });
-
-module.exports = app;
 
 /**
  * ========== SERVER ==============
