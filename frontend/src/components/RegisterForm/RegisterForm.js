@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './SignUpForm.css';
+import './RegisterForm.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuthentication } from '../../AuthenticationContext';
 
@@ -85,7 +85,9 @@ export default function Register() {
 						onChange={handleInputChange}
 					/>
 
-					<button onClick={''}>create</button>
+					<button type='button' onClick={register}>
+						create
+					</button>
 					<p class='input__message'>
 						Already registered? <Link to='/login'> Login</Link>
 					</p>
