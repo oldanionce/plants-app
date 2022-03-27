@@ -1,5 +1,5 @@
 import MyPlantsCard from "./MyPlantsCard";
-import "./MyPlantsGrid.scss";
+import "./MyPlantsGrid.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
 //   faArrowDownAZ,
@@ -60,7 +60,7 @@ export default function MyPlantsGrid({
           {isLoading && <i>🪴</i>}
           {plants.map((plant) => (
             <MyPlantsCard
-              key={plants.title}
+              key={plants._id}
               addToMyPlants={addToMyPlants}
               deleteFromMyPlants={deleteFromMyPlants}
               plant={plant}
