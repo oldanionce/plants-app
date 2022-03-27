@@ -18,7 +18,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Landing />} />
-          {/* <Route path="/MyPlants" element={MyPlants} /> */}
+          <Route path="/myplants" element={<MyPlants />} />
+          <Route path="/collection" element={<Collection />} />
         </Routes>
       </Router>
     </div>
