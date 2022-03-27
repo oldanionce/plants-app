@@ -1,6 +1,6 @@
-import MyPlantsCard from "./MyPlantsCard";
+import MyPlantsCard from "../MyPlantsCard/MyPlantsCard.js";
 import "./MyPlantsGrid.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
 //   faArrowDownAZ,
 //   faArrowUpZA,
@@ -34,24 +34,24 @@ export default function MyPlantsGrid({
             location.pathname === "/myplants" ? "hidden" : "grid__header__sort "
           }
         >
-          <span
+          {/* <span
             className="grid__header__sort__button"
-            onClick={handleSortClickAZ}
+            //onClick={handleSortClickAZ}
           >
-            {sortAZ}
+           {sortAZ}
           </span>
           <span
             className="grid__header__sort__button"
-            onClick={handleSortClickZA}
+            //onClick={handleSortClickZA}
           >
             {sortZA}
           </span>
           <span
             className="grid__header__sort__button"
-            onClick={handleSortClickRandom}
+            //onClick={handleSortClickRandom}
           >
             {sortRandom}
-          </span>
+          </span> */}
         </h4>
       </div>
       {plants.length === 0 && !isLoading && <span>You have no plants yet</span>}

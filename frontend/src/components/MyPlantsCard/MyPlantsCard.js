@@ -15,11 +15,11 @@ export default function MyPlantsCard({
       className="MyPlantsCard"
       key={
         location.pathname === `/Myplants`
-          ? `myplant-${plant.title}`
-          : `${plant.title}`
+          ? `myplant-${plants.title}`
+          : `${plants.title}`
       }
     >
-      <PlantCard
+      {/* <PlantCard
         id={plant._id}
         url={plant.image}
         addToMyPlants={addToMyPlants}
@@ -29,7 +29,7 @@ export default function MyPlantsCard({
         interiorExterior={plant.interiorExterior}
         careLevel={plant.careLevel}
         petFriendly={plant.petFriendly}
-      ></PlantCard>
+      ></PlantCard> */}
     </li>
   );
 }
