@@ -1,6 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700;900&family=Poppins&family=Trocchi&display=swap');
 
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700;900&family=Poppins&family=Trocchi&display=swap');
+
+:root {
+	--background-green: #c9d3aa;
+	--medium-green: #7c875a;
+	--dark-green: #445432;
+	--darkest-green: #1d2812;
+	--light-accent: #c9874c;
+	--accent: #bb6c2f;
+	--darkest-accent: #aa5722;
+	--light: #fefae2;
+}
+
+* {
+	margin:0;
+	padding: 0;
+	outline: none;
+}
+
+html {
+	font-size: 10px;
+}
+
+body {
+	background-color: white;
+	font-family: Lato, sans-serif;
+	font-size: 1.5rem;
+	line-height: 2.5rem;
+}
+
+#root {
+	display: flex;
+  	flex-direction: column;
+	min-height: 100vh;
+	/* temp */
 	text-align: center;
-	font-family: Poppins;
 }
