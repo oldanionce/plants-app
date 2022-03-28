@@ -48,7 +48,7 @@ export default function Register() {
 
 		if (response.status === 200) {
 			login({ email: data.email, name: data.name });
-			navigate('/', { replace: true });
+			navigate('/myplants', { replace: true });
 		}
 	}
 
