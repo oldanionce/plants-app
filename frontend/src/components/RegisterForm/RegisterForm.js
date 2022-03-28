@@ -52,6 +52,8 @@ export default function Register() {
 		}
 	}
 
+	// Modal
+
 	return (
 		<div class='container'>
 			<div class='container__form'>

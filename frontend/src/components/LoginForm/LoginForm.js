@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
-// import { useAuthentication } from '../AuthenticationContext';
+import { useAuthentication } from '../../AuthenticationContext';
 import './LoginForm.css';
+import ReactModal from 'react-modal';
 
 export default function LoginForm() {
 	// State
@@ -9,10 +10,10 @@ export default function LoginForm() {
 	const [password, setPassword] = useState('');
 
 	// Hooks
-	// const { login } = useAuthentication();
-	// const navigate = useNavigate();
-	// const location = useLocation();
-	// const from = location.state?.from?.pathname || '/';
+	const { login } = useAuthentication();
+	const navigate = useNavigate();
+	const location = useLocation();
+	const from = location.state?.from?.pathname || '/';
 
 	// Input Handlers
 	const handleInputChange = e => {
@@ -26,7 +27,8 @@ export default function LoginForm() {
 	};
 
 	// Click Handler
-	/* async function handleLoginClick(event) {
+	async function handleLoginClick(event) {
+		closeModal();
 		event.preventDefault();
 
 		const data = {
@@ -47,36 +49,44 @@ export default function LoginForm() {
 			login({ email: data.email });
 			navigate(from, { replace: true });
 		}
-	} */
+	}
+
+	const [modalIsOpen, setIsOpen] = useState(true);
+
+	function closeModal() {
+		setIsOpen(false);
+	}
 
 	return (
-		<div className='container'>
-			<div class='container__form'>
-				<form className='form'>
-					<input
-						type='email'
-						placeholder='email'
-						className='email__input'
-						name='email__input'
-						value={email}
-						onChange={handleInputChange}
-					/>
-					<input
-						type='password'
-						placeholder='password'
-						name='password__input'
-						className='password__input'
-						value={password}
-						onChange={handleInputChange}
-					/>
+		<ReactModal isOpen={true}>
+			<div className='container'>
+				<div class='container__form'>
+					<form className='form'>
+						<input
+							type='email'
+							placeholder='email'
+							className='email__input'
+							name='email__input'
+							value={email}
+							onChange={handleInputChange}
+						/>
+						<input
+							type='password'
+							placeholder='password'
+							name='password__input'
+							className='password__input'
+							value={password}
+							onChange={handleInputChange}
+						/>
 
-					<button onClick={''}>login</button>
-					<p className='input__message'>
-						Not registered?
-						<Link to='/register'> Register</Link>
-					</p>
-				</form>
+						<button onClick={handleLoginClick}>login</button>
+						<p className='input__message'>
+							Not registered?
+							<Link to='/register'> Register</Link>
+						</p>
+					</form>
+				</div>
 			</div>
-		</div>
+		</ReactModal>
 	);
 }
