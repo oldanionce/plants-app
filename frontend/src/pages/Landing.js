@@ -7,7 +7,7 @@ import RegisterForm from '../components/RegisterForm/RegisterForm.js';
 import { useAuthentication } from '../AuthenticationContext';
 
 export default function Landing() {
-	//search component
+	const { authData } = useAuthentication();
 
 	return (
 		<div>
@@ -15,7 +15,7 @@ export default function Landing() {
 			<Navigation></Navigation>
 			<Features></Features>
 			{/* <Event></Event> */}
-			<RegisterForm></RegisterForm>
+			{!authData && <RegisterForm></RegisterForm>}
 			<Footer></Footer>
 		</div>
 	);
