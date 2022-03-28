@@ -7,7 +7,6 @@ import RegisterForm from './components/RegisterForm/RegisterForm';
 import LoginForm from './components/LoginForm/LoginForm';
 import AuthenticationProvider from './AuthenticationContext';
 import RequiredAuth from './RequiredAuth';
-import TestModal from './components/TestModal';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
