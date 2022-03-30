@@ -1,15 +1,38 @@
-// Default: botó log in
-// When logged in: Collection, My Plants, Log Out
-
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import './Navigation.css';
+import Modal from 'react-modal';
 import Logo from "../Logo/Logo.js";
+import LoginForm from "../LoginForm/LoginForm.js";
 
 import { useAuthentication } from '../../AuthenticationContext';
 
+import './Navigation.css';
+
+const customStyles = {
+	content: {
+	  top: '50%',
+	  left: '50%',
+	  right: 'auto',
+	  bottom: 'auto',
+	  marginRight: '-50%',
+	  transform: 'translate(-50%, -50%)',
+	  background: 'white',
+	},
+	overlay: {zIndex: 1000}
+  };
+
 export default function Navigation() {
 	const navigate = useNavigate();
+
+	const [modalIsOpen, setIsOpen] = React.useState(false);
+
+	function openModal() {
+		setIsOpen(true);
+	}
+
+	function closeModal() {
+		setIsOpen(false);
+	}
 	
 
 	// For later
@@ -21,6 +44,7 @@ export default function Navigation() {
 	}
 
 	return (
+		<>
 		<div className="navigationDiv container">
 			<nav className="content">
 			<Logo></Logo>
@@ -28,9 +52,7 @@ export default function Navigation() {
 			<ul>
 				{!authData && (
 					<li className='nav__div'>
-						<NavLink to='/login'>
-							<span>Login</span>
-						</NavLink>
+						<span onClick={openModal}>Login</span>
 					</li>
 				)}
 				{authData && (
@@ -55,5 +77,14 @@ export default function Navigation() {
 			</ul>
 			</nav>
 		</div>
+		<Modal
+			isOpen={modalIsOpen}
+			onRequestClose={closeModal}
+			style={customStyles}
+			contentLabel="Example Modal"
+		>
+			<LoginForm></LoginForm>
+		</Modal>
+		</>
 	);
 }
