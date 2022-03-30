@@ -4,11 +4,13 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Navigation.css';
+import Logo from "../Logo/Logo.js";
 
 import { useAuthentication } from '../../AuthenticationContext';
 
 export default function Navigation() {
 	const navigate = useNavigate();
+	
 
 	// For later
 	const { authData, logout } = useAuthentication();
@@ -19,34 +21,39 @@ export default function Navigation() {
 	}
 
 	return (
-		<nav>
-			{!authData && (
-				<div className='nav__div'>
-					<NavLink to='/login'>
-						<span>Login</span>
-					</NavLink>
-				</div>
-			)}
-			{authData && (
-				<>
-					<div className='nav__div active'>
-						<NavLink to='/collection'>
-							<span>Collection</span>
+		<div className="navigationDiv container">
+			<nav className="content">
+			<Logo></Logo>
+			
+			<ul>
+				{!authData && (
+					<li className='nav__div'>
+						<NavLink to='/login'>
+							<span>Login</span>
 						</NavLink>
-					</div>
-					<div className='nav__div'>
-						<NavLink to='/myplants'>
-							<span>My Plants</span>
-						</NavLink>
-					</div>
-
-					<div className='nav__div'>
-						<span onClick={handleLogoutClick} className='nav__item'>
-							<span>Log Out</span>
-						</span>
-					</div>
-				</>
-			)}
-		</nav>
+					</li>
+				)}
+				{authData && (
+					<>
+						<li className='nav__div active'>
+							<NavLink to='/collection'>
+								<span>Collection</span>
+							</NavLink>
+						</li>
+						<li className='nav__div'>
+							<NavLink to='/myplants'>
+								<span>My Plants</span>
+							</NavLink>
+						</li>
+						<li className='nav__div'>
+							<span onClick={handleLogoutClick} className='nav__item'>
+								<span>Log Out</span>
+							</span>
+						</li>
+					</>
+				)}
+			</ul>
+			</nav>
+		</div>
 	);
 }

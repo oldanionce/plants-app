@@ -1,0 +1,5 @@
+.featuresDiv {
+	background-color:var(--light);
+	/* temp */
+	flex-grow: 1;
+}

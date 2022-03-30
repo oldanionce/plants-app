@@ -2,5 +2,11 @@
 import "./Features.css";
 
 export default function Features() {
-  return <div></div>;
+  return (
+	<div class="featuresDiv container">
+		<div class="content">
+
+		</div>
+	</div>
+	);
 }
