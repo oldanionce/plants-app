@@ -5,9 +5,11 @@ export default function Footer() {
   let today = new Date();
   let year = today.getFullYear();
   return (
-    <footer className="app-footer">
-      <p>Created by {name}</p>
-      <p>&copy; {year}</p>
+    <footer className="app-footer container">
+      <div class="content">
+		<p>Created by {name}</p>
+      	<p>&copy; {year}</p>
+	  </div>
     </footer>
   );
 }
