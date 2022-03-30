@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useAuthentication } from '../../AuthenticationContext';
 import './LoginForm.css';
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 
 export default function LoginForm() {
 	// State
@@ -28,7 +28,7 @@ export default function LoginForm() {
 
 	// Click Handler
 	async function handleLoginClick(event) {
-		closeModal();
+		// closeModal();
 		event.preventDefault();
 
 		const data = {
@@ -51,14 +51,14 @@ export default function LoginForm() {
 		}
 	}
 
-	const [modalIsOpen, setIsOpen] = useState(true);
+	/* const [modalIsOpen, setIsOpen] = useState(true);
 
 	function closeModal() {
 		setIsOpen(false);
-	}
+	} */
 
 	return (
-		<ReactModal isOpen={true}>
+		// <ReactModal isOpen={true}>
 			<div className='container'>
 				<div class='container__form'>
 					<form className='form'>
@@ -87,6 +87,6 @@ export default function LoginForm() {
 					</form>
 				</div>
 			</div>
-		</ReactModal>
+		// </ReactModal>
 	);
 }
