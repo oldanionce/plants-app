@@ -8,7 +8,7 @@ import Filter from "../components/Filter/Filter.js";
 import Footer from "../components/Footer/Footer";
 
 export default function Collection() {
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
   const [plants, setPlants] = useState([]);
   const [filterPlants, setFilterPlants] = useState([]);
@@ -18,36 +18,39 @@ export default function Collection() {
   const [isLoading, setLoading] = useState(true);
   const [orderedAZ, setorderedAZ] = useState(true);
 
-  // DATA: Fetching the Plants Collection
-  function fetchPlants() {
-    // setLoading(true);
-    fetch("/api/collection")
-      .then((response) => response.json())
-      .then((data) => {
-        setPlants(data.plants);
-        setFilterPlants(data.plants);
-        setLoading(false);
-      });
-  }
+	// DATA: Fetching the Plants Collection
+	function fetchPlants() {
+		// setLoading(true);
+		fetch('/api/collection')
+			.then(response => response.json())
+			.then(data => {
+				setPlants(data.plants);
+				setFilterPlants(data.plants);
+				setLoading(false);
+			});
+	}
 
-  useEffect(() => {
-    fetchPlants();
-  }, []);
-
-  // console.log(plants);
+	useEffect(() => {
+		fetchPlants();
+	}, []);
 
   // PAGINATION: get current page of plants list
   const indexOfLastPlant = currentPage * plantsPerPage;
   const indexOfFirstPlant = indexOfLastPlant - plantsPerPage;
   const currentPlants = filterPlants.slice(indexOfFirstPlant, indexOfLastPlant);
 
-  // PAGINATION: change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+	//Handlers
+	const handleInputChange = e => {
+		setInput(e.target.value);
+	};
 
-  //Handlers
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
-  };
+	const handleSubmitSearch = () => {
+		const searchedWord = input.toLowerCase().trim();
+		const newPlants = [...plants];
+		setFilterPlants(
+			newPlants.filter(plant => plant.commonName.toLowerCase().includes(searchedWord))
+		);
+	};
 
   const handleSubmitSearch = (event) => {
     if (event.key === "Enter") {
@@ -119,4 +122,5 @@ export default function Collection() {
       <Footer></Footer>
     </>
   );
+
 }

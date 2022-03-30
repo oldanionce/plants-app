@@ -19,14 +19,14 @@ export default function MyPlants() {
 			},
 		});
 		const data = await response.json();
-		const myPlants = data.myPlants;
-		setMyPlants(myPlants);
+
+		const dataplants = data.myplants;
+		setMyPlants(dataplants);
 		setLoading(false);
-		console.log(myPlants);
 	}
 
 	function deleteFromMyPlants(_id) {
-		fetch(`/api/myPlants/${_id}`, {
+		fetch(`/api/myplants/${_id}`, {
 			method: 'DELETE',
 			credentials: 'include',
 			headers: {
