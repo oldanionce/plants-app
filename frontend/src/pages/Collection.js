@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import CollectionGrid from "../components/CollectionGrid/CollectionGrid";
 import Pagination from "../components/Pagination/Pagination";
 import Navigation from "../components/Navigation/Navigation.js";
-import SearchFilter from "../components/SearchFilter/SearchFilter";
+import Search from "../components/Search/Search.js";
+import Filter from "../components/Filter/Filter.js";
 import Footer from "../components/Footer/Footer";
 
 export default function Collection() {
@@ -15,6 +16,7 @@ export default function Collection() {
   const [plantsPerPage] = useState(10);
   const [input, setInput] = useState("");
   const [isLoading, setLoading] = useState(true);
+  const [orderedAZ, setorderedAZ] = useState(true);
 
   // DATA: Fetching the Plants Collection
   function fetchPlants() {
@@ -32,12 +34,12 @@ export default function Collection() {
     fetchPlants();
   }, []);
 
-  console.log(plants);
+  // console.log(plants);
 
   // PAGINATION: get current page of plants list
   const indexOfLastPlant = currentPage * plantsPerPage;
   const indexOfFirstPlant = indexOfLastPlant - plantsPerPage;
-  const currentPlants = plants.slice(indexOfFirstPlant, indexOfLastPlant);
+  const currentPlants = filterPlants.slice(indexOfFirstPlant, indexOfLastPlant);
 
   // PAGINATION: change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -47,64 +49,72 @@ export default function Collection() {
     setInput(e.target.value);
   };
 
-  const handleSubmitSearch = () => {
-    const searchedWord = input.toLowerCase().trim();
-    const newPlants = [...plants];
-    setFilterPlants(
-      newPlants.filter((plant) =>
-        plant.commonName.toLowerCase().includes(searchedWord)
-      )
-    );
+  const handleSubmitSearch = (event) => {
+    if (event.key === "Enter") {
+      const searchedWord = input.toLowerCase().trim();
+      const newPlants = [...plants];
+      setFilterPlants(
+        newPlants.filter((plant) =>
+          plant.commonName.toLowerCase().includes(searchedWord)
+        )
+      );
+    }
   };
 
-  const handleSortAZ = () => {
+  const handleSort = () => {
     const sortedPlants = [...plants];
-    setFilterPlants(
-      sortedPlants.sort((a, b) =>
-        a.scientificName > b.scientificName ? 1 : -1
-      )
-    );
-  };
-  const handleSortZA = () => {
-    const sortedPlants = [...plants];
-    setFilterPlants(
-      sortedPlants.sort((a, b) =>
-        a.scientificName > b.scientificName ? -1 : 1
-      )
-    );
+    if (orderedAZ) {
+      setFilterPlants(
+        sortedPlants.sort((a, b) =>
+          a.scientificName > b.scientificName ? 1 : -1
+        )
+      );
+      setorderedAZ(false);
+    } else {
+      setFilterPlants(
+        sortedPlants.sort((a, b) =>
+          a.scientificName > b.scientificName ? -1 : 1
+        )
+      );
+      setorderedAZ(true);
+    }
   };
 
   return (
     <>
-	  	<Navigation></Navigation>
-		<header className="container plantsTitle">
-			<div className="content">
-				<h1>Collection</h1>  
-				<SearchFilter></SearchFilter>
-			</div>
-	  	</header>
-      
+      <Navigation></Navigation>
+      <header className="container plantsTitle">
+        <div className="content">
+          <h1>Collection</h1>
+          <Search
+            handleInputChange={handleInputChange}
+            handleSubmitSearch={handleSubmitSearch}
+          ></Search>
+          <Filter handleSort={handleSort}></Filter>
+        </div>
+      </header>
+
       <main className="container plantsGrid">
         <div className="content">
-			<div className="gridHeader">
-				{/* HERE: div amb el component 'filters' */}
-				<Pagination
-					plantsPerPage={plantsPerPage}
-					totalPlants={plants.length}
-					paginate={paginate}
-					currentPage={currentPage}
-				/>
-			</div>
-			<CollectionGrid plants={currentPlants}></CollectionGrid>
-			<div className="gridFooter">
-				<Pagination
-					plantsPerPage={plantsPerPage}
-					totalPlants={plants.length}
-					paginate={paginate}
-					currentPage={currentPage}
-				/>
-			</div>
-		</div>
+          <div className="gridHeader">
+            {/* HERE: div amb el component 'filters' */}
+            <Pagination
+              plantsPerPage={plantsPerPage}
+              totalPlants={filterPlants.length}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
+          </div>
+          <CollectionGrid plants={currentPlants}></CollectionGrid>
+          <div className="gridFooter">
+            <Pagination
+              plantsPerPage={plantsPerPage}
+              totalPlants={filterPlants.length}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
+          </div>
+        </div>
       </main>
       <Footer></Footer>
     </>
