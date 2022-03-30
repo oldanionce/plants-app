@@ -1,10 +1,6 @@
-import "./SearchFilter.css";
+import "./Search.css";
 
-export default function SearchFilter({
-  handleInputChange,
-  handleSubmitSearch,
-  handleSortAZ,
-}) {
+export default function Search({ handleInputChange, handleSubmitSearch }) {
   return (
     <div className="search-container">
       <input
@@ -15,9 +11,6 @@ export default function SearchFilter({
         placeholder="Buscar..."
         className="search-input"
       ></input>
-      <button className="order-button" onClick={handleSortAZ}>
-        Order
-      </button>
     </div>
   );
 }
