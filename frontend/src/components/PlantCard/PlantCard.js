@@ -30,10 +30,7 @@ export default function PlantCard({
 				</span>
 			</div>
 			<div class='card__image'>
-				<img
-					src='https://raw.githubusercontent.com/anionce/plants-app/main/plant-images/cactus.jpg'
-					alt={commonName}
-				/>
+				<img src={`/images/${url}.jpg`} alt={commonName} />
 			</div>
 			<div class='card__info'>
 				<h2>{scientificName}</h2>
