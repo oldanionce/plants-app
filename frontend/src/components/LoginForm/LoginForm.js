@@ -50,7 +50,7 @@ export default function LoginForm() {
 	}
 
 	return (
-		<div className='container'>
+		<div className='container loginForm'>
 			<div class='container__form'>
 				<form className='form'>
 					<input

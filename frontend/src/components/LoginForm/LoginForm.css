@@ -1,9 +1,9 @@
-.container {
+.container.loginForm {
 	display: flex;
 	justify-content: center;
 }
 
-.form {
+.loginForm .form {
 	position: relative;
 	z-index: 1;
 	max-width: 300px;
@@ -11,7 +11,7 @@
 	text-align: center;
 }
 
-button {
+.loginForm button {
 	padding: 2px 15px 2px 15px;
 	border-radius: 5px;
 	border: none;
@@ -20,7 +20,7 @@ button {
 	font-weight: 700;
 }
 
-input {
+.loginForm input {
 	margin-top: 10px;
 	font-family: Poppins;
 	font-size: 15px;
@@ -35,21 +35,21 @@ input {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-input::placeholder {
+.loginForm input::placeholder {
 	font-size: 15px;
 }
 
-input:focus {
+.loginForm input:focus {
 	outline: none;
 }
 
-.input__message {
+.loginForm .input__message {
 	margin: 15px 0 0;
 	color: #b3b3b3;
 	font-size: 12px;
 }
 
-.input__message a {
+.loginForm .input__message a {
 	color: var(--main-color);
 	text-decoration: none;
 }
