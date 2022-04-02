@@ -24,12 +24,12 @@ nav ul {
 	background-color: #ab5723;
 }
 
-span {
+nav span {
 	color: white;
 	font-weight: 700;
 }
 
-a {
+nav a {
 	text-decoration: none;
 	color: white;
 }
