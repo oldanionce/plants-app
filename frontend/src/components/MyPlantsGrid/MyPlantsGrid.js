@@ -3,10 +3,10 @@ import './MyPlantsGrid.css';
 
 export default function MyPlantsGrid({ plants, addToMyPlants, deleteFromMyPlants, isLoading }) {
 	return (
-		<div className='grid'>
+		<div className='grid__container'>
 			{plants.length === 0 && <span>You have no plants yet</span>}
 			{plants && (
-				<ul>
+				<ul className='myplants__grid'>
 					{plants.map(plant => (
 						<MyPlantsCard
 							key={plant._id}
