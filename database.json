@@ -12,7 +12,7 @@
 		"soil": "Necesita un drenaje perfecto. cada 3 semanas; pd. cada 2 meses",
 		"nickname": "",
 		"petFriendly": true,
-		"image": "XXXXXXXXX"
+		"image": ""
 	},
 
 	{
@@ -27,7 +27,7 @@
 		"soil": "Suelto o con buen drenaje, de hoja enterrada.",
 		"nickname": "",
 		"petFriendly": false,
-		"image": "XXXXXXXXX"
+		"image": ""
 	},
 	{
 		"scientificName": "Euphorbia pulcherrima",
