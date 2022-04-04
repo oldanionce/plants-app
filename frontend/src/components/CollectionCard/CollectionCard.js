@@ -13,19 +13,19 @@ const closeIcon = <FontAwesomeIcon icon={faXmark} />;
 
 const customStyles = {
 	content: {
-	  top: '50%',
-	  left: '50%',
-	  right: 'auto',
-	  bottom: 'auto',
-	  marginRight: '-50%',
-	  transform: 'translate(-50%, -50%)',
-	  padding: 0,
-	  borderRadius: '10px',
-	  border: '1px solid var(--medium)',
-	  zIndex: 3
+		top: '50%',
+		left: '50%',
+		right: 'auto',
+		bottom: 'auto',
+		marginRight: '-50%',
+		transform: 'translate(-50%, -50%)',
+		padding: 0,
+		borderRadius: '10px',
+		border: '1px solid var(--medium)',
+		zIndex: 3,
 	},
-	overlay: { 
-		zIndex:2,
+	overlay: {
+		zIndex: 2,
 		opacity: 1,
 		backgroundColor: 'var(--light)',
 	},
@@ -40,7 +40,7 @@ export default function CollectionCard({
 	handleNicknameChange,
 	nickname,
 }) {
-	const [modalIsOpen, setIsOpen] = React.useState(false);
+	const [modalIsOpen, setIsOpen] = useState(false);
 
 	function openModal() {
 		setIsOpen(true);
@@ -51,11 +51,9 @@ export default function CollectionCard({
 	}
 
 	return (
-
 		<li className='collectionCard' key={plant._id} onClick={openModal}>
-
 			<PlantCard
-				id={id}
+				id={plant._id}
 				imageUrl={plant.image}
 				commonName={plant.commonName}
 				interiorExterior={plant.interiorExterior}
@@ -72,28 +70,16 @@ export default function CollectionCard({
 				soil={plant.soil}
 				// only needed for myPlants
 				nickname={plant.nickname}></PlantCard>
-
-			<button onClick={openModal}>Open Modal</button>
-			
-      		<Modal
-
+			<Modal
 				isOpen={modalIsOpen}
-				id={id}
 				onRequestClose={closeModal}
 				style={customStyles}
-				addToMyPlants={addToMyPlants}
-				contentLabel={plant.commonName}>
+				contentLabel={plant._id}>
 				<button className='modalCloseModal' onClick={closeModal}>
 					{closeIcon}
 				</button>
-				contentLabel={plant._id}
-			>
-				<button className="modalCloseModal" onClick={closeModal}>{closeIcon}</button>
-
 				<PlantModal
-					handleNicknameChange={handleNicknameChange}
-					nickname={nickname}
-					id={id}
+					id={plant._id}
 					imageUrl={plant.image}
 					commonName={plant.commonName}
 					interiorExterior={plant.interiorExterior}
@@ -106,7 +92,8 @@ export default function CollectionCard({
 					irrigation={plant.irrigation}
 					irrigationSummer={plant.irrigationSummer}
 					irrigationWinter={plant.irrigationWinter}
-					soil={plant.soil}></PlantModal>
+					soil={plant.soil}
+					nickname={nickname}></PlantModal>
 			</Modal>
 		</li>
 	);
