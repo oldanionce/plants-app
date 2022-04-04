@@ -19,6 +19,7 @@ export default function Collection() {
   const [input, setInput] = useState("");
   const [isLoading, setLoading] = useState(true);
   const [orderedAZ, setorderedAZ] = useState(true);
+  const [isPetFriendly, setIsPetFriendly] = useState(true);
 
   // DATA: Fetching the Plants Collection
   function fetchPlants() {
@@ -82,6 +83,17 @@ export default function Collection() {
     }
   };
 
+  const handlePetFriendly = () => {
+    const newPlants = [...plants];
+    if (isPetFriendly) {
+      setFilterPlants(newPlants.filter((plant) => plant.petFriendly));
+      setIsPetFriendly(false);
+    } else {
+      setFilterPlants(newPlants);
+      setIsPetFriendly(true);
+    }
+  };
+
   function addToMyPlants(id, event) {
     event.preventDefault();
     if (!authData) {
@@ -107,14 +119,17 @@ export default function Collection() {
           <Search
             handleInputChange={handleInputChange}
             handleSubmitSearch={handleSubmitSearch}
-          ></Search>   
+          ></Search>
         </div>
       </header>
 
       <main className="container collectionDiv">
         <div className="content">
           <div className="gridHeader">
-            <Filter handleSort={handleSort}></Filter>
+            <Filter
+              handleSort={handleSort}
+              handlePetFriendly={handlePetFriendly}
+            ></Filter>
             <Pagination
               plantsPerPage={plantsPerPage}
               totalPlants={filterPlants.length}
