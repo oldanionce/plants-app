@@ -93,6 +93,7 @@ export default function CollectionCard({
 					irrigationSummer={plant.irrigationSummer}
 					irrigationWinter={plant.irrigationWinter}
 					soil={plant.soil}
+					handleNicknameChange={handleNicknameChange}
 					nickname={nickname}></PlantModal>
 			</Modal>
 		</li>
