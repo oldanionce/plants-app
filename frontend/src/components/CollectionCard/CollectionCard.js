@@ -6,10 +6,10 @@ import PlantModal from '../PlantModal/PlantModal';
 
 import './CollectionCard.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
-const closeIcon = <FontAwesomeIcon icon={faXmark} />
+const closeIcon = <FontAwesomeIcon icon={faXmark} />;
 
 const customStyles = {
 	content: {
@@ -27,12 +27,20 @@ const customStyles = {
 	overlay: { 
 		zIndex:2,
 		opacity: 1,
-		backgroundColor: 'var(--light)' 
+		backgroundColor: 'var(--light)',
 	},
-  };
+};
 
-export default function CollectionCard({ plant, addToMyPlants, deleteFromMyPlants, isLoading }) {
-	const [modalIsOpen, setIsOpen] = useState(false);
+export default function CollectionCard({
+	plant,
+	addToMyPlants,
+	deleteFromMyPlants,
+	id,
+	isLoading,
+	handleNicknameChange,
+	nickname,
+}) {
+	const [modalIsOpen, setIsOpen] = React.useState(false);
 
 	function openModal() {
 		setIsOpen(true);
@@ -41,11 +49,13 @@ export default function CollectionCard({ plant, addToMyPlants, deleteFromMyPlant
 	function closeModal() {
 		setIsOpen(false);
 	}
-	
+
 	return (
+
 		<li className='collectionCard' key={plant._id} onClick={openModal}>
+
 			<PlantCard
-				id={plant._id}
+				id={id}
 				imageUrl={plant.image}
 				commonName={plant.commonName}
 				interiorExterior={plant.interiorExterior}
@@ -62,15 +72,28 @@ export default function CollectionCard({ plant, addToMyPlants, deleteFromMyPlant
 				soil={plant.soil}
 				// only needed for myPlants
 				nickname={plant.nickname}></PlantCard>
+
+			<button onClick={openModal}>Open Modal</button>
+			
       		<Modal
+
 				isOpen={modalIsOpen}
+				id={id}
 				onRequestClose={closeModal}
 				style={customStyles}
+				addToMyPlants={addToMyPlants}
+				contentLabel={plant.commonName}>
+				<button className='modalCloseModal' onClick={closeModal}>
+					{closeIcon}
+				</button>
 				contentLabel={plant._id}
 			>
 				<button className="modalCloseModal" onClick={closeModal}>{closeIcon}</button>
+
 				<PlantModal
-					id={plant._id}
+					handleNicknameChange={handleNicknameChange}
+					nickname={nickname}
+					id={id}
 					imageUrl={plant.image}
 					commonName={plant.commonName}
 					interiorExterior={plant.interiorExterior}
@@ -83,9 +106,7 @@ export default function CollectionCard({ plant, addToMyPlants, deleteFromMyPlant
 					irrigation={plant.irrigation}
 					irrigationSummer={plant.irrigationSummer}
 					irrigationWinter={plant.irrigationWinter}
-					soil={plant.soil}
-					nickname={plant.nickname}>
-				</PlantModal>
+					soil={plant.soil}></PlantModal>
 			</Modal>
 		</li>
 	);

@@ -2,7 +2,13 @@ import './MyPlantsCard.css';
 import PlantCard from '../PlantCard/PlantCard';
 import { useLocation } from 'react-router-dom';
 
-export default function MyPlantsCard({ plant, addToMyPlants, deleteFromMyPlants, isLoading }) {
+export default function MyPlantsCard({
+	plant,
+	nickname,
+	addToMyPlants,
+	deleteFromMyPlants,
+	isLoading,
+}) {
 	// Hooks
 	//	const location = useLocation();
 
@@ -10,6 +16,7 @@ export default function MyPlantsCard({ plant, addToMyPlants, deleteFromMyPlants,
 		<li className='myplantscard' key={plant._id}>
 			<PlantCard
 				id={plant._id}
+				nickname={nickname}
 				imageUrl={plant.image}
 				addToMyPlants={addToMyPlants}
 				deleteFromMyPlants={deleteFromMyPlants}

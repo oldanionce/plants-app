@@ -52,11 +52,11 @@ export default function PlantCard({
 			<div className ='card__image'>
 				<img src={`/images/${imageUrl}.jpg`} alt={commonName} />
 			</div>
-			<div className ='card__info'>
-				<h2>{scientificName}</h2>
+
+			<div class='card__info'>
+				{weblocation.pathname !== '/myplants' && <h2>{scientificName}</h2>}
 				<h3>{commonName}</h3>
-				<p class='card__carelevel'>{careLevelInfo}</p>
-        
+				<h3>{nickname}</h3>
 
 				{weblocation.pathname === '/myplants' && (
 					<>
