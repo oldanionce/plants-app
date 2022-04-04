@@ -1,35 +1,45 @@
-.navigationDiv {
-	background-color: white;
-}
-
 nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-nav ul {
+.navigationDiv ul {
 	list-style-type: none;
 	display: flex;
 	gap: 10px;
 }
 
-.nav__div {
-	background-color: #c58a47;
-	padding: 1px 10px 1px 10px;
+.navigationDiv .nav-item > * {
+	background-color: var(--light-accent);
+	padding: 6px 18px;
 	border-radius: 5px;
 }
 
-.active {
-	background-color: #ab5723;
+.navigationDiv .nav-item > *:hover {
+	background-color: var(--accent);
+	cursor: pointer;
 }
 
-nav span {
-	color: white;
+.navigationDiv .active {
+	background-color: var(--dark-accent);
+}
+
+.navigationDiv span {
+	color: var(--lightest);
 	font-weight: 700;
 }
 
-nav a {
+.navigationDiv a {
 	text-decoration: none;
-	color: white;
+	color: var(--lightest);
+}
+
+/* Corrections for landing page */
+.navigationLanding {
+	padding: 20px 0;
+}
+
+.navigationLanding nav {
+	justify-content: right;
 }

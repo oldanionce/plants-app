@@ -1,14 +1,28 @@
 .logo-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+  align-items: center;
 }
 
+.logo-container .logo {
+  display: inline;
+  width: 8rem;
+  padding: 15px;
+  transform: rotate(-15deg);
+}
+
+.logo-container h1 {
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 4rem;
+  line-height: auto;
+  color: var(--medium);
+}
+
+.logo-container a {
+  text-decoration: none;
+}
+
+/* Don't display the logo in the nav bar when in the Landing page */
 nav .logo-container.hidden {
 	display:none;
-}
-
-.logo {
-  display: inline;
-  width: 25%;
-  padding: 20px;
 }

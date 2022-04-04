@@ -1,3 +1,7 @@
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLeaf } from '@fortawesome/free-solid-svg-icons'
+import { faPaw } from '@fortawesome/free-solid-svg-icons'
 import './PlantCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
@@ -14,6 +18,9 @@ const locationExteriorIcon = <FontAwesomeIcon icon={faSun} />;
 const irrigationIcon = <FontAwesomeIcon icon={faDroplet} />;
 const soilIcon = <FontAwesomeIcon icon={faSeedling} />;
 const petFriendlyIcon = <FontAwesomeIcon icon={faPaw} />;
+
+const careLevelIcon = <FontAwesomeIcon icon={faLeaf} />
+const petFriendlyIcon = <FontAwesomeIcon icon={faPaw} />
 
 export default function PlantCard({
 	id,
@@ -34,10 +41,6 @@ export default function PlantCard({
 	//only needed for myPlants
 	nickname,
 }) {
-	const careLevelIcons = [];
-	for (let i = 0; i < careLevel; i++) {
-		careLevelIcons.push(<i class='fa-solid fa-leaf'></i>);
-	}
 
 	let careLevelInfo = [];
 	for (var i = 0; i < careLevel; i++) {
@@ -49,12 +52,16 @@ export default function PlantCard({
 
 	return (
 		<>
-			<div class='card__image'>
+			{petFriendly === true ? <div className ='card__petfriendly'><span className="altIcons" title="Pet Friendly">{petFriendlyIcon}</span></div> : ""}
+			<div className ='card__image'>
 				<img src={`/images/${imageUrl}.jpg`} alt={commonName} />
 			</div>
-			<div class='card__info'>
+			<div className ='card__info'>
 				<h2>{scientificName}</h2>
 				<h3>{commonName}</h3>
+				<p class='card__carelevel'>{careLevelInfo}</p>
+        
+
 				{weblocation.pathname === '/myplants' && (
 					<>
 						<ul>
@@ -134,6 +141,8 @@ export default function PlantCard({
 						</ul>
 					</>
 				)}
+
+
 			</div>
 		</>
 	);

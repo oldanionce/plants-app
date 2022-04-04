@@ -1,18 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700;900&family=Poppins&family=Trocchi&display=swap');
+/* -------------------------------------------------
+	GOOGLE FONTS
+	- Lato for general text
+	- Poppins for headings, buttons and some texts
+	- Trocchi for page titles
+	- ABeeZee for Plantagotchi title
+------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700;900&family=Poppins&family=Trocchi&family=ABeeZee&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700;900&family=Poppins&family=Trocchi&display=swap');
 
+/* ----------------------------------
+	COLORS
+	* NOTE: We're still using white in some places 
+	but in 	the process of switching to --lightest 
+	for a more cohesive look
+---------------------------------- */
 :root {
-	--lightest: #fefae2;
+	--lightest: #FFFAFA;
 	--light: #c9d3aa;
 	--medium: #7c875a;
 	--dark: #445432;
 	--darkest: #1d2812;
 	--light-accent: #c9874c;
 	--accent: #bb6c2f;
-	--darker-accent: #aa5722;
+	--dark-accent: #aa5722;
 }
 
+
+/* ----------------------------------
+	GENERAL / RESET
+---------------------------------- */
 * {
 	margin:0;
 	padding: 0;
@@ -24,7 +40,7 @@ html {
 }
 
 body {
-	background-color: white;
+	background-color: var(--lightest);
 	font-family: Lato, sans-serif;
 	font-size: 1.5rem;
 	line-height: 2.5rem;
@@ -36,6 +52,13 @@ body {
 	min-height: 100vh;	
 }
 
+
+/* --------------------------------------------------------------------------------------------------
+	LAYOUT
+	.container encloses each section
+	.content includes the actual section content and displays it centered within its .container
+-------------------------------------------------------------------------------------------------- */
+
 .container {
 	display: flex;
 	justify-content: center;
@@ -43,17 +66,57 @@ body {
 
 .content {
 	width: 100%;
-	/* border: 1px solid red; */
 }
 
-/* COLLECTION & MYPLANTS */
-.plantsTitle {
-	background-color: var(--medium);
+.plantsDiv,
+.myPlantsDiv {
+	flex-grow: 1;
 }
 
-.plantsGrid {
-	background-color: var(--light);
-}
+
+/* --------------------------------------------------------
+	BACKGROUND COLORS
+	for the different page sections.
+	We will apply these extra classes to each .container 
+-------------------------------------------------------- */
+
+	/* Landing + General */
+	.navigationDiv {
+		background-color: var(--lightest);
+	}
+
+	.introDiv {
+		background-color: var(--lightest);
+	}
+
+	.featuresDiv {
+		background-color: var(--light);
+	}
+
+	.registerFormDiv {
+		background-color: var(--medium);
+	}
+
+	.footerDiv {
+		background-color: var(--darkest);
+	}
+
+
+	/* Collection + MyPlants */
+	.collectionHeader, 
+	.myPlantsHeader {
+		background-color: var(--medium);
+	}
+
+	.collectionDiv, 
+	.myPlantsDiv {
+		background-color: var(--light);
+	}
+
+
+/* ----------------------------------
+	MEDIA QUERIES
+---------------------------------- */
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
