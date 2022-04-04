@@ -1,8 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLeaf } from '@fortawesome/free-solid-svg-icons'
-import { faPaw } from '@fortawesome/free-solid-svg-icons'
-import './PlantCard.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
@@ -12,15 +9,14 @@ import { faDroplet } from '@fortawesome/free-solid-svg-icons';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import { useLocation } from 'react-router-dom';
 
+import './PlantCard.css';
+
 const careLevelIcon = <FontAwesomeIcon icon={faLeaf} />;
 const locationInteriorIcon = <FontAwesomeIcon icon={faHouse} />;
 const locationExteriorIcon = <FontAwesomeIcon icon={faSun} />;
 const irrigationIcon = <FontAwesomeIcon icon={faDroplet} />;
 const soilIcon = <FontAwesomeIcon icon={faSeedling} />;
 const petFriendlyIcon = <FontAwesomeIcon icon={faPaw} />;
-
-const careLevelIcon = <FontAwesomeIcon icon={faLeaf} />
-const petFriendlyIcon = <FontAwesomeIcon icon={faPaw} />
 
 export default function PlantCard({
 	id,

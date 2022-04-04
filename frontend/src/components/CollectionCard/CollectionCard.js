@@ -1,8 +1,10 @@
-import './CollectionCard.css';
+import { React, useState } from 'react';
+import Modal from 'react-modal';
+
 import PlantCard from '../PlantCard/PlantCard';
 import PlantModal from '../PlantModal/PlantModal';
-import React from 'react';
-import Modal from 'react-modal';
+
+import './CollectionCard.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
@@ -30,7 +32,7 @@ const customStyles = {
   };
 
 export default function CollectionCard({ plant, addToMyPlants, deleteFromMyPlants, isLoading }) {
-	const [modalIsOpen, setIsOpen] = React.useState(false);
+	const [modalIsOpen, setIsOpen] = useState(false);
 
 	function openModal() {
 		setIsOpen(true);
@@ -64,7 +66,7 @@ export default function CollectionCard({ plant, addToMyPlants, deleteFromMyPlant
 				isOpen={modalIsOpen}
 				onRequestClose={closeModal}
 				style={customStyles}
-				contentLabel={plant.commonName}
+				contentLabel={plant._id}
 			>
 				<button className="modalCloseModal" onClick={closeModal}>{closeIcon}</button>
 				<PlantModal
