@@ -82,7 +82,8 @@ export default function Collection() {
     }
   };
 
-  function addToMyPlants(id) {
+  function addToMyPlants(id, event) {
+    event.preventDefault();
     if (!authData) {
       navigate("/login", { replace: true });
     }
@@ -94,6 +95,7 @@ export default function Collection() {
       },
       body: JSON.stringify({ _id: id }),
     });
+    console.log("Hola");
   }
 
   return (
@@ -120,7 +122,10 @@ export default function Collection() {
               currentPage={currentPage}
             />
           </div>
-          <CollectionGrid plants={currentPlants}></CollectionGrid>
+          <CollectionGrid
+            plants={currentPlants}
+            addToMyPlants={addToMyPlants}
+          ></CollectionGrid>
           <div className="gridFooter">
             <Pagination
               plantsPerPage={plantsPerPage}
