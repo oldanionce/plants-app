@@ -8,15 +8,27 @@ import "./Filter.css";
 const sortIcon = <FontAwesomeIcon icon={faArrowDownAZ} />;
 const petFriendlyIcon = <FontAwesomeIcon icon={faPaw} />;
 
-export default function Filter({ handleSort, handlePetFriendly }) {
+export default function Filter({
+  handleSort,
+  handlePetFriendly,
+  handleEasy,
+  handleMedium,
+  handleHard,
+}) {
   return (
     <div class="filters">
       {/* Care Level selector */}
       <select name="carelevel" className="carelevel">
         <option value="0">Dificultad:</option>
-        <option value="1">Fácil</option>
-        <option value="2">Medio</option>
-        <option value="3">Difícil</option>
+        <option value="1" onSelect={handleEasy}>
+          Fácil
+        </option>
+        <option value="2" onSelect={handleMedium}>
+          Medio
+        </option>
+        <option value="3" onSelect={handleHard}>
+          Difícil
+        </option>
       </select>
 
       {/* Pet Friendly Plants Only */}
