@@ -53,8 +53,9 @@ export default function PlantCard({
 				<img src={`/images/${imageUrl}.jpg`} alt={commonName} />
 			</div>
 			<div class='card__info'>
-				<h2>{scientificName}</h2>
+				{weblocation.pathname !== '/myplants' && <h2>{scientificName}</h2>}
 				<h3>{commonName}</h3>
+				<h3>{nickname}</h3>
 				{weblocation.pathname === '/myplants' && (
 					<>
 						<ul>

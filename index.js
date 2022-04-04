@@ -53,6 +53,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Routes
 app.use('/', express.static('./public'));
 app.use('/api/myplants', userRouter);
+
 app.use('/api/collection', collectionRouter);
 app.use('/api/auth', authRouter);
 app.use('/images', express.static('./plant-images'));
