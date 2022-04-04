@@ -1,4 +1,5 @@
-import './PlantCard.css';
+import React from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +8,8 @@ import { faSeedling } from '@fortawesome/free-solid-svg-icons';
 import { faDroplet } from '@fortawesome/free-solid-svg-icons';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import { useLocation } from 'react-router-dom';
+
+import './PlantCard.css';
 
 const careLevelIcon = <FontAwesomeIcon icon={faLeaf} />;
 const locationInteriorIcon = <FontAwesomeIcon icon={faHouse} />;
@@ -34,10 +37,6 @@ export default function PlantCard({
 	//only needed for myPlants
 	nickname,
 }) {
-	const careLevelIcons = [];
-	for (let i = 0; i < careLevel; i++) {
-		careLevelIcons.push(<i class='fa-solid fa-leaf'></i>);
-	}
 
 	let careLevelInfo = [];
 	for (var i = 0; i < careLevel; i++) {
@@ -49,13 +48,16 @@ export default function PlantCard({
 
 	return (
 		<>
-			<div class='card__image'>
+			{petFriendly === true ? <div className ='card__petfriendly'><span className="altIcons" title="Pet Friendly">{petFriendlyIcon}</span></div> : ""}
+			<div className ='card__image'>
 				<img src={`/images/${imageUrl}.jpg`} alt={commonName} />
 			</div>
+
 			<div class='card__info'>
 				{weblocation.pathname !== '/myplants' && <h2>{scientificName}</h2>}
 				<h3>{commonName}</h3>
 				<h3>{nickname}</h3>
+
 				{weblocation.pathname === '/myplants' && (
 					<>
 						<ul>
@@ -135,6 +137,8 @@ export default function PlantCard({
 						</ul>
 					</>
 				)}
+
+
 			</div>
 		</>
 	);

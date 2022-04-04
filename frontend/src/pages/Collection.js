@@ -12,13 +12,14 @@ export default function Collection() {
 	const navigate = useNavigate();
 	const { authData } = useAuthentication();
 
-	const [plants, setPlants] = useState([]);
-	const [filterPlants, setFilterPlants] = useState([]);
-	const [currentPage, setCurrentPage] = useState(1);
-	const [plantsPerPage] = useState(10);
-	const [input, setInput] = useState('');
-	const [isLoading, setLoading] = useState(true);
-	const [orderedAZ, setorderedAZ] = useState(true);
+  const [plants, setPlants] = useState([]);
+  const [filterPlants, setFilterPlants] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [plantsPerPage] = useState(8);
+  const [input, setInput] = useState("");
+  const [isLoading, setLoading] = useState(true);
+  const [orderedAZ, setorderedAZ] = useState(true);
+  const [isPetFriendly, setIsPetFriendly] = useState(true);
 
 	// DATA: Fetching the Plants Collection
 	function fetchPlants() {
@@ -76,6 +77,7 @@ export default function Collection() {
 
 	const [nickname, setNickname] = useState('');
 
+
 	// Input Handlers
 	const handleNicknameChange = e => {
 		setNickname(e.target.value);
@@ -96,47 +98,66 @@ export default function Collection() {
 			body: JSON.stringify({ _id: id, nickname: nickname }),
 		});
 	}
+  
+   const handlePetFriendly = () => {
+    const newPlants = [...plants];
+    if (isPetFriendly) {
+      setFilterPlants(newPlants.filter((plant) => plant.petFriendly));
+      setIsPetFriendly(false);
+    } else {
+      setFilterPlants(newPlants);
+      setIsPetFriendly(true);
+    }
+  };
 
-	return (
-		<>
-			<Navigation></Navigation>
-			<header className='container plantsTitle'>
-				<div className='content'>
-					<h1>Collection</h1>
-					<Search
-						handleInputChange={handleInputChange}
-						handleSubmitSearch={handleSubmitSearch}></Search>
-					<Filter handleSort={handleSort}></Filter>
-				</div>
-			</header>
 
-			<main className='container plantsGrid'>
-				<div className='content'>
-					<div className='gridHeader'>
-						{/* HERE: div amb el component 'filters' */}
-						<Pagination
-							plantsPerPage={plantsPerPage}
-							totalPlants={filterPlants.length}
-							paginate={paginate}
-							currentPage={currentPage}
-						/>
-					</div>
-					<CollectionGrid
-						handleNicknameChange={handleNicknameChange}
+ 
+  
+
+  return (
+    <>
+      <Navigation></Navigation>
+      <header className="container collectionHeader">
+        <div className="content">
+          <h1>Catálogo</h1>
+          <Search
+            handleInputChange={handleInputChange}
+            handleSubmitSearch={handleSubmitSearch}
+          ></Search>
+        </div>
+      </header>
+
+      <main className="container collectionDiv">
+        <div className="content">
+          <div className="gridHeader">
+            <Filter
+              handleSort={handleSort}
+              handlePetFriendly={handlePetFriendly}
+            ></Filter>
+            <Pagination
+              plantsPerPage={plantsPerPage}
+              totalPlants={filterPlants.length}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
+          </div>
+          <CollectionGrid
+handleNicknameChange={handleNicknameChange}
 						nickname={nickname}
-						plants={currentPlants}
-						addToMyPlants={addToMyPlants}></CollectionGrid>
-					<div className='gridFooter'>
-						<Pagination
-							plantsPerPage={plantsPerPage}
-							totalPlants={filterPlants.length}
-							paginate={paginate}
-							currentPage={currentPage}
-						/>
-					</div>
-				</div>
-			</main>
-			<Footer></Footer>
-		</>
-	);
+            plants={currentPlants}
+            addToMyPlants={addToMyPlants}
+          ></CollectionGrid>
+          <div className="gridFooter">
+            <Pagination
+              plantsPerPage={plantsPerPage}
+              totalPlants={filterPlants.length}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
+          </div>
+        </div>
+      </main>
+      <Footer></Footer>
+    </>
+  );
 }

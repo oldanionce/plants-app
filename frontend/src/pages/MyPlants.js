@@ -43,14 +43,17 @@ export default function MyPlants() {
 
   return (
     <>
-      <Logo></Logo>
       <Navigation></Navigation>
-      <main>
-        <MyPlantsGrid
-          isLoading={isLoading}
-          plants={myPlants}
-          deleteFromMyPlants={deleteFromMyPlants}
-        ></MyPlantsGrid>
+      <header className="container myPlantsHeader">
+        <div className="content">
+          <h1>Mis Plantas</h1>
+        </div>
+      </header>
+
+      <main className="container myPlantsDiv">
+        <div className="content">
+          <MyPlantsGrid plants={myPlants}></MyPlantsGrid>
+        </div>
       </main>
       <Footer></Footer>
     </>

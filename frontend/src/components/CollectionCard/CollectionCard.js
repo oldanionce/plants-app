@@ -1,8 +1,10 @@
-import './CollectionCard.css';
+import { React, useState } from 'react';
+import Modal from 'react-modal';
+
 import PlantCard from '../PlantCard/PlantCard';
 import PlantModal from '../PlantModal/PlantModal';
-import React from 'react';
-import Modal from 'react-modal';
+
+import './CollectionCard.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -11,17 +13,19 @@ const closeIcon = <FontAwesomeIcon icon={faXmark} />;
 
 const customStyles = {
 	content: {
-		top: '50%',
-		left: '50%',
-		right: 'auto',
-		bottom: 'auto',
-		marginRight: '-50%',
-		transform: 'translate(-50%, -50%)',
-		padding: 0,
-		borderRadius: '10px',
-		border: '1px solid var(--medium)',
+	  top: '50%',
+	  left: '50%',
+	  right: 'auto',
+	  bottom: 'auto',
+	  marginRight: '-50%',
+	  transform: 'translate(-50%, -50%)',
+	  padding: 0,
+	  borderRadius: '10px',
+	  border: '1px solid var(--medium)',
+	  zIndex: 3
 	},
-	overlay: {
+	overlay: { 
+		zIndex:2,
 		opacity: 1,
 		backgroundColor: 'var(--light)',
 	},
@@ -47,7 +51,9 @@ export default function CollectionCard({
 	}
 
 	return (
-		<li className='CollectionCard' key={id}>
+
+		<li className='collectionCard' key={plant._id} onClick={openModal}>
+
 			<PlantCard
 				id={id}
 				imageUrl={plant.image}
@@ -66,8 +72,11 @@ export default function CollectionCard({
 				soil={plant.soil}
 				// only needed for myPlants
 				nickname={plant.nickname}></PlantCard>
+
 			<button onClick={openModal}>Open Modal</button>
-			<Modal
+			
+      		<Modal
+
 				isOpen={modalIsOpen}
 				id={id}
 				onRequestClose={closeModal}
@@ -77,6 +86,10 @@ export default function CollectionCard({
 				<button className='modalCloseModal' onClick={closeModal}>
 					{closeIcon}
 				</button>
+				contentLabel={plant._id}
+			>
+				<button className="modalCloseModal" onClick={closeModal}>{closeIcon}</button>
+
 				<PlantModal
 					handleNicknameChange={handleNicknameChange}
 					nickname={nickname}

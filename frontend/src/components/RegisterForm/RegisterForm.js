@@ -55,7 +55,7 @@ export default function Register() {
 	// Modal
 
 	return (
-		<div class='container registerForm'>
+		<div class='container registerFormDiv'>
 			<div class='container__form'>
 				<form class='form'>
 					<input

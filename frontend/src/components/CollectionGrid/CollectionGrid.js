@@ -2,6 +2,7 @@ import React from 'react';
 import CollectionCard from '../CollectionCard/CollectionCard';
 import './CollectionGrid.css';
 
+
 export default function CollectionGrid({ plants, handleNicknameChange, nickname, addToMyPlants }) {
 	return (
 		/* <div className={loading ? 'loaderContainer' : 'grid'}>
