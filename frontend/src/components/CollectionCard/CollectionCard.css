@@ -1,8 +1,12 @@
-/* temp styles */
-.CollectionCard img {
-	max-width: 200px;
+.collectionCard {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	background-color: var(--medium-green);
+	border-radius: 2rem;
 }
 
+/* Modal */
 .modalCloseModal {
 	border: 0;
 	background: transparent;

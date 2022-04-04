@@ -19,9 +19,11 @@ const customStyles = {
 	  transform: 'translate(-50%, -50%)',
 	  padding: 0,
 	  borderRadius: '10px',
-	  border: '1px solid var(--medium)'
+	  border: '1px solid var(--medium)',
+	  zIndex: 3
 	},
 	overlay: { 
+		zIndex:2,
 		opacity: 1,
 		backgroundColor: 'var(--light)' 
 	},
@@ -39,7 +41,7 @@ export default function CollectionCard({ plant, addToMyPlants, deleteFromMyPlant
 	}
 	
 	return (
-		<li className='CollectionCard' key={plant._id}>
+		<li className='collectionCard' key={plant._id} onClick={openModal}>
 			<PlantCard
 				id={plant._id}
 				imageUrl={plant.image}
@@ -58,7 +60,6 @@ export default function CollectionCard({ plant, addToMyPlants, deleteFromMyPlant
 				soil={plant.soil}
 				// only needed for myPlants
 				nickname={plant.nickname}></PlantCard>
-			<button onClick={openModal}>Open Modal</button>
       		<Modal
 				isOpen={modalIsOpen}
 				onRequestClose={closeModal}

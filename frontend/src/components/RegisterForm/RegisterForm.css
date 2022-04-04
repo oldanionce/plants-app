@@ -1,26 +1,26 @@
-.container.registerForm {
+.registerFormDiv {
 	display: flex;
 	justify-content: center;
 }
 
-.registerForm .form {
+.registerFormDiv .form {
 	position: relative;
 	z-index: 1;
-	max-width: 300px;
+	max-width: 400px;
 	padding: 45px;
 	text-align: center;
 }
 
-.registerForm button {
-	padding: 2px 15px 2px 15px;
+.registerFormDiv button {
+	padding: 5px 15px;
 	border-radius: 5px;
 	border: none;
-	background-color: #c58a47;
-	color: white;
+	background-color: var(--accent);
+	color: var(--lightest);
 	font-weight: 700;
 }
 
-.registerForm input {
+.registerFormDiv input {
 	margin-top: 10px;
 	font-family: Poppins;
 	font-size: 15px;
@@ -35,21 +35,21 @@
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.registerForm input::placeholder {
+.registerFormDiv input::placeholder {
 	font-size: 15px;
 }
 
-.registerForm input:focus {
+.registerFormDiv input:focus {
 	outline: none;
 }
 
-.registerForm .input__message {
+.registerFormDiv .input__message {
 	margin: 15px 0 0;
 	color: #b3b3b3;
 	font-size: 12px;
 }
 
-.registerForm .input__message a {
+.registerFormDiv .input__message a {
 	color: var(--main-color);
 	text-decoration: none;
 }

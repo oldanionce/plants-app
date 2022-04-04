@@ -1,19 +1,82 @@
+.introDiv {
+	padding: 30px 50px;
+}
+
 .intro {
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.claim {
-  color: #c58a47;
-  margin-right: 10px;
-  align-self: center;
+
+/* Logo */
+
+.intro .logo {
+  width: 30rem;
+  height: 30rem;
 }
+
+.intro .logo img {
+	transform: rotate(-10deg);
+  	margin-right: 3rem;
+}
+
+/* Title & Claim */
+
+.intro h1 {
+	font-family: 'ABeeZee', sans-serif;
+	color: var(--dark);
+	font-size: 8rem;
+	line-height: 8rem;
+}
+
+.intro h2 {
+	font-family: Poppins, sans-serif;
+	color: var(--light);
+	font-size: 4rem;
+  	line-height: 5rem; 
+  	margin-bottom: 2rem;
+}
+
+/* Register button (only visible if not logged in */
+
 .register-button {
-  border-radius: 30px;
-  border: 1px solid transparent;
-  padding: 10px;
-  color: white;
-  font-weight: bold;
-  background-color: #c58a47;
+  text-align: center;
+  padding: 1rem 0;
 }
-.register-button:hover {
+
+.register-button button {
+	border: none;
+  	font-family: Poppins, sans-serif;
+	color: var(--lightest);
+  	background-color: var(--light-accent);
+	font-weight: bold;
+	font-size: 2.5rem;
+	letter-spacing: 1px;
+	line-height: 3rem;
+  	padding: 1rem 6rem;
+  	border-radius: 1rem;
+  	text-align:center;
+  	margin: 0 auto;
+  
+}
+.register-button button:hover {
   cursor: pointer;
+}
+
+.register-button p {
+	margin: 1rem 0;
+	font-family: Lato, sans-serif;
+	font-size: 1.8rem;
+	line-height: 3rem;
+}
+
+.register-button p span {
+	color: var(--light-accent);
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.register-button p span:hover {
+	text-decoration: underline;
+	cursor: pointer;
 }

@@ -1,9 +1,55 @@
-.collection__grid {
+.collectionHeader {
+	padding: 3rem 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+}
+
+.collectionHeader .content > * {
+	z-index:1;
+}
+
+.collectionHeader::before {
+	content: "";
+	background: url(../../bg_monstera.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: 15rem -7rem;
+	background-origin: content-box;
+	background-size: 70%;
+	opacity: 0.2;
+	top: 0;
+	right: 0;
+	bottom:0;
+	left:0;
+	position: absolute;
+  }
+
+
+.collectionHeader .content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2.5rem 0;
+}
+
+.collectionHeader h1 {
+	color: var(--lightest);
+	font-family: 'Trocchi', serif;
+	font-size: 5rem;
+	line-height: auto;
+	display: inline-block;
+	flex-grow: 1;
+	text-indent: 2rem;
+}
+
+.collectionGrid {
 	list-style-type: none;
 	margin: 0;
-	padding: 0;
+	padding: 0 2rem;
 	display:grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-column-gap: 1rem;
-	grid-row-gap: 1rem;
+	grid-column-gap: 1.5rem;
+	grid-row-gap: 1.5rem;
 }

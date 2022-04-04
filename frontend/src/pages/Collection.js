@@ -15,7 +15,7 @@ export default function Collection() {
   const [plants, setPlants] = useState([]);
   const [filterPlants, setFilterPlants] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [plantsPerPage] = useState(10);
+  const [plantsPerPage] = useState(8);
   const [input, setInput] = useState("");
   const [isLoading, setLoading] = useState(true);
   const [orderedAZ, setorderedAZ] = useState(true);
@@ -99,21 +99,20 @@ export default function Collection() {
   return (
     <>
       <Navigation></Navigation>
-      <header className="container plantsTitle">
+      <header className="container collectionHeader">
         <div className="content">
-          <h1>Collection</h1>
+          <h1>Catálogo</h1>
           <Search
             handleInputChange={handleInputChange}
             handleSubmitSearch={handleSubmitSearch}
-          ></Search>
-          <Filter handleSort={handleSort}></Filter>
+          ></Search>   
         </div>
       </header>
 
-      <main className="container plantsGrid">
+      <main className="container collectionDiv">
         <div className="content">
           <div className="gridHeader">
-            {/* HERE: div amb el component 'filters' */}
+            <Filter handleSort={handleSort}></Filter>
             <Pagination
               plantsPerPage={plantsPerPage}
               totalPlants={filterPlants.length}
