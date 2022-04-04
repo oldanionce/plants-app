@@ -11,7 +11,8 @@ const userSchema = new Schema({
 	name: String,
 	hash: String,
 	salt: String,
-	myplants: [{ type: Schema.Types.ObjectId, ref: 'Plant', default: [] }],
+	// myplants: [{ type: Schema.Types.ObjectId, ref: 'Plant', default: [] }],
+	myplants: [{ nickname: String, plant: { type: Schema.Types.ObjectId, ref: 'Plant' } }],
 });
 
 userSchema.methods.generateHashPassword = function (password) {

@@ -1,15 +1,22 @@
 import './SaveToMyPlantsForm.css';
 
-export default function SaveToMyPlantsForm({}) {
-	
+export default function SaveToMyPlantsForm({ addToMyPlants, id, handleNicknameChange, nickname }) {
 	return (
-        <div class="modalForm">
-            <form>
-                <div>
-                    <input type="text" id="saveToMyPlants" name="saveToMyPlants" placeholder="Pick a nickname" />
-                    <button>Save to My Plants</button>
-                </div>
-            </form>
-        </div>
+		<div class='modalForm'>
+			<form>
+				<div>
+					<input
+						type='text'
+						value={nickname}
+						onChange={handleNicknameChange}
+						name='saveToMyPlants'
+						placeholder='Pick a nickname'
+					/>
+					<button type='button' onClick={() => addToMyPlants(id)}>
+						Save to My Plants
+					</button>
+				</div>
+			</form>
+		</div>
 	);
 }

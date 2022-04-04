@@ -4,7 +4,7 @@ const ErrorResponse = require('../utils/errorResponse');
 //@access public
 exports.getAllMyPlants = (req, res, next) => {
 	User.findOne({ _id: req.user._id })
-		.populate('myplants')
+		.populate('myplants.plant')
 		.then(user =>
 			res.status(200).json({
 				success: true,
@@ -18,10 +18,9 @@ exports.getAllMyPlants = (req, res, next) => {
 exports.addToMyPlants = (req, res, next) => {
 	let user = req.user;
 	let plantId = req.body._id;
+	let nickname = req.body.nickname;
 
-	if (!user.myplants.includes(plantId)) {
-		user.myplants.push(plantId);
-	}
+	user.myplants.push({ nickname: nickname, plant: plantId });
 
 	user.save(function (error) {
 		if (error) {

@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import Modal from 'react-modal';
 import Logo from '../Logo/Logo.js';
 import LoginForm from '../LoginForm/LoginForm.js';
@@ -23,6 +23,7 @@ const customStyles = {
 
 export default function Navigation() {
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -44,31 +45,31 @@ export default function Navigation() {
 
 	return (
 		<>
-			<div className='navigationDiv container'>
+			<div className={location.pathname === '/' ? 'navigationDiv navigationLanding container' : 'navigationDiv container'}>
 				<nav className='content'>
 					<Logo></Logo>
 
 					<ul>
 						{!authData && (
-							<li className='nav__div'>
-								<span onClick={openModal}>Login</span>
+							<li className='nav-item'>
+								<span onClick={openModal}>Accede</span>
 							</li>
 						)}
 						{authData && (
 							<>
-								<li className='nav__div active'>
+								<li className='nav-item'>
 									<NavLink to='/collection'>
-										<span>Collection</span>
+										<span>Catálogo</span>
 									</NavLink>
 								</li>
-								<li className='nav__div'>
+								<li className='nav-item'>
 									<NavLink to='/myplants'>
-										<span>My Plants</span>
+										<span>Mis Plantas</span>
 									</NavLink>
 								</li>
-								<li className='nav__div'>
+								<li className='nav-item'>
 									<span onClick={handleLogoutClick} className='nav__item'>
-										<span>Log Out</span>
+										<span>Salir</span>
 									</span>
 								</li>
 							</>
@@ -81,7 +82,7 @@ export default function Navigation() {
 					isOpen={modalIsOpen}
 					onRequestClose={closeModal}
 					style={customStyles}
-					contentLabel='LoginModal'>
+					contentLabel='Log In'>
 					<LoginForm></LoginForm>
 				</Modal>
 			)}

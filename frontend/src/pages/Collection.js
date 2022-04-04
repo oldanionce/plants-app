@@ -6,17 +6,20 @@ import Navigation from '../components/Navigation/Navigation.js';
 import Search from '../components/Search/Search.js';
 import Filter from '../components/Filter/Filter.js';
 import Footer from '../components/Footer/Footer';
+import { useAuthentication } from '../AuthenticationContext';
 
 export default function Collection() {
 	const navigate = useNavigate();
+	const { authData } = useAuthentication();
 
 	const [plants, setPlants] = useState([]);
 	const [filterPlants, setFilterPlants] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
-	const [plantsPerPage] = useState(10);
+	const [plantsPerPage] = useState(8);
 	const [input, setInput] = useState('');
 	const [isLoading, setLoading] = useState(true);
 	const [orderedAZ, setorderedAZ] = useState(true);
+	const [isPetFriendly, setIsPetFriendly] = useState(true);
 
 	// DATA: Fetching the Plants Collection
 	function fetchPlants() {
@@ -33,8 +36,6 @@ export default function Collection() {
 	useEffect(() => {
 		fetchPlants();
 	}, []);
-
-	// console.log(plants);
 
 	// PAGINATION: get current page of plants list
 	const indexOfLastPlant = currentPage * plantsPerPage;
@@ -74,23 +75,58 @@ export default function Collection() {
 		}
 	};
 
+	const [nickname, setNickname] = useState('');
+
+	// Input Handlers
+	const handleNicknameChange = e => {
+		setNickname(e.target.value);
+	};
+
+	function addToMyPlants(id) {
+		console.log(id, nickname);
+
+		if (!authData) {
+			navigate('/login', { replace: true });
+		}
+		fetch('/api/myplants', {
+			method: 'POST',
+			credentials: 'include',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ _id: id, nickname: nickname }),
+		});
+	}
+
+	const handlePetFriendly = () => {
+		const newPlants = [...plants];
+		if (isPetFriendly) {
+			setFilterPlants(newPlants.filter(plant => plant.petFriendly));
+			setIsPetFriendly(false);
+		} else {
+			setFilterPlants(newPlants);
+			setIsPetFriendly(true);
+		}
+	};
+
 	return (
 		<>
 			<Navigation></Navigation>
-			<header className='container plantsTitle'>
+			<header className='container collectionHeader'>
 				<div className='content'>
-					<h1>Collection</h1>
+					<h1>Catálogo</h1>
 					<Search
 						handleInputChange={handleInputChange}
 						handleSubmitSearch={handleSubmitSearch}></Search>
-					<Filter handleSort={handleSort}></Filter>
 				</div>
 			</header>
 
-			<main className='container plantsGrid'>
+			<main className='container collectionDiv'>
 				<div className='content'>
 					<div className='gridHeader'>
-						{/* HERE: div amb el component 'filters' */}
+						<Filter
+							handleSort={handleSort}
+							handlePetFriendly={handlePetFriendly}></Filter>
 						<Pagination
 							plantsPerPage={plantsPerPage}
 							totalPlants={filterPlants.length}
@@ -98,7 +134,11 @@ export default function Collection() {
 							currentPage={currentPage}
 						/>
 					</div>
-					<CollectionGrid plants={currentPlants}></CollectionGrid>
+					<CollectionGrid
+						handleNicknameChange={handleNicknameChange}
+						nickname={nickname}
+						plants={currentPlants}
+						addToMyPlants={addToMyPlants}></CollectionGrid>
 					<div className='gridFooter'>
 						<Pagination
 							plantsPerPage={plantsPerPage}
