@@ -20,7 +20,10 @@ exports.addToMyPlants = (req, res, next) => {
 	let plantId = req.body._id;
 	let nickname = req.body.nickname;
 
-	user.myplants.push({ nickname: nickname, plant: plantId });
+	user.myplants.forEach(myplant => {
+		if (myplant.nickname != nickname)
+			user.myplants.push({ nickname: nickname, plant: plantId });
+	});
 
 	user.save(function (error) {
 		if (error) {
@@ -37,9 +40,22 @@ exports.addToMyPlants = (req, res, next) => {
 //@access private
 exports.deleteMyPlant = (req, res, next) => {
 	let user = req.user;
-	let plantId = req.params.id;
+	let nickname = req.params.nickname;
 
-	user.myplants.pull(plantId);
+	console.log('HELLO', nickname);
+
+	user.update(
+		{
+			'myplants.nickname': nickname,
+		},
+		{
+			$pull: {
+				myplants: {
+					nickname: nickname,
+				},
+			},
+		}
+	);
 
 	user.save(function (error) {
 		if (error) {
@@ -47,7 +63,7 @@ exports.deleteMyPlant = (req, res, next) => {
 		} else {
 			res.status(202).json({
 				success: true,
-				message: `Delete plant with id: ${plantId}`,
+				message: `Delete plant with name: ${nickname}`,
 			});
 		}
 	});

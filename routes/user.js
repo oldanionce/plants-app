@@ -6,6 +6,6 @@ const { isAllowed } = require('../middleware/authorization');
 
 router.get('/', isAllowed, userController.getAllMyPlants);
 router.post('/', isAllowed, userController.addToMyPlants);
-router.delete('/:id', isAllowed, userController.deleteMyPlant);
+router.delete('/:nickname', isAllowed, userController.deleteMyPlant);
 
 module.exports = router;
