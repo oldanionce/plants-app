@@ -1,4 +1,83 @@
-/* temp styles */
-.myplantscard img {
-	max-width: 200px;
+.myPlantsCard .card__petfriendly {
+	position: absolute;
+	top:-1px;
+	right:-1px;
+	border-top-right-radius: 2rem;
+	overflow:hidden;
+	width:6rem;
+	height:6rem;
+	z-index:2;
+	display:block;
+}
+
+.myPlantsCard .card__image {
+	margin:0;
+	padding:0;
+    margin-bottom: -0.8rem;
+}
+
+.myPlantsCard .card__image img {
+	max-width: 100%;
+	border-top-left-radius: 2rem;
+	border-top-right-radius: 2rem;
+}
+
+.myPlantsCard .card__info {
+	background-color: var(--medium);
+	border-bottom-left-radius: 2rem;
+	border-bottom-right-radius: 2rem;
+	color: var(--lightest);
+	padding: 1rem 1rem 2.5rem 1rem;
+	margin: 0;
+	text-align: center;
+    flex-grow: 1;
+}
+
+.myPlantsCard h2 {
+	margin: 0 0 0.3rem;
+	font-family: 'Poppins', sans-serif;
+	font-weight: bold;
+	font-size: 1.8rem;
+	letter-spacing: 0.1rem;
+}
+
+.myPlantsCard h3 {
+	margin: 0 0 0.5rem;
+	font-family: 'Poppins', sans-serif;
+	font-weight: normal;
+	font-style:italic;
+	font-size: 1.4rem;
+	max-width: 100%;
+}
+
+button.reminder {
+	background-color: var(--dark);
+	color: var(--lightest);
+	font-family: 'Poppins', sans-serif;
+	font-weight: bold;
+	padding: 5px 15px;
+	border:none;
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ul ul {list-style-type: none !important;}
+
+.myPlantsCard .card__carelevel {
+	color: var(--dark);
+	font-size: 2rem;
+}
+
+.myPlantsCard .card__carelevel i {	
+	margin: 0 0.25rem;
 }

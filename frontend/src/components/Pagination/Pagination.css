@@ -22,6 +22,10 @@
 
 .pagination li {
     margin-right: 1.5rem;
+}
+
+.pagination li span {
+    display: inline-block;
     font-size: 1.5rem;
     line-height: 3rem;
     text-align: center;
@@ -33,10 +37,10 @@
     border-radius: 5px;
 }
 
-.pagination li:hover {
+.pagination li span:hover {
     cursor: pointer;
 }
 
-.pagination li.current {
+.pagination li.current span {
     background: var(--accent);
 }
