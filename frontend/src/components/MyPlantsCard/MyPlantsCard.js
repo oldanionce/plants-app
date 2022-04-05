@@ -3,6 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { faSeedling } from '@fortawesome/free-solid-svg-icons';
 import { faDroplet } from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +18,7 @@ const careLevelIcon = <FontAwesomeIcon icon={faLeaf} />;
 const locationInteriorIcon = <FontAwesomeIcon icon={faHouse} />;
 const locationExteriorIcon = <FontAwesomeIcon icon={faSun} />;
 const irrigationIcon = <FontAwesomeIcon icon={faDroplet} />;
+const trashIcon = <FontAwesomeIcon icon={faTrash} />;
 const soilIcon = <FontAwesomeIcon icon={faSeedling} />;
 const petFriendlyIcon = <FontAwesomeIcon icon={faPaw} />;
 const temperatureIcon = <FontAwesomeIcon icon={faTemperatureHalf} />;
@@ -40,7 +42,6 @@ export default function MyPlantsCard({
 	//only needed for myPlants
 	nickname,
 }) {
-
 	let careLevelInfo = [];
 	for (var i = 0; i < careLevel; i++) {
 		careLevelInfo.push(careLevelIcon);
@@ -58,25 +59,25 @@ export default function MyPlantsCard({
 
 	let irrigationText;
 
-
 	// Hooks
 	const weblocation = useLocation();
 
 	return (
 		<>
 			{/* {petFriendly === true ? <div className ='card__petfriendly'><span className="altIcons" title="Apta para mascotas">{petFriendlyIcon}</span></div> : ""} */}
-			<div className ='card__image'>
+			<div className='card__image'>
 				<img src={`/images/${imageUrl}.jpg`} alt={commonName} />
 			</div>
 
 			<div className='card__info'>
 				<h2>{nickname}</h2>
 				<h3>({commonName})</h3>
-				
-				<button class="reminder">Añadir recordatorio</button>	
-				
-				
-				
+
+				<div className='myplants-actions'>
+					<button class='reminder'>Añadir recordatorio</button>
+					<span onClick={() => deleteFromMyPlants(nickname)}>{trashIcon}</span>
+				</div>
+
 				{/* <ul className="myPlants_plantdetails">
 					<li>
 						{interiorExterior !== 1 ? (
