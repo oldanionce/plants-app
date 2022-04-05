@@ -1,120 +1,149 @@
-import { React, useState } from 'react';
-import Modal from 'react-modal';
+import React from 'react';
 
-import PlantCard from '../PlantCard/PlantCard';
-import PlantModal from '../PlantModal/PlantModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLeaf } from '@fortawesome/free-solid-svg-icons';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faSun } from '@fortawesome/free-solid-svg-icons';
+import { faSeedling } from '@fortawesome/free-solid-svg-icons';
+import { faDroplet } from '@fortawesome/free-solid-svg-icons';
+import { faPaw } from '@fortawesome/free-solid-svg-icons';
+import { faTemperatureHalf } from '@fortawesome/free-solid-svg-icons';
+
+import { useLocation } from 'react-router-dom';
 
 import './CollectionCard.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-
-const closeIcon = <FontAwesomeIcon icon={faXmark} />;
-
-const customStyles = {
-	content: {
-		top: '50%',
-		left: '50%',
-		right: 'auto',
-		bottom: 'auto',
-		marginRight: '-50%',
-		transform: 'translate(-50%, -50%)',
-		padding: 0,
-		borderRadius: '10px',
-		border: '1px solid var(--medium)',
-		zIndex: 3,
-	},
-	overlay: {
-		zIndex: 2,
-		opacity: 1,
-		backgroundColor: 'var(--light)',
-	},
-};
+const careLevelIcon = <FontAwesomeIcon icon={faLeaf} />;
+const locationInteriorIcon = <FontAwesomeIcon icon={faHouse} />;
+const locationExteriorIcon = <FontAwesomeIcon icon={faSun} />;
+const irrigationIcon = <FontAwesomeIcon icon={faDroplet} />;
+const soilIcon = <FontAwesomeIcon icon={faSeedling} />;
+const petFriendlyIcon = <FontAwesomeIcon icon={faPaw} />;
+const temperatureIcon = <FontAwesomeIcon icon={faTemperatureHalf} />;
 
 export default function CollectionCard({
-	plant,
+	id,
+	imageUrl,
+	commonName,
+	interiorExterior,
+	careLevel,
+	petFriendly,
 	addToMyPlants,
 	deleteFromMyPlants,
-	id,
-	isLoading,
-	handleNicknameChange,
+	// only needed for Collection
+	scientificName,
+	location,
+	irrigation,
+	irrigationSummer,
+	irrigationWinter,
+	soil,
+	//only needed for myPlants
 	nickname,
 }) {
-	const [modalIsOpen, setIsOpen] = useState(false);
 
-	function openModal() {
-		setIsOpen(true);
+	let careLevelInfo = [];
+	for (var i = 0; i < careLevel; i++) {
+		careLevelInfo.push(careLevelIcon);
 	}
 
-	function closeModal() {
-		setIsOpen(false);
-	}
+	// Hooks
+	const weblocation = useLocation();
 
 	return (
-		<li className='collectionCard' key={plant._id} onClick={openModal}>
-			<PlantCard
-				id={plant._id}
-				imageUrl={plant.image}
-				commonName={plant.commonName}
-				interiorExterior={plant.interiorExterior}
-				careLevel={plant.careLevel}
-				petFriendly={plant.petFriendly}
-				addToMyPlants={addToMyPlants}
-				deleteFromMyPlants={deleteFromMyPlants}
-				// only needed for Collection
-				scientificName={plant.scientificName}
-				location={plant.location}
-				irrigation={plant.irrigation}
-				irrigationSummer={plant.irrigationSummer}
-				irrigationWinter={plant.irrigationWinter}
-				soil={plant.soil}
-				// only needed for myPlants
-				nickname={plant.nickname}></PlantCard>
-			<Modal
-				isOpen={modalIsOpen}
-				onRequestClose={closeModal}
-				style={customStyles}
-				contentLabel={plant._id}>
-				<button className='modalCloseModal' onClick={closeModal}>
-					{closeIcon}
-				</button>
-				<PlantModal
-					id={plant._id}
-					imageUrl={plant.image}
-					commonName={plant.commonName}
-					interiorExterior={plant.interiorExterior}
-					careLevel={plant.careLevel}
-					petFriendly={plant.petFriendly}
-					addToMyPlants={addToMyPlants}
-					deleteFromMyPlants={deleteFromMyPlants}
-					scientificName={plant.scientificName}
-					location={plant.location}
-					irrigation={plant.irrigation}
-					irrigationSummer={plant.irrigationSummer}
-					irrigationWinter={plant.irrigationWinter}
-					soil={plant.soil}
-					handleNicknameChange={handleNicknameChange}
-					nickname={nickname}></PlantModal>
-			</Modal>
-		</li>
+		<>
+			{petFriendly === true ? <div className ='card__petfriendly'><span className="altIcons" title="Apta para mascotas">{petFriendlyIcon}</span></div> : ""}
+			<div className ='card__image'>
+				<img src={`/images/${imageUrl}.jpg`} alt={commonName} />
+			</div>
+
+			<div class='card__info'>
+				{weblocation.pathname !== '/myplants' && <h2>{scientificName}</h2>}
+				<h3>{commonName}</h3>
+				<h3>{nickname}</h3>
+				<p class='card__carelevel'>{careLevelInfo}</p>
+
+				{weblocation.pathname === '/myplants' && (
+					<>
+						<ul>
+							<li class='card__carelevel'>
+								<span>{careLevelInfo} </span>
+							</li>
+							<li class='plantLocation'>
+								<p>
+									{interiorExterior !== 1 ? (
+										interiorExterior === 2 ? (
+											<span className='altIcons' title='Exterior'>
+												{locationExteriorIcon} {location}
+											</span>
+										) : (
+											<span
+												className='altIcons'
+												title='Interior &amp; Exterior'>
+												{locationInteriorIcon}
+												{locationExteriorIcon}
+											</span>
+										)
+									) : (
+										<>
+											<span className='altIcons' title='Interior'>
+												{locationInteriorIcon}
+												{''}
+											</span>
+											<span> {location}</span>
+										</>
+									)}
+								</p>
+							</li>
+							<li class='plantIrrigation'>
+								<span className='altIcons' title='Riego'></span>
+								<span>
+									{irrigationIcon}
+									{''}
+									{
+										{
+											1: 'Una vez al mes ',
+											2: 'Una vez a la semana ',
+											3: '2/3 veces por semana ',
+											4: 'Cada día ',
+										}[irrigationSummer]
+									}
+									en verano,
+								</span>
+								<span>
+									{
+										{
+											1: 'una vez al mes ',
+											2: 'una vez a la semana ',
+											3: '2/3 veces por semana ',
+											4: 'cada día ',
+										}[irrigationWinter]
+									}
+									en invierno.
+								</span>
+								<p>{irrigation}</p>
+							</li>
+							{soil !== '' && (
+								<li>
+									<span title='Sustrato'>
+										{soilIcon}
+										{''} {soil}
+									</span>
+								</li>
+							)}
+							<div class='card__petfriendly'>
+								{petFriendly && (
+									<>
+										<i class='fa-solid fa-paw'> {petFriendlyIcon}</i>
+										<span>Apta para mascotas</span>
+									</>
+								)}
+							</div>
+						</ul>
+					</>
+				)}
+
+
+			</div>
+		</>
 	);
 }
-
-// --------------------------- IMPORTANT - idea estructura!!
-
-// Fitxa per davant
-// Title === Nickname
-// image == url foto
-// interiorExterior
-// Carelevel
-// Pet friendly
-
-// Fitxa per darrere
-//Common name,
-//irrigation
-// irrigationSummer
-// irrigationWinter
-// Botó recordatori per regar
-
-//
-//

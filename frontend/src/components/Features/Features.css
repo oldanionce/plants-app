@@ -14,7 +14,7 @@
 }
 
 .featuresText h2 {
-	color: #c58a47;
+	color: var(--light-accent);
 	margin-bottom: 20px;
 }
 

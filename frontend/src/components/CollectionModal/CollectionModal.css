@@ -42,6 +42,8 @@
 .modalImage li,
 .modalInfo li {
 	margin-bottom: 10px;
+	display: flex;
+	justify-content: start;
 }
 
 .modalContent h4 {
@@ -51,8 +53,16 @@
 
 .modalInfo .altIcons {
 	display:inline-block;
+	padding-left: 2rem;
 	padding-right: 10px;
+	min-width: 2rem;
 }
+
+.modalInfo .altIcons.double {
+	padding-left: 0;
+	width: 4rem;
+}
+
 
 .plantIrrigation span::after {
 	content: ' ';

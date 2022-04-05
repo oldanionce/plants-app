@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthentication } from "../AuthenticationContext";
+
 import CollectionGrid from "../components/CollectionGrid/CollectionGrid";
 import Pagination from "../components/Pagination/Pagination";
 import Navigation from "../components/Navigation/Navigation.js";
 import Search from "../components/Search/Search.js";
 import Filter from "../components/Filter/Filter.js";
 import Footer from "../components/Footer/Footer";
-import { useAuthentication } from "../AuthenticationContext";
 
 export default function Collection() {
   const navigate = useNavigate();

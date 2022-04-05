@@ -1,23 +1,70 @@
-.collectionCard {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	background-color: var(--medium-green);
-	border-radius: 2rem;
-}
-
-/* Modal */
-.modalCloseModal {
-	border: 0;
-	background: transparent;
-	color: var(--accent);
-	font-size: 25px;
+.collectionCard .card__petfriendly {
 	position: absolute;
-	top: 10px;
-	right: 15px;
+	top:-1px;
+	right:-1px;
+	border-top-right-radius: 2rem;
+	overflow:hidden;
+	width:6rem;
+	height:6rem;
+	z-index:2;
+	display:block;
+}
+.collectionCard .card__petfriendly span {
+	background-color: var(--accent);
+	display:block;
+	transform:rotate(45deg);
+	text-align:center;
+	color: var(--lightest);
+	width:150%;
+	padding: 0.5rem 0;
 }
 
-.modalCloseModal:hover {
-	color: var(--darkest);
-	cursor: pointer;
+
+.collectionCard .card__image {
+	margin:0;
+	padding:0;
+    margin-bottom: -0.8rem;
+}
+
+.collectionCard .card__image img {
+	max-width: 100%;
+	border-top-left-radius: 2rem;
+	border-top-right-radius: 2rem;
+}
+
+.collectionCard .card__info {
+	background-color: var(--medium);
+	border-bottom-left-radius: 2rem;
+	border-bottom-right-radius: 2rem;
+	color: var(--lightest);
+	padding: 1rem 1rem 2.5rem 1rem;
+	margin: 0;
+	text-align: center;
+    flex-grow: 1;
+}
+
+.collectionCard h2 {
+	margin: 0 0 0.3rem;
+	font-family: 'Poppins', sans-serif;
+	font-weight: bold;
+	font-size: 1.8rem;
+	letter-spacing: 0.1rem;
+}
+
+.collectionCard h3 {
+	margin: 0 0 0.5rem;
+	font-family: 'Poppins', sans-serif;
+	font-weight: normal;
+	font-style:italic;
+	font-size: 1.4rem;
+	max-width: 100%;
+}
+
+.collectionCard .card__carelevel {
+	color: var(--dark);
+	font-size: 2rem;
+}
+
+.collectionCard .card__carelevel i {	
+	margin: 0 0.25rem;
 }

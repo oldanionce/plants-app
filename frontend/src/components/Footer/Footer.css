@@ -1,5 +1,86 @@
 /* TODO - finish footer. Decide design & content */
 
 .footerDiv {
-	color: white;
+	color: var(--lightest);
+}
+
+.footerDiv .content > * {
+	z-index:1;
+}
+
+.footerDiv .content::before {
+	content: "";
+	background: url(../../images/footer.png);
+	background-repeat: no-repeat;
+	background-position: 35% 40%;
+	background-origin: content-box;
+	background-size: 30%;
+	opacity: 0.1;
+	top: 0;
+	right: 0;
+	bottom:0;
+	left:0;
+	position: absolute;
+  }
+
+.footerDiv .content {
+	position: relative;display: flex;
+	justify-content: flex-start;
+	align-items: top;
+	padding: 3rem 1rem;
+}
+
+.footer_title {
+	width: 40%;
+}
+
+	.footerDiv h5 {
+		font-family: 'ABeeZee', sans-serif;
+		color: var(--medium);
+		font-size: 4rem;
+		line-height: 4rem;
+		background: url(../../images/favicon-transparent.png) no-repeat center left;
+		background-size: 3.8rem;
+		padding-left: 4.5rem;
+	}
+
+	.footerDiv a.button {
+		font-family: 'Poppins', sans-serif;
+		font-size: 1.8rem;
+		text-decoration: none;
+		color: var(--light-accent);
+		padding: 5px 10px;
+		display: inline-block;
+		margin: 2rem 0;
+	}
+
+.footer_copy {
+	width: 15%;
+	border-right: 1px solid var(--dark);
+}
+.footerDiv p {
+	text-align: right;
+	line-height: 3.5rem;
+	margin-right: 3rem;
+	font-family: 'Trocchi', serif;
+	font-size: 2rem;
+}
+
+
+.footer_credits {
+	width: 45%;
+	padding-left: 3reM;
+}
+
+.footer_credits ol {
+	list-style-type: none;
+	font-family: 'Trocchi', serif;
+	font-size: 1.5rem;
+	line-height: 4rem;
+	column-count: 2;
+}
+
+.footer_credits a {
+	color: var(--light);
+	text-decoration: none;
 }
