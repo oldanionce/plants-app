@@ -1,16 +1,16 @@
-import './CollectionModal.css';
+import "./CollectionModal.css";
 
-import SaveToMyPlantsForm from '../SaveToMyPlantsForm/SaveToMyPlantsForm';
+import SaveToMyPlantsForm from "../SaveToMyPlantsForm/SaveToMyPlantsForm";
 
-import ReactDOM from 'react-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLeaf } from '@fortawesome/free-solid-svg-icons';
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
-import { faSun } from '@fortawesome/free-solid-svg-icons';
-import { faSeedling } from '@fortawesome/free-solid-svg-icons';
-import { faDroplet } from '@fortawesome/free-solid-svg-icons';
-import { faPaw } from '@fortawesome/free-solid-svg-icons';
-import { faTemperatureHalf } from '@fortawesome/free-solid-svg-icons';
+import ReactDOM from "react-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLeaf } from "@fortawesome/free-solid-svg-icons";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { faSeedling } from "@fortawesome/free-solid-svg-icons";
+import { faDroplet } from "@fortawesome/free-solid-svg-icons";
+import { faPaw } from "@fortawesome/free-solid-svg-icons";
+import { faTemperatureHalf } from "@fortawesome/free-solid-svg-icons";
 
 const careLevelIcon = <FontAwesomeIcon icon={faLeaf} />;
 const locationInteriorIcon = <FontAwesomeIcon icon={faHouse} />;
@@ -21,30 +21,30 @@ const petFriendlyIcon = <FontAwesomeIcon icon={faPaw} />;
 const temperatureIcon = <FontAwesomeIcon icon={faTemperatureHalf} />;
 
 export default function CollectionModal({
-	id,
-	imageUrl,
-	commonName,
-	interiorExterior,
-	careLevel,
-	petFriendly,
-	addToMyPlants,
-	deleteFromMyPlants,
-	handleNicknameChange,
-	nickname,
-	// only needed for Collection
-	scientificName,
-	location,
-	temperature,
-	irrigation,
-	irrigationSummer,
-	irrigationWinter,
-	soil,
-	//only needed for myPlants
+  id,
+  imageUrl,
+  commonName,
+  interiorExterior,
+  careLevel,
+  petFriendly,
+  addToMyPlants,
+  deleteFromMyPlants,
+  handleNicknameChange,
+  nickname,
+  // only needed for Collection
+  scientificName,
+  location,
+  temperature,
+  irrigation,
+  irrigationSummer,
+  irrigationWinter,
+  soil,
+  //only needed for myPlants
 }) {
-	let careLevelInfo = [];
-	for (var i = 0; i < careLevel; i++) {
-		careLevelInfo.push(careLevelIcon);
-	}
+  let careLevelInfo = [];
+  for (var i = 0; i < careLevel; i++) {
+    careLevelInfo.push(careLevelIcon);
+  }
 
 	return (
 		<>
@@ -145,4 +145,5 @@ export default function CollectionModal({
 				addToMyPlants={addToMyPlants}></SaveToMyPlantsForm>
 		</>
 	);
+
 }
