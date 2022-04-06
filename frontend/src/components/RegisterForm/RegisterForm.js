@@ -89,11 +89,19 @@ export default function Register() {
 		setIsOpen(false);
 	}
 
+	// in case we click the "register" text link FROM WITHIN the login form,
+	// this will close the login modal and scroll down to the register
+	function smoothScrollandClose() {
+		closeModal();
+		var element = document.querySelector("#registerForm");
+		element.scrollIntoView({ behavior: 'smooth', block: 'start'});
+	}
+
 	return (
 		<>
-		<div id="registerForm" class='container registerFormDiv'>
-			<div class='container__form'>
-				<form class='form'>
+		<div id="registerForm" className='container registerFormDiv'>
+			<div className='container__form'>
+				<form className='form'>
 					<input
 						name='name__input'
 						type='text'
@@ -126,7 +134,7 @@ export default function Register() {
 					<button type='button' onClick={register}>
 						crear cuenta
 					</button>
-					<p class='input__message'>
+					<p className='input__message'>
 						¿Ya te has registrado? <span onClick={openModal}> Entra</span>
 					</p>
 				</form>
@@ -137,6 +145,7 @@ export default function Register() {
 				onRequestClose={closeModal}
 				style={customStyles}
 				contentLabel='Log In'>
+				<div className="clickToClose" onClick={smoothScrollandClose}></div>
 				<LoginForm></LoginForm>
 			</Modal>
 		</>

@@ -52,6 +52,14 @@ export default function Navigation() {
 		setIsOpen(false);
 	}
 
+	// in case we click the "register" text link FROM WITHIN the login form,
+	// this will close the login modal and scroll down to the register
+	function smoothScrollandClose() {
+		closeModal();
+		var element = document.querySelector("#registerForm");
+		element.scrollIntoView({ behavior: 'smooth', block: 'start'});
+	}
+
 	// For later
 	const { authData, logout } = useAuthentication();
 
@@ -100,6 +108,7 @@ export default function Navigation() {
 					onRequestClose={closeModal}
 					style={customStyles}
 					contentLabel='Log In'>
+						<div className="clickToClose" onClick={smoothScrollandClose}></div>
 					<LoginForm></LoginForm>
 				</Modal>
 			)}

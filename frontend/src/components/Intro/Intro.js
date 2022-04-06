@@ -43,11 +43,25 @@ export default function Intro() {
 		setIsOpen(false);
 	}
 
+	// smooth scrolling from the register button to the register form at the bottom of the page
+	function smoothScroll() {
+		var element = document.querySelector("#registerForm");
+		element.scrollIntoView({ behavior: 'smooth', block: 'start'});
+	}
+
+	// in case we click the "register" text link FROM WITHIN the login form,
+	// this will close the login modal and scroll down to the register
+	function smoothScrollandClose() {
+		closeModal();
+		var element = document.querySelector("#registerForm");
+		element.scrollIntoView({ behavior: 'smooth', block: 'start'});
+	}
+
 	return (
 		<>
-			<div class="container introDiv">
+			<div className="container introDiv">
 				<div className='intro content'>
-					<div class="logo">
+					<div className="logo">
 						<img src={LandingLogo} alt="logo Plantagotchi"></img>
 					</div>
 					<div className="introText">
@@ -56,9 +70,7 @@ export default function Intro() {
 						
 							{!authData && (
 							<div className='register-button'>
-								<NavLink to='/register'>
-									<button>Regístrate</button>
-								</NavLink>
+								<a onClick={smoothScroll}><button>Regístrate</button></a>
 								<p>O si ya tienes una cuenta, <span onClick={openModal}>accede</span></p>
 							</div>
 							)}
@@ -71,7 +83,9 @@ export default function Intro() {
 					isOpen={modalIsOpen}
 					onRequestClose={closeModal}
 					style={customStyles}
-					contentLabel='Log In'>
+					contentLabel='Log In'
+					ariaHideApp={false}>
+					<div className="clickToClose" onClick={smoothScrollandClose}></div>
 					<LoginForm></LoginForm>
 				</Modal>
 			)}
