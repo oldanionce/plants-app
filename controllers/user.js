@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const ErrorResponse = require('../utils/errorResponse');
+const ObjectId = require('mongoose').Types.ObjectId;
 
 //@access public
 exports.getAllMyPlants = (req, res, next) => {
@@ -24,6 +25,8 @@ exports.addToMyPlants = (req, res, next) => {
 
 	if (!user.myplants.some(checkDuplicated)) {
 		user.myplants.push({ nickname: nickname, plant: plantId });
+	} else {
+		throw 'Name is duplicated!';
 	}
 
 	user.save(function (error) {
@@ -39,24 +42,17 @@ exports.addToMyPlants = (req, res, next) => {
 };
 
 //@access private
-exports.deleteMyPlant = (req, res, next) => {
+exports.deleteMyPlant = async (req, res, next) => {
 	let user = req.user;
 	let nickname = req.params.nickname;
 
-	console.log('HELLO', nickname);
-
-	user.update(
-		{
-			'myplants.nickname': nickname,
-		},
-		{
-			$pull: {
-				myplants: {
-					nickname: nickname,
-				},
+	const result = await User.findByIdAndUpdate(user._id, {
+		$pull: {
+			myplants: {
+				nickname: nickname,
 			},
-		}
-	);
+		},
+	});
 
 	user.save(function (error) {
 		if (error) {
