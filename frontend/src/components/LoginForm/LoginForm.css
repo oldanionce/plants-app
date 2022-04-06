@@ -12,17 +12,19 @@
 }
 
 .loginForm button {
-	padding: 2px 15px 2px 15px;
+	padding: 5px 15px;
 	border-radius: 5px;
 	border: none;
 	background-color: #c58a47;
 	color: white;
 	font-weight: 700;
+	line-height:3rem;
 }
 
 .loginForm input {
 	margin-top: 10px;
 	font-family: Poppins;
+	background-color: white !important;
 	font-size: 15px;
 	width: 100%;
 	border: 0;
@@ -32,7 +34,7 @@
 	padding-left: 10px;
 	border-radius: 10px;
 	border: none;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	
 }
 
 .loginForm input::placeholder {

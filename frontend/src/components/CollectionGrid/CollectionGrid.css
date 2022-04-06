@@ -12,7 +12,7 @@
 
 .collectionHeader::before {
 	content: "";
-	background: url(../../bg_monstera.png);
+	background: url(../../images/bg_monstera.png);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: 15rem -7rem;

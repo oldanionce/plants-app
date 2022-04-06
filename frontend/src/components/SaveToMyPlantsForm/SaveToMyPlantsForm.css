@@ -38,3 +38,8 @@
     color: white;
     background: var(--accent);
 }
+
+.modalForm button:hover {
+	cursor: pointer;
+	background: var(--dark-accent);
+}

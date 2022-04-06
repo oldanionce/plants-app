@@ -6,7 +6,14 @@ import LoginForm from '../LoginForm/LoginForm.js';
 
 import { useAuthentication } from '../../AuthenticationContext';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignIn } from '@fortawesome/free-solid-svg-icons';
+import { faSignOut } from '@fortawesome/free-solid-svg-icons';
+
 import './Navigation.css';
+
+const loginIcon = <FontAwesomeIcon icon={faSignIn} />
+const logoutIcon = <FontAwesomeIcon icon={faSignOut} />
 
 const customStyles = {
 	content: {
@@ -16,9 +23,19 @@ const customStyles = {
 		bottom: 'auto',
 		marginRight: '-50%',
 		transform: 'translate(-50%, -50%)',
-		background: 'white',
+		padding: 0,
+		border: 'none',
+		borderRadius: '10px',
+		backgroundColor: 'var(--dark)',
+		boxShadow: '0 3px 6px rgba(0, 0, 0, 0.10), 0 3px 6px rgba(0, 0, 0, 0.05)',
+		opacity: 1,
+		zIndex: 4,
 	},
-	overlay: { zIndex: 1000 },
+	overlay: {
+		backgroundColor: 'var(--lightest)',
+		zIndex: 3,
+		opacity: 1,
+	},
 };
 
 export default function Navigation() {
@@ -51,8 +68,8 @@ export default function Navigation() {
 
 					<ul>
 						{!authData && (
-							<li className='nav-item'>
-								<span onClick={openModal}>Accede</span>
+							<li className='nav-login'>
+								<span onClick={openModal}>Acceder {loginIcon}</span>
 							</li>
 						)}
 						{authData && (
@@ -67,9 +84,9 @@ export default function Navigation() {
 										<span>Mis Plantas</span>
 									</NavLink>
 								</li>
-								<li className='nav-item'>
-									<span onClick={handleLogoutClick} className='nav__item'>
-										<span>Salir</span>
+								<li className='nav-logout'>
+									<span onClick={handleLogoutClick}>
+										Salir {logoutIcon}
 									</span>
 								</li>
 							</>

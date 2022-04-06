@@ -73,6 +73,7 @@ export default function CollectionItem({
 				soil={plant.soil}
 				// only needed for myPlants
 				nickname={plant.nickname}></CollectionCard>
+				<span className="addIcon" key={plant._id}>{addIcon}</span>
 		</li>
 		<Modal
 			isOpen={modalIsOpen}
