@@ -10,29 +10,25 @@ nav {
 	gap: 10px;
 }
 
-.navigationDiv .nav-item > * {
+.nav-item a:link, 
+.nav-item a:visited {
+	text-decoration:none;
+	font-weight: 700;
+	color: var(--lightest);
 	background-color: var(--light-accent);
 	padding: 6px 18px;
 	border-radius: 5px;
+	font-size: 1.8rem;
 }
 
-.navigationDiv .nav-item > *:hover {
+.nav-item a:hover {
 	background-color: var(--accent);
+	color: var(--lightest);
 	cursor: pointer;
 }
 
-.navigationDiv .active {
+.nav-item  a.active {
 	background-color: var(--dark-accent);
-}
-
-.navigationDiv span {
-	color: var(--lightest);
-	font-weight: 700;
-}
-
-.navigationDiv a {
-	text-decoration: none;
-	color: var(--lightest);
 }
 
 /* Corrections for landing page */
@@ -42,4 +38,35 @@ nav {
 
 .navigationLanding nav {
 	justify-content: right;
+}
+
+/* Login and Logout links */
+
+.nav-login > * {
+	font-size: 1.8rem;
+	background-color: transparent;
+	color: var(--lightest);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.nav-login > *:hover {
+	color: var(--light-accent);
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.nav-logout span {
+	font-size: 1.8rem;
+	background-color: transparent;
+	color: var(--light-accent);
+	font-weight: 700;
+	text-decoration: none;
+	margin-left: 1rem;
+}
+
+.nav-logout span:hover {
+	color: var(--dark-accent);
+	background-color: transparent;
+	cursor: pointer;
 }

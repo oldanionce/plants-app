@@ -19,10 +19,10 @@ export default function Footer() {
         </div>
         <div class="column footer_credits">
           <ol>
-            <li><a href="#">Ana Gracia</a></li>
-            <li><a href="#">Anna Lisbona</a></li>
-            <li><a href="#">Marga Obrador</a></li>
-            <li><a href="#">Marta Vilaseca</a></li>
+            <li><a href="#"><span>{linkIcon}</span> Ana Gracia</a></li>
+            <li><a href="#"><span>{linkIcon}</span> Anna Lisbona</a></li>
+            <li><a href="#"><span>{linkIcon}</span> Marga Obrador</a></li>
+            <li><a href="#"><span>{linkIcon}</span> Marta Vilaseca</a></li>
           </ol>
         </div>
         

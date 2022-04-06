@@ -84,6 +84,9 @@ body {
 	.navigationDiv {
 		background-color: var(--lightest);
 	}
+	.navigationDiv.navigationLanding {
+		background-color: var(--dark);
+	}
 
 	.introDiv {
 		background-color: var(--lightest);
@@ -111,6 +114,19 @@ body {
 	.collectionDiv, 
 	.myPlantsDiv {
 		background-color: var(--light);
+	}
+
+/* -----------------------------------------------
+	INPUT COLOR OVERRIDE
+	To avoid Chrome applying its own styles
+	Source: https://www.codegrepper.com/code-examples/css/how+to+remove+input+background+color
+------------------------------------------------------------------------------------------------------ */
+
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover, 
+	input:-webkit-autofill:focus, 
+	input:-webkit-autofill:active{
+		-webkit-box-shadow: 0 0 0 30px var(--lightest) inset !important;
 	}
 
 

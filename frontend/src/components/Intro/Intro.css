@@ -1,5 +1,5 @@
 .introDiv {
-	padding: 30px 50px;
+	padding: 5rem;
 }
 
 .intro {
@@ -11,14 +11,33 @@
 /* Logo */
 
 .intro .logo {
-  width: 30rem;
-  height: 30rem;
+  width: 40rem;
+  height: 40rem;
 }
 
 .intro .logo img {
 	transform: rotate(-10deg);
-  	margin-right: 3rem;
+  	margin-right: 5rem;
 }
+
+.intro .logo img:hover {
+	animation: shake 0.5s;
+	animation-iteration-count: 2;
+}
+
+@keyframes shake {
+	0% { transform: translate(1px, 1px) rotate(-10deg); }
+	10% { transform: translate(-1px, -2px) rotate(-11deg); }
+	20% { transform: translate(-3px, 0px) rotate(-9deg); }
+	30% { transform: translate(3px, 2px) rotate(-10deg); }
+	40% { transform: translate(1px, -1px) rotate(-9deg); }
+	50% { transform: translate(-1px, 2px) rotate(-11deg); }
+	60% { transform: translate(-3px, 1px) rotate(-10deg); }
+	70% { transform: translate(3px, 1px) rotate(-11deg); }
+	80% { transform: translate(-1px, -1px) rotate(-9deg); }
+	90% { transform: translate(1px, 2px) rotate(-10deg); }
+	100% { transform: translate(1px, -2px) rotate(-11deg); }
+  }
 
 /* Title & Claim */
 
@@ -27,6 +46,7 @@
 	color: var(--dark);
 	font-size: 8rem;
 	line-height: 8rem;
+	text-align: center;
 }
 
 .intro h2 {
@@ -35,6 +55,7 @@
 	font-size: 4rem;
   	line-height: 5rem; 
   	margin-bottom: 2rem;
+	  text-align: center;
 }
 
 /* Register button (only visible if not logged in */

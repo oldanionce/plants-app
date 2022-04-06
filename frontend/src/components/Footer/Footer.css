@@ -2,11 +2,24 @@
 
 .footerDiv {
 	color: var(--lightest);
+	position: relative;
 }
 
 .footerDiv .content > * {
 	z-index:1;
 }
+
+.footerDiv::before {
+	content: "";
+	background: url(../../images/5-dots-green.png);
+	background-repeat: repeat;
+	opacity: 0.6;
+	top: 0;
+	right: 0;
+	bottom:0;
+	left:0;
+	position: absolute;
+  }
 
 .footerDiv .content::before {
 	content: "";
@@ -83,4 +96,13 @@
 .footer_credits a {
 	color: var(--light);
 	text-decoration: none;
+}
+
+.footer_credits ol span {
+	margin-right: 1rem;
+	color: var(--light-accent);
+}
+
+.footer_credits a:hover {
+	color: var(--light-accent);
 }
