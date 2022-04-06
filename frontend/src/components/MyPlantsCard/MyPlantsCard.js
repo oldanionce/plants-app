@@ -1,18 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLeaf } from '@fortawesome/free-solid-svg-icons';
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { faSun } from '@fortawesome/free-solid-svg-icons';
-import { faSeedling } from '@fortawesome/free-solid-svg-icons';
-import { faDroplet } from '@fortawesome/free-solid-svg-icons';
-import { faPaw } from '@fortawesome/free-solid-svg-icons';
-import { faTemperatureHalf } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLeaf } from "@fortawesome/free-solid-svg-icons";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { faSeedling } from "@fortawesome/free-solid-svg-icons";
+import { faDroplet } from "@fortawesome/free-solid-svg-icons";
+import { faPaw } from "@fortawesome/free-solid-svg-icons";
+import { faTemperatureHalf } from "@fortawesome/free-solid-svg-icons";
+import Event from "../Event/Event";
 
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
-import './MyPlantsCard.css';
+import "./MyPlantsCard.css";
 
 const careLevelIcon = <FontAwesomeIcon icon={faLeaf} />;
 const locationInteriorIcon = <FontAwesomeIcon icon={faHouse} />;
@@ -24,61 +25,62 @@ const petFriendlyIcon = <FontAwesomeIcon icon={faPaw} />;
 const temperatureIcon = <FontAwesomeIcon icon={faTemperatureHalf} />;
 
 export default function MyPlantsCard({
-	id,
-	imageUrl,
-	commonName,
-	interiorExterior,
-	careLevel,
-	petFriendly,
-	addToMyPlants,
-	deleteFromMyPlants,
-	// only needed for Collection
-	scientificName,
-	location,
-	irrigation,
-	irrigationSummer,
-	irrigationWinter,
-	soil,
-	//only needed for myPlants
-	nickname,
+  id,
+  imageUrl,
+  commonName,
+  interiorExterior,
+  careLevel,
+  petFriendly,
+  addToMyPlants,
+  deleteFromMyPlants,
+  // only needed for Collection
+  scientificName,
+  location,
+  irrigation,
+  irrigationSummer,
+  irrigationWinter,
+  soil,
+  //only needed for myPlants
+  nickname,
+  Atcb_action,
 }) {
-	let careLevelInfo = [];
-	for (var i = 0; i < careLevel; i++) {
-		careLevelInfo.push(careLevelIcon);
-	}
+  let careLevelInfo = [];
+  for (var i = 0; i < careLevel; i++) {
+    careLevelInfo.push(careLevelIcon);
+  }
 
-	let irrigationInfoSummer = [];
-	for (var i = 0; i < irrigationSummer; i++) {
-		irrigationInfoSummer.push(irrigationIcon);
-	}
+  let irrigationInfoSummer = [];
+  for (var i = 0; i < irrigationSummer; i++) {
+    irrigationInfoSummer.push(irrigationIcon);
+  }
 
-	let irrigationInfoWinter = [];
-	for (var i = 0; i < irrigationWinter; i++) {
-		irrigationInfoWinter.push(irrigationIcon);
-	}
+  let irrigationInfoWinter = [];
+  for (var i = 0; i < irrigationWinter; i++) {
+    irrigationInfoWinter.push(irrigationIcon);
+  }
 
-	let irrigationText;
+  let irrigationText;
 
-	// Hooks
-	const weblocation = useLocation();
+  // Hooks
+  const weblocation = useLocation();
 
-	return (
-		<>
-			{/* {petFriendly === true ? <div className ='card__petfriendly'><span className="altIcons" title="Apta para mascotas">{petFriendlyIcon}</span></div> : ""} */}
-			<div className='card__image'>
-				<img src={`/images/${imageUrl}.jpg`} alt={commonName} />
-			</div>
+  return (
+    <>
+      {/* {petFriendly === true ? <div className ='card__petfriendly'><span className="altIcons" title="Apta para mascotas">{petFriendlyIcon}</span></div> : ""} */}
+      <div className="card__image">
+        <img src={`/images/${imageUrl}.jpg`} alt={commonName} />
+      </div>
 
-			<div className='card__info'>
-				<h2>{nickname}</h2>
-				<h3>({commonName})</h3>
+      <div className="card__info">
+        <h2>{nickname}</h2>
+        <h3>({commonName})</h3>
 
-				<div className='myplants-actions'>
-					<button class='reminder'>Añadir recordatorio</button>
-					<span onClick={() => deleteFromMyPlants(nickname)}>{trashIcon}</span>
-				</div>
+        <div className="myplants-actions">
+          <Event></Event>
+          <span onClick={() => deleteFromMyPlants(nickname)}>{trashIcon}</span>
+        </div>
 
-				{/* <ul className="myPlants_plantdetails">
+        {/* <ul className="myPlants_plantdetails">
 					<li>
 						{interiorExterior !== 1 ? (
 							interiorExterior === 2 ? (
@@ -132,7 +134,7 @@ export default function MyPlantsCard({
 						</li>
 					)} 
 				</ul> */}
-			</div>
-		</>
-	);
+      </div>
+    </>
+  );
 }
