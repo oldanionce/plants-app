@@ -25,20 +25,19 @@ exports.addToMyPlants = (req, res, next) => {
 
 	if (!user.myplants.some(checkDuplicated)) {
 		user.myplants.push({ nickname: nickname, plant: plantId });
+		user.save(function (error) {
+			if (error) {
+				next(error);
+			} else {
+				res.status(201).json({
+					success: true,
+					id: plantId,
+				});
+			}
+		});
 	} else {
-		throw 'Name is duplicated!';
+		return res.status(500).send({ error: 'Duplicated!' });
 	}
-
-	user.save(function (error) {
-		if (error) {
-			next(error);
-		} else {
-			res.status(201).json({
-				success: true,
-				id: plantId,
-			});
-		}
-	});
 };
 
 //@access private
