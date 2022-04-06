@@ -42,7 +42,6 @@ export default function MyPlantsCard({
   soil,
   //only needed for myPlants
   nickname,
-  Atcb_action,
 }) {
   let careLevelInfo = [];
   for (var i = 0; i < careLevel; i++) {
@@ -76,7 +75,12 @@ export default function MyPlantsCard({
         <h3>({commonName})</h3>
 
         <div className="myplants-actions">
-          <Event></Event>
+          <Event
+            nickname={nickname}
+            irrigation={irrigation}
+            irrigationSummer={irrigationSummer}
+            irrigationWinter={irrigationWinter}
+          ></Event>
           <span onClick={() => deleteFromMyPlants(nickname)}>{trashIcon}</span>
         </div>
 
