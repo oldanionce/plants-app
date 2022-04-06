@@ -7,25 +7,26 @@
 	position: relative;
 	z-index: 1;
 	max-width: 300px;
-	padding: 45px;
+	padding: 4.5rem;
 	text-align: center;
 }
 
 .loginForm button {
-	padding: 5px 15px;
-	border-radius: 5px;
+	padding: 5px 5rem;
+	border-radius: 10px;
 	border: none;
-	background-color: #c58a47;
-	color: white;
+	background-color: var(--light-accent);
+	color: var(--lightest);
 	font-weight: 700;
-	line-height:3rem;
+	font-family: Poppins;
+	font-size: 1.8rem;
+	line-height: 4rem;
 }
 
 .loginForm input {
 	margin-top: 10px;
 	font-family: Poppins;
-	background-color: white !important;
-	font-size: 15px;
+	font-size: 1.6rem;
 	width: 100%;
 	border: 0;
 	margin: 0 0 15px;
@@ -34,7 +35,7 @@
 	padding-left: 10px;
 	border-radius: 10px;
 	border: none;
-	
+	/* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
 }
 
 .loginForm input::placeholder {
@@ -46,12 +47,17 @@
 }
 
 .loginForm .input__message {
-	margin: 15px 0 0;
-	color: #b3b3b3;
-	font-size: 12px;
+	margin-top: 1.5rem;
+	font-weight: 700;
+	color: var(--lightest);
+	font-size: 1.5rem;
 }
 
 .loginForm .input__message a {
-	color: var(--main-color);
-	text-decoration: none;
+	color: var(--light-accent);
+	text-decoration: underline;
+}
+
+.loginForm .input__message a:hover {
+	color: var(--accent);
 }

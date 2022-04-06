@@ -7,23 +7,26 @@
 	position: relative;
 	z-index: 1;
 	max-width: 400px;
-	padding: 45px;
+	padding: 4.5rem;
 	text-align: center;
 }
 
 .registerFormDiv button {
-	padding: 5px 15px;
-	border-radius: 5px;
+	padding: 5px 5rem;
+	border-radius: 10px;
 	border: none;
-	background-color: var(--accent);
+	background-color: var(--light-accent);
 	color: var(--lightest);
 	font-weight: 700;
+	font-family: Poppins;
+	font-size: 1.8rem;
+	line-height: 4rem;
 }
 
 .registerFormDiv input {
 	margin-top: 10px;
 	font-family: Poppins;
-	font-size: 15px;
+	font-size: 1.6rem;
 	width: 100%;
 	border: 0;
 	margin: 0 0 15px;
@@ -32,7 +35,7 @@
 	padding-left: 10px;
 	border-radius: 10px;
 	border: none;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	/* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
 }
 
 .registerFormDiv input::placeholder {
@@ -44,12 +47,18 @@
 }
 
 .registerFormDiv .input__message {
-	margin: 15px 0 0;
-	color: #b3b3b3;
-	font-size: 12px;
+	margin-top: 1.5rem;
+	font-weight: 700;
+	color: var(--darkest);
+	font-size: 1.5rem;
 }
 
-.registerFormDiv .input__message a {
-	color: var(--main-color);
-	text-decoration: none;
+.registerFormDiv .input__message span {
+	color: var(--dark);
+	text-decoration: underline;
+}
+
+.registerFormDiv .input__message span:hover {
+	color: var(--lightest);
+	cursor: pointer;
 }

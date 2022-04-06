@@ -28,6 +28,7 @@ export default function CollectionCard({
 	interiorExterior,
 	careLevel,
 	petFriendly,
+	temperature,
 	addToMyPlants,
 	deleteFromMyPlants,
 	// only needed for Collection
@@ -62,7 +63,7 @@ export default function CollectionCard({
 				<h3>{nickname}</h3>
 				<p class='card__carelevel'>{careLevelInfo}</p>
 
-				{weblocation.pathname === '/myplants' && (
+				{/* {weblocation.pathname === '/myplants' && (
 					<>
 						<ul>
 							<li class='card__carelevel'>
@@ -141,7 +142,7 @@ export default function CollectionCard({
 						</ul>
 					</>
 				)}
-
+ */}
 
 			</div>
 		</>

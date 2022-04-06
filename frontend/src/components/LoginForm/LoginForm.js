@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
+import Modal from 'react-modal';
 import { useAuthentication } from '../../AuthenticationContext';
 import './LoginForm.css';
 
@@ -49,6 +50,12 @@ export default function LoginForm() {
 		}
 	}
 
+	// In case you click to go to the register form, this modal should close
+	const [modalIsOpen, setIsOpen] = useState(false);
+	function closeModal() {
+		setIsOpen(false);
+	}
+
 	return (
 		<div className='container loginForm'>
 			<div class='container__form'>
@@ -70,10 +77,9 @@ export default function LoginForm() {
 						onChange={handleInputChange}
 					/>
 
-					<button onClick={handleLoginClick}>login</button>
+					<button onClick={handleLoginClick}>accede</button>
 					<p className='input__message'>
-						Not registered?
-						<Link to='/register'> Register</Link>
+						¿No te has registrado? <span onClick={closeModal}><Link to='/#registerForm'>Únete</Link></span>
 					</p>
 				</form>
 			</div>

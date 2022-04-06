@@ -15,9 +15,19 @@ const customStyles = {
 		bottom: 'auto',
 		marginRight: '-50%',
 		transform: 'translate(-50%, -50%)',
-		background: 'white',
+		padding: 0,
+		border: 'none',
+		borderRadius: '10px',
+		backgroundColor: 'var(--dark)',
+		boxShadow: '0 3px 6px rgba(0, 0, 0, 0.10), 0 3px 6px rgba(0, 0, 0, 0.05)',
+		opacity: 1,
+		zIndex: 4,
 	},
-	overlay: { zIndex: 1000 },
+	overlay: {
+		backgroundColor: 'var(--lightest)',
+		zIndex: 3,
+		opacity: 1,
+	},
 };
 
 export default function Intro() {

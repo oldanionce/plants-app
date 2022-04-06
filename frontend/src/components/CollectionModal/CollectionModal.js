@@ -46,6 +46,9 @@ export default function CollectionModal({
 		careLevelInfo.push(careLevelIcon);
 	}
 
+	console.log(temperature);
+	console.log(soil);
+
 	return (
 		<>
 			<div class='modalContent'>
@@ -101,33 +104,33 @@ export default function CollectionModal({
 							<span>
 							{
 								{
-								1: "Una vez al mes",
-								2: "Una vez por semana",
-								3: "2/3 veces a la semana",
-								4: "A diario",
+								1: "Una vez al mes ",
+								2: "Una vez por semana ",
+								3: "2/3 veces a la semana ",
+								4: "A diario ",
 								}[irrigationSummer]
-							}{" "}
-							in Summer,{" "}
+							}
+							en verano,
 							</span>
 							<span>
 							{
 								{
-								1: "una vez al mes",
-								2: "una vez por semana",
-								3: "2/3 veces a la semana",
-								4: "a diario",
+								1: "una vez al mes ",
+								2: "una vez por semana ",
+								3: "2/3 veces a la semana ",
+								4: "a diario ",
 								}[irrigationWinter]
-							}{" "}
-							in Winter.
+							}
+							en invierno.
 							</span>
 							<p>{irrigation}</p>
 						</div>
 						</li>
 						<li className="plantTemp">
-						<span className='altIcons' title='Temperatura'>
-											{temperatureIcon}
-										</span>
-						<div>{temperature}</div>
+							<span className='altIcons' title='Temperatura'>
+								{temperatureIcon}
+							</span>
+							<div>{temperature}</div>
 						</li>
 						<li>
 						<span className="altIcons" title="Sustrato">

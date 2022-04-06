@@ -71,6 +71,7 @@ export default function CollectionItem({
 				irrigationSummer={plant.irrigationSummer}
 				irrigationWinter={plant.irrigationWinter}
 				soil={plant.soil}
+				temperature={plant.temperature}
 				// only needed for myPlants
 				nickname={plant.nickname}></CollectionCard>
 				<span className="addIcon" key={plant._id}>{addIcon}</span>
