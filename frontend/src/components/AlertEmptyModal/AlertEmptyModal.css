@@ -1,0 +1,22 @@
+/* MODAL */
+
+.modalContent {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	max-width: 850px;
+	padding: 20px;
+	color: var(--darkest);
+	font-family: Lato, sans-serif;
+}
+
+.modalInfo {
+	width: 60%;
+	padding-left: 20px;
+	margin-right: 5%;
+}
+
+.modalAlert h2 {
+	color: red;
+	text-align: center;
+}
