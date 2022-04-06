@@ -46,9 +46,6 @@ export default function CollectionModal({
 		careLevelInfo.push(careLevelIcon);
 	}
 
-	console.log(temperature);
-	console.log(soil);
-
 	return (
 		<>
 			<div class='modalContent'>
@@ -73,72 +70,72 @@ export default function CollectionModal({
 					<h2>{scientificName}</h2>
 					<h3>{commonName}</h3>
 					<ul>
-            			<li class="plantLocation">
+						<li class='plantLocation'>
 							<div>
 								{interiorExterior !== 1 ? (
-								interiorExterior === 2 ? (
-									<span className="altIcons" title="Exterior">
-									{locationExteriorIcon}
-									</span>
+									interiorExterior === 2 ? (
+										<span className='altIcons' title='Exterior'>
+											{locationExteriorIcon}
+										</span>
+									) : (
+										<span
+											className='altIcons double'
+											title='Interior y Exterior'>
+											{locationInteriorIcon}
+											{locationExteriorIcon}
+										</span>
+									)
 								) : (
-									<span className="altIcons double" title="Interior y Exterior">
-									{locationInteriorIcon}
-									{locationExteriorIcon}
+									<span className='altIcons' title='Interior'>
+										{locationInteriorIcon}
 									</span>
-								)
-								) : (
-								<span className="altIcons" title="Interior">
-									{locationInteriorIcon}
-								</span>
 								)}
 							</div>
-							<div>
-								{location}
-							</div>
-            			</li>
-						<li class="plantIrrigation">
-						<span className="altIcons" title="Riego">
-							{irrigationIcon}
-						</span>
-						<div>
-							<span>
-							{
-								{
-								1: "Una vez al mes ",
-								2: "Una vez por semana ",
-								3: "2/3 veces a la semana ",
-								4: "A diario ",
-								}[irrigationSummer]
-							}
-							en verano,
-							</span>
-							<span>
-							{
-								{
-								1: "una vez al mes ",
-								2: "una vez por semana ",
-								3: "2/3 veces a la semana ",
-								4: "a diario ",
-								}[irrigationWinter]
-							}
-							en invierno.
-							</span>
-							<p>{irrigation}</p>
-						</div>
+							<div>{location}</div>
 						</li>
-						<li className="plantTemp">
+						<li class='plantIrrigation'>
+							<span className='altIcons' title='Riego'>
+								{irrigationIcon}
+							</span>
+							<div>
+								<span>
+									{
+										{
+											1: 'Una vez al mes ',
+											2: 'Una vez por semana ',
+											3: '2/3 veces a la semana ',
+											4: 'A diario ',
+										}[irrigationSummer]
+									}
+									en verano,
+								</span>
+								<span>
+									{
+										{
+											1: 'una vez al mes ',
+											2: 'una vez por semana ',
+											3: '2/3 veces a la semana ',
+											4: 'a diario ',
+										}[irrigationWinter]
+									}
+									en invierno.
+								</span>
+								<p>{irrigation}</p>
+							</div>
+						</li>
+						<li className='plantTemp'>
 							<span className='altIcons' title='Temperatura'>
 								{temperatureIcon}
 							</span>
 							<div>{temperature}</div>
 						</li>
 						<li>
-						<span className="altIcons" title="Sustrato">
-							{soilIcon}
-						</span>
-						<div>{soil}</div>
+							<span className='altIcons' title='Sustrato'>
+								{soilIcon}
+							</span>
+							<div>{soil}</div>
 						</li>
-          			</ul>
+					</ul>
 				</div>
 			</div>
 			<SaveToMyPlantsForm
