@@ -20,10 +20,11 @@ exports.addToMyPlants = (req, res, next) => {
 	let plantId = req.body._id;
 	let nickname = req.body.nickname;
 
-	user.myplants.forEach(myplant => {
-		if (myplant.nickname != nickname)
-			user.myplants.push({ nickname: nickname, plant: plantId });
-	});
+	const checkDuplicated = obj => obj.nickname === nickname.toLowerCase();
+
+	if (!user.myplants.some(checkDuplicated)) {
+		user.myplants.push({ nickname: nickname, plant: plantId });
+	}
 
 	user.save(function (error) {
 		if (error) {
