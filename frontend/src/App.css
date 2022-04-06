@@ -127,6 +127,19 @@ body {
 	input:-webkit-autofill:focus, 
 	input:-webkit-autofill:active{
 		-webkit-box-shadow: 0 0 0 30px var(--lightest) inset !important;
+		box-shadow: 0 0 0 30px var(--lightest) inset !important;
+	}
+
+	.clickToClose {
+		/* border: 1px solid red; */
+		position: absolute;
+		bottom:0;
+		left:0;
+		right:0;
+		display:block;
+		height: 7rem;
+		z-index: 5;
+		cursor: pointer;
 	}
 
 
