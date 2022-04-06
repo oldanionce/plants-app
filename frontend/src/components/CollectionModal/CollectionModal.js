@@ -46,108 +46,104 @@ export default function CollectionModal({
     careLevelInfo.push(careLevelIcon);
   }
 
-  console.log(temperature);
-  console.log(soil);
+	return (
+		<>
+			<div class='modalContent'>
+				<div class='modalImage'>
+					<img src={`/images/${imageUrl}.jpg`} alt={commonName} />
+					<ul>
+						<li class='card__carelevel'>
+							<h4>Dificultad: </h4> {careLevelInfo}
+						</li>
+						<li>
+							{petFriendly === true ? (
+								<span className='altIcons' title='Apta para mascotas'>
+									{petFriendlyIcon}
+								</span>
+							) : (
+								''
+							)}
+						</li>
+					</ul>
+				</div>
+				<div class='modalInfo'>
+					<h2>{scientificName}</h2>
+					<h3>{commonName}</h3>
+					<ul>
+						<li class='plantLocation'>
+							<div>
+								{interiorExterior !== 1 ? (
+									interiorExterior === 2 ? (
+										<span className='altIcons' title='Exterior'>
+											{locationExteriorIcon}
+										</span>
+									) : (
+										<span
+											className='altIcons double'
+											title='Interior y Exterior'>
+											{locationInteriorIcon}
+											{locationExteriorIcon}
+										</span>
+									)
+								) : (
+									<span className='altIcons' title='Interior'>
+										{locationInteriorIcon}
+									</span>
+								)}
+							</div>
+							<div>{location}</div>
+						</li>
+						<li class='plantIrrigation'>
+							<span className='altIcons' title='Riego'>
+								{irrigationIcon}
+							</span>
+							<div>
+								<span>
+									{
+										{
+											1: 'Una vez al mes ',
+											2: 'Una vez por semana ',
+											3: '2/3 veces a la semana ',
+											4: 'A diario ',
+										}[irrigationSummer]
+									}
+									en verano,
+								</span>
+								<span>
+									{
+										{
+											1: 'una vez al mes ',
+											2: 'una vez por semana ',
+											3: '2/3 veces a la semana ',
+											4: 'a diario ',
+										}[irrigationWinter]
+									}
+									en invierno.
+								</span>
+								<p>{irrigation}</p>
+							</div>
+						</li>
+						<li className='plantTemp'>
+							<span className='altIcons' title='Temperatura'>
+								{temperatureIcon}
+							</span>
+							<div>{temperature}</div>
+						</li>
+						<li>
+							<span className='altIcons' title='Sustrato'>
+								{soilIcon}
+							</span>
+							<div>{soil}</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<SaveToMyPlantsForm
+				id={id}
+				handleNicknameChange={handleNicknameChange}
+				nickname={nickname}
+				addToMyPlants={addToMyPlants}></SaveToMyPlantsForm>
+		</>
+	);
 
-  return (
-    <>
-      <div class="modalContent">
-        <div class="modalImage">
-          <img src={`/images/${imageUrl}.jpg`} alt={commonName} />
-          <ul>
-            <li class="card__carelevel">
-              <h4>Dificultad: </h4> {careLevelInfo}
-            </li>
-            <li>
-              {petFriendly === true ? (
-                <span className="altIcons" title="Apta para mascotas">
-                  {petFriendlyIcon}
-                </span>
-              ) : (
-                ""
-              )}
-            </li>
-          </ul>
-        </div>
-        <div class="modalInfo">
-          <h2>{scientificName}</h2>
-          <h3>{commonName}</h3>
-          <ul>
-            <li class="plantLocation">
-              <div>
-                {interiorExterior !== 1 ? (
-                  interiorExterior === 2 ? (
-                    <span className="altIcons" title="Exterior">
-                      {locationExteriorIcon}
-                    </span>
-                  ) : (
-                    <span
-                      className="altIcons double"
-                      title="Interior y Exterior"
-                    >
-                      {locationInteriorIcon}
-                      {locationExteriorIcon}
-                    </span>
-                  )
-                ) : (
-                  <span className="altIcons" title="Interior">
-                    {locationInteriorIcon}
-                  </span>
-                )}
-              </div>
-              <div>{location}</div>
-            </li>
-            <li class="plantIrrigation">
-              <span className="altIcons" title="Riego">
-                {irrigationIcon}
-              </span>
-              <div>
-                <span>
-                  {
-                    {
-                      1: "Una vez al mes ",
-                      2: "Una vez por semana ",
-                      3: "2/3 veces a la semana ",
-                      4: "A diario ",
-                    }[irrigationSummer]
-                  }
-                  en verano,
-                </span>
-                <span>
-                  {
-                    {
-                      1: "una vez al mes ",
-                      2: "una vez por semana ",
-                      3: "2/3 veces a la semana ",
-                      4: "a diario ",
-                    }[irrigationWinter]
-                  }
-                  en invierno.
-                </span>
-                <p>{irrigation}</p>
-              </div>
-            </li>
-            <li className="plantTemp">
-              <span className="altIcons" title="Temperatura">
-                {temperatureIcon}
-              </span>
-              <div>{temperature}</div>
-            </li>
-            <li>
-              <span className="altIcons" title="Sustrato">
-                {soilIcon}
-              </span>
-              <div>{soil}</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <SaveToMyPlantsForm
-        id={id}
-        handleNicknameChange={handleNicknameChange}
-        nickname={nickname}
-        addToMyPlants={addToMyPlants}
-      ></SaveToMyPlantsForm>
-    </>
-  );
 }

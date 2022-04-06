@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 
 import CollectionCard from '../CollectionCard/CollectionCard';
 import CollectionModal from '../CollectionModal/CollectionModal';
+import AlertModal from '../AlertModal/AlertModal';
 
 import './CollectionItem.css';
 
@@ -41,6 +42,8 @@ export default function CollectionItem({
 	isLoading,
 	handleNicknameChange,
 	nickname,
+	alertModalIsOpen,
+	setAlertModalOpen,
 }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -104,6 +107,9 @@ export default function CollectionItem({
 					soil={plant.soil}
 					handleNicknameChange={handleNicknameChange}
 					nickname={nickname}></CollectionModal>
+				{alertModalIsOpen && (
+					<AlertModal setAlertModalOpen={setAlertModalOpen}></AlertModal>
+				)}
 			</Modal>
 		</>
 	);

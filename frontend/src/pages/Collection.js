@@ -109,10 +109,19 @@ export default function Collection() {
 		setNickname(e.target.value);
 	};
 
+	function showDuplicatedAlert() {
+		alert('You already have a plant with that nickname');
+	}
+
+	const [alertModalIsOpen, setAlertModalOpen] = useState(false);
+
 	function addToMyPlants(id) {
+		setAlertModalOpen(false);
+
 		if (!authData) {
 			navigate('/login', { replace: true });
 		}
+
 		fetch('/api/myplants', {
 			method: 'POST',
 			credentials: 'include',
@@ -120,6 +129,12 @@ export default function Collection() {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({ _id: id, nickname: nickname }),
+		}).then(res => {
+			console.log(res);
+			if (res.status === 500) setAlertModalOpen(true);
+			else {
+				navigate('/myplants', { replace: true });
+			}
 		});
 	}
 
@@ -161,6 +176,8 @@ export default function Collection() {
 						/>
 					</div>
 					<CollectionGrid
+						alertModalIsOpen={alertModalIsOpen}
+						setAlertModalOpen={setAlertModalOpen}
 						handleNicknameChange={handleNicknameChange}
 						nickname={nickname}
 						plants={currentPlants}

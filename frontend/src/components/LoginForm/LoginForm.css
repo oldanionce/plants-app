@@ -53,7 +53,7 @@
 	font-size: 1.5rem;
 }
 
-.loginForm .input__message a {
+.loginForm .input__message span {
 	color: var(--light-accent);
 	text-decoration: underline;
 }
