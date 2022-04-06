@@ -4,6 +4,32 @@ import './RegisterForm.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuthentication } from '../../AuthenticationContext';
 
+import Modal from 'react-modal';
+import LoginForm from '../LoginForm/LoginForm.js';
+
+const customStyles = {
+	content: {
+		top: '50%',
+		left: '50%',
+		right: 'auto',
+		bottom: 'auto',
+		marginRight: '-50%',
+		transform: 'translate(-50%, -50%)',
+		padding: 0,
+		border: 'none',
+		borderRadius: '10px',
+		backgroundColor: 'var(--dark)',
+		boxShadow: '0 3px 6px rgba(0, 0, 0, 0.10), 0 3px 6px rgba(0, 0, 0, 0.05)',
+		opacity: 1,
+		zIndex: 4,
+	},
+	overlay: {
+		backgroundColor: 'var(--lightest)',
+		zIndex: 3,
+		opacity: 1,
+	},
+};
+
 export default function Register() {
 	const [inputEmail, setInputEmail] = useState('');
 	const [inputPassword, setInputPassword] = useState('');
@@ -52,49 +78,67 @@ export default function Register() {
 		}
 	}
 
-	// Modal
+	// Modal Login, in case you click the link to log in from this component
+	const [modalIsOpen, setIsOpen] = useState(false);
+
+	function openModal() {
+		setIsOpen(true);
+	}
+
+	function closeModal() {
+		setIsOpen(false);
+	}
 
 	return (
-		<div class='container registerFormDiv'>
+		<>
+		<div id="registerForm" class='container registerFormDiv'>
 			<div class='container__form'>
 				<form class='form'>
 					<input
 						name='name__input'
 						type='text'
-						placeholder='name'
+						placeholder='nombre'
 						value={inputName}
 						onChange={handleInputChange}
 					/>
 					<input
 						type='email'
 						name='email__input'
-						placeholder='email address'
+						placeholder='dirección email'
 						value={inputEmail}
 						onChange={handleInputChange}
 					/>
 					<input
 						type='password'
-						placeholder='password'
+						placeholder='contraseña'
 						name='password__input'
 						value={inputPassword}
 						onChange={handleInputChange}
 					/>
 					<input
 						type='password'
-						placeholder='confirm password'
+						placeholder='confirmar contraseña'
 						name='password__input2'
 						value={inputPassword2}
 						onChange={handleInputChange}
 					/>
 
 					<button type='button' onClick={register}>
-						create
+						crear cuenta
 					</button>
 					<p class='input__message'>
-						Already registered? <Link to='/login'> Login</Link>
+						¿Ya te has registrado? <span onClick={openModal}> Entra</span>
 					</p>
 				</form>
 			</div>
 		</div>
+			<Modal
+				isOpen={modalIsOpen}
+				onRequestClose={closeModal}
+				style={customStyles}
+				contentLabel='Log In'>
+				<LoginForm></LoginForm>
+			</Modal>
+		</>
 	);
 }
