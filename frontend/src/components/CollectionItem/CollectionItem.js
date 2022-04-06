@@ -3,7 +3,8 @@ import Modal from 'react-modal';
 
 import CollectionCard from '../CollectionCard/CollectionCard';
 import CollectionModal from '../CollectionModal/CollectionModal';
-import AlertModal from '../AlertModal/AlertModal';
+import AlertDuplicatedModal from '../AlertDuplicatedModal/AlertDuplicatedModal';
+import AlertEmptyModal from '../AlertEmptyModal/AlertEmptyModal';
 
 import './CollectionItem.css';
 
@@ -40,19 +41,27 @@ export default function CollectionItem({
 	deleteFromMyPlants,
 	id,
 	isLoading,
+	setAlertDuplicatedModalOpen,
+	setAlertEmptyModalIsOpen,
+	setNickname,
+	alertEmptyModalIsOpen,
 	handleNicknameChange,
 	nickname,
-	alertModalIsOpen,
-	setAlertModalOpen,
+	alertDuplicatedModalIsOpen,
 }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
 
 	function openModal() {
+		setNickname('');
 		setIsOpen(true);
+		setAlertDuplicatedModalOpen(false);
+		setAlertEmptyModalIsOpen(false);
 	}
 
 	function closeModal() {
 		setIsOpen(false);
+		setAlertDuplicatedModalOpen(false);
+		setAlertEmptyModalIsOpen(false);
 	}
 
 	return (
@@ -107,9 +116,8 @@ export default function CollectionItem({
 					soil={plant.soil}
 					handleNicknameChange={handleNicknameChange}
 					nickname={nickname}></CollectionModal>
-				{alertModalIsOpen && (
-					<AlertModal setAlertModalOpen={setAlertModalOpen}></AlertModal>
-				)}
+				{alertDuplicatedModalIsOpen && <AlertDuplicatedModal></AlertDuplicatedModal>}
+				{alertEmptyModalIsOpen && <AlertEmptyModal></AlertEmptyModal>}
 			</Modal>
 		</>
 	);

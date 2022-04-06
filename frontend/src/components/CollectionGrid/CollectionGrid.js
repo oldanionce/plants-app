@@ -4,10 +4,13 @@ import './CollectionGrid.css';
 
 export default function CollectionGrid({
 	plants,
-	alertModalIsOpen,
-	setAlertModalOpen,
+	alertDuplicatedModalIsOpen,
 	handleNicknameChange,
 	nickname,
+	setNickname,
+	alertEmptyModalIsOpen,
+	setAlertEmptyModalIsOpen,
+	setAlertDuplicatedModalOpen,
 	addToMyPlants,
 }) {
 	return (
@@ -18,10 +21,13 @@ export default function CollectionGrid({
 			<ul className='collectionGrid'>
 				{plants.map(plant => (
 					<CollectionItem
-						alertModalIsOpen={alertModalIsOpen}
-						setAlertModalOpen={setAlertModalOpen}
+						alertDuplicatedModalIsOpen={alertDuplicatedModalIsOpen}
 						handleNicknameChange={handleNicknameChange}
+						alertEmptyModalIsOpen={alertEmptyModalIsOpen}
 						nickname={nickname}
+						setNickname={setNickname}
+						setAlertEmptyModalIsOpen={setAlertEmptyModalIsOpen}
+						setAlertDuplicatedModalOpen={setAlertDuplicatedModalOpen}
 						key={plant._id}
 						id={plant._id}
 						plant={plant}
