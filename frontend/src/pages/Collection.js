@@ -79,28 +79,14 @@ export default function Collection() {
 	const handleCare = e => {
 		const newPlants = [...plants];
 
-		let careValue = parseInt(e.target.value);
+		if (e.target.value === 'Dificultad:') {
+			setFilterPlants(newPlants);
+		} else {
+			let careValue = parseInt(e.target.value);
 
-		setFilterPlants(newPlants.filter(plant => plant.careLevel === careValue));
+			setFilterPlants(newPlants.filter(plant => plant.careLevel === careValue));
+		}
 	};
-
-	/* 
-
-	const handleEasy = e => {
-		const newPlants = [...plants];
-		let careValue = e.target.value;
-
-		setFilterPlants(newPlants.filter(plant => plant.careLevel === careValue));
-	};
-	const handleMedium = () => {
-		const newPlants = [...plants];
-		setFilterPlants(newPlants.filter(plant => plant.careLevel === '2'));
-	};
-
-	const handleHard = () => {
-		const newPlants = [...plants];
-		setFilterPlants(newPlants.filter(plant => plant.careLevel === '3'));
-	}; */
 
 	const [nickname, setNickname] = useState('');
 
