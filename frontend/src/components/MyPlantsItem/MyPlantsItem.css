@@ -1,1 +1,11 @@
+.myPlantsCard {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	background-color: var(--medium-green);
+	border-radius: 2rem;
+}
 
+.myPlantsCard:hover {
+	cursor: pointer;
+}

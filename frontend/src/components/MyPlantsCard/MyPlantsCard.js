@@ -81,7 +81,7 @@ export default function MyPlantsCard({
             irrigationSummer={irrigationSummer}
             irrigationWinter={irrigationWinter}
           ></Event>
-          <span onClick={() => deleteFromMyPlants(nickname)}>{trashIcon}</span>
+          <span className="deleteButton" title="Eliminar planta" onClick={() => deleteFromMyPlants(nickname)}>{trashIcon}</span>
         </div>
 
         {/* <ul className="myPlants_plantdetails">

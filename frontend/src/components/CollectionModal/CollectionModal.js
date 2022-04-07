@@ -52,14 +52,29 @@ export default function CollectionModal({
 				<div class='modalImage'>
 					<img src={`/images/${imageUrl}.jpg`} alt={commonName} />
 					<ul>
-						<li class='card__carelevel'>
-							<h4>Dificultad: </h4> {careLevelInfo}
+						<li className="modalCareLevel">
+							<h4>Dificultad: </h4>
+							<span className="altIcons">
+								{careLevelInfo}
+							</span>
+							<span className="careLevelText">
+								{
+									{
+										1: '(fácil)',
+										2: '(media)',
+										3: '(difícil)',
+									}[careLevel]
+								}
+							</span>
 						</li>
-						<li>
+						<li class="modalPetFriendly">
 							{petFriendly === true ? (
-								<span className='altIcons' title='Apta para mascotas'>
-									{petFriendlyIcon}
-								</span>
+								<>
+									<span className='altIcons' title='Apta para mascotas'>
+										{petFriendlyIcon}
+									</span>  
+									Apta para mascotas
+								</>
 							) : (
 								''
 							)}
@@ -129,12 +144,14 @@ export default function CollectionModal({
 							</span>
 							<div>{temperature}</div>
 						</li>
+						{soil !== '' && (
 						<li>
 							<span className='altIcons' title='Sustrato'>
 								{soilIcon}
 							</span>
 							<div>{soil}</div>
 						</li>
+						)}
 					</ul>
 				</div>
 			</div>

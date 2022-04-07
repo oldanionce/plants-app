@@ -25,6 +25,7 @@ const customStyles = {
 		padding: 0,
 		borderRadius: '10px',
 		border: '1px solid var(--medium)',
+		backgroundColor: 'var(--lightest)',
 		zIndex: 4,
 	},
 	overlay: {

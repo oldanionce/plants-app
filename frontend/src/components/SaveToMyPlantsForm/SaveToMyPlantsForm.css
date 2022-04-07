@@ -1,6 +1,6 @@
 .modalForm {
     background-color: var(--darkest);
-    color: white;
+    color: var(--lightest);
     padding: 20px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -21,6 +21,7 @@
 	padding: 10px;
 	border-radius: 10px;
 	border: none;
+    background-color: var(--lightest);
 }
 
 .modalForm button {
@@ -35,7 +36,7 @@
 	border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 	border: none;
-    color: white;
+    color: var(--lightest);
     background: var(--accent);
 }
 

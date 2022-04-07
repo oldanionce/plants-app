@@ -40,6 +40,10 @@
 	gap: 15px;
 }
 
+.myplants-actions .deleteButton:hover {
+	transform:scale(1.5);
+}
+
 .myPlantsCard h2 {
 	margin: 0 0 0.3rem;
 	font-family: 'Poppins', sans-serif;
@@ -65,6 +69,10 @@ button.reminder {
 	padding: 5px 15px;
 	border: none;
 	border-radius: 5px;
+}
+
+.atcb_icon svg {
+	fill: var(--lightest);
 }
 
 ul ul {
