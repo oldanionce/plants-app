@@ -1,10 +1,9 @@
 import './Intro.css';
-import LandingLogo from '../../logo.svg';
+import LandingLogo from '../../images/logo.svg';
 import { React, useState } from 'react';
 import Modal from 'react-modal';
 import LoginForm from '../LoginForm/LoginForm.js';
 
-import { NavLink } from 'react-router-dom';
 import { useAuthentication } from '../../AuthenticationContext';
 
 const customStyles = {
@@ -18,13 +17,14 @@ const customStyles = {
 		padding: 0,
 		border: 'none',
 		borderRadius: '10px',
-		backgroundColor: 'var(--dark)',
+		backgroundColor: 'var(--light)',
 		boxShadow: '0 3px 6px rgba(0, 0, 0, 0.10), 0 3px 6px rgba(0, 0, 0, 0.05)',
 		opacity: 1,
 		zIndex: 4,
 	},
 	overlay: {
-		backgroundColor: 'var(--lightest)',
+		// backgroundColor: 'var(--lightest)',
+		backgroundColor: 'rgba(0, 0, 0, 0.3)',
 		zIndex: 3,
 		opacity: 1,
 	},
@@ -34,6 +34,7 @@ export default function Intro() {
 	const { authData } = useAuthentication();
 
 	const [modalIsOpen, setIsOpen] = useState(false);
+	let root = document.getElementById('root');
 
 	function openModal() {
 		setIsOpen(true);
@@ -41,6 +42,14 @@ export default function Intro() {
 
 	function closeModal() {
 		setIsOpen(false);
+	}	
+
+	function afterOpenModal() {	
+		root.style.filter = 'blur(5px)';
+	}
+
+	function afterCloseModal() {	
+		root.style.filter = '';
 	}
 
 	// smooth scrolling from the register button to the register form at the bottom of the page
@@ -70,7 +79,7 @@ export default function Intro() {
 						
 							{!authData && (
 							<div className='register-button'>
-								<a onClick={smoothScroll}><button>Regístrate</button></a>
+								<button onClick={smoothScroll}>Regístrate</button>
 								<p>O si ya tienes una cuenta, <span onClick={openModal}>accede</span></p>
 							</div>
 							)}
@@ -81,6 +90,8 @@ export default function Intro() {
 			{!authData && (
 				<Modal
 					isOpen={modalIsOpen}
+					onAfterOpen={afterOpenModal}
+					onAfterClose={afterCloseModal}
 					onRequestClose={closeModal}
 					style={customStyles}
 					contentLabel='Log In'

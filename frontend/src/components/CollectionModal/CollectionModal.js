@@ -2,7 +2,6 @@ import "./CollectionModal.css";
 
 import SaveToMyPlantsForm from "../SaveToMyPlantsForm/SaveToMyPlantsForm";
 
-import ReactDOM from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLeaf } from "@fortawesome/free-solid-svg-icons";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
@@ -28,10 +27,8 @@ export default function CollectionModal({
   careLevel,
   petFriendly,
   addToMyPlants,
-  deleteFromMyPlants,
   handleNicknameChange,
   nickname,
-  // only needed for Collection
   scientificName,
   location,
   temperature,
@@ -39,7 +36,6 @@ export default function CollectionModal({
   irrigationSummer,
   irrigationWinter,
   soil,
-  //only needed for myPlants
 }) {
   let careLevelInfo = [];
   for (var i = 0; i < careLevel; i++) {
@@ -48,8 +44,8 @@ export default function CollectionModal({
 
 	return (
 		<>
-			<div class='modalContent'>
-				<div class='modalImage'>
+			<div className='modalContent'>
+				<div className='modalImage'>
 					<img src={`/images/${imageUrl}.jpg`} alt={commonName} />
 					<ul>
 						<li className="modalCareLevel">
@@ -67,7 +63,7 @@ export default function CollectionModal({
 								}
 							</span>
 						</li>
-						<li class="modalPetFriendly">
+						<li className="modalPetFriendly">
 							{petFriendly === true ? (
 								<>
 									<span className='altIcons' title='Apta para mascotas'>
@@ -81,11 +77,11 @@ export default function CollectionModal({
 						</li>
 					</ul>
 				</div>
-				<div class='modalInfo'>
+				<div className='modalInfo'>
 					<h2>{scientificName}</h2>
 					<h3>{commonName}</h3>
 					<ul>
-						<li class='plantLocation'>
+						<li className='plantLocation'>
 							<div>
 								{interiorExterior !== 1 ? (
 									interiorExterior === 2 ? (
@@ -108,7 +104,7 @@ export default function CollectionModal({
 							</div>
 							<div>{location}</div>
 						</li>
-						<li class='plantIrrigation'>
+						<li className='plantIrrigation'>
 							<span className='altIcons' title='Riego'>
 								{irrigationIcon}
 							</span>

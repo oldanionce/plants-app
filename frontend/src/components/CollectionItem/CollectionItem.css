@@ -2,12 +2,26 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	background-color: var(--medium-green);
+	background-color: var(--medium-green);	
+	transition: transform .2s;
+	padding-bottom: 1.5rem;
+}
+.collectionCard_inner {
+	box-shadow: rgba(29,40,18, 0.2) 0px 6px 12px -2px, rgba(29,40,18, 0.2) 0px 3px 7px -3px;
 	border-radius: 2rem;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	flex-grow: 1;
 }
 
 .collectionCard:hover {
 	cursor: pointer;
+	transform: scale(1.04);
+}
+
+.collectionCard:hover .collectionCard_inner {
+	box-shadow: rgba(29,40,18, 0.2) 0px 8px 14px -2px, rgba(29,40,18, 0.2) 0px 5px 9px -3px;
 }
 
 .addIcon {
@@ -19,7 +33,10 @@
 	border-radius: 50%;
 	color: var(--medium);
 	z-index: 2;
-	position: relative; 
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%); 
 	margin:-1.5rem auto 0;
 	text-align:center;
 }

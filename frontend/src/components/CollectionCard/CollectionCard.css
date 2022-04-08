@@ -33,7 +33,8 @@
 }
 
 .collectionCard .card__info {
-	background-color: var(--medium);
+	/* background-color: var(--medium); */
+	background: var(--medium) linear-gradient(0deg, rgba(29,40,18,0.2) 0%, var(--medium) 40%);
 	border-bottom-left-radius: 2rem;
 	border-bottom-right-radius: 2rem;
 	color: var(--lightest);

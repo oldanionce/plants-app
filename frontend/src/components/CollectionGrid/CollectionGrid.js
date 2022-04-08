@@ -14,9 +14,6 @@ export default function CollectionGrid({
 	addToMyPlants,
 }) {
 	return (
-		/* TODO: <div className={loading ? 'loaderContainer' : 'grid'}>
-          <Loader></Loader> */
-
 		<div>
 			<ul className='collectionGrid'>
 				{plants.map(plant => (

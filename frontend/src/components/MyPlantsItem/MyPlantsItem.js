@@ -1,13 +1,11 @@
 import './MyPlantsItem.css';
 import MyPlantsCard from '../MyPlantsCard/MyPlantsCard';
-import { useLocation } from 'react-router-dom';
 
 export default function MyPlantsItem({
 	plant,
 	nickname,
 	addToMyPlants,
 	deleteFromMyPlants,
-	isLoading,
 }) {
 	// Hooks
 	//	const location = useLocation();

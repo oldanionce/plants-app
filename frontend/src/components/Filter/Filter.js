@@ -17,7 +17,7 @@ export default function Filter({
 	handleCare,
 }) {
 	return (
-		<div class='filters'>
+		<div className='filters'>
 			{/* Care Level selector */}
 			<select name='carelevel' onChange={e => handleCare(e)} className='carelevel'>
 				<option>Dificultad:</option>
