@@ -10,10 +10,10 @@ export default function SaveToMyPlantsForm({ addToMyPlants, id, handleNicknameCh
 						value={nickname}
 						onChange={handleNicknameChange}
 						name='saveToMyPlants'
-						placeholder='Pick a nickname'
+						placeholder='Escoge un nombre para tu planta'
 					/>
 					<button type='button' onClick={() => addToMyPlants(id)}>
-						Save to My Plants
+						Guardar
 					</button>
 				</div>
 			</form>

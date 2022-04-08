@@ -11,6 +11,39 @@
   transform: rotate(-15deg);
 }
 
+.logo-container img {
+	animation: shake2 4s infinite ease-in-out;
+}
+
+@keyframes shake2 {
+	0%, 11% { transform: translate(1px, 1px) rotate(-15deg); }
+	1% { transform: translate(-1px, -2px) rotate(-16deg); }
+	2% { transform: translate(-3px, 0px) rotate(-4deg); }
+	3% { transform: translate(3px, 2px) rotate(-15deg); }
+	4% { transform: translate(1px, -1px) rotate(-4deg); }
+	5% { transform: translate(-1px, 2px) rotate(-16deg); }
+	6% { transform: translate(-3px, 1px) rotate(-15deg); }
+	7% { transform: translate(3px, 1px) rotate(-16deg); }
+	8% { transform: translate(-1px, -1px) rotate(-4deg); }
+	9% { transform: translate(1px, 2px) rotate(-15deg); }
+	10% { transform: translate(1px, -2px) rotate(-16deg); }
+  }
+
+
+/* @keyframes shake {
+	0% { transform: translate(1px, 1px) rotate(-15deg); }
+	10% { transform: translate(-1px, -2px) rotate(-16deg); }
+	20% { transform: translate(-3px, 0px) rotate(-4deg); }
+	30% { transform: translate(3px, 2px) rotate(-15deg); }
+	40% { transform: translate(1px, -1px) rotate(-4deg); }
+	50% { transform: translate(-1px, 2px) rotate(-16deg); }
+	60% { transform: translate(-3px, 1px) rotate(-15deg); }
+	70% { transform: translate(3px, 1px) rotate(-16deg); }
+	80% { transform: translate(-1px, -1px) rotate(-4deg); }
+	90% { transform: translate(1px, 2px) rotate(-15deg); }
+	100% { transform: translate(1px, -2px) rotate(-16deg); }
+  } */
+
 .logo-container h1 {
   font-family: 'ABeeZee', sans-serif;
   font-size: 4rem;

@@ -40,11 +40,12 @@
 	position: relative;display: flex;
 	justify-content: flex-start;
 	align-items: top;
-	padding: 3rem 1rem;
+	padding: 3rem 0;
 }
 
 .footer_title {
-	width: 40%;
+	width: calc(40% - 2rem);
+	padding-left: 2rem;
 }
 
 	.footerDiv h5 {

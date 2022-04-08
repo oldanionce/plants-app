@@ -53,3 +53,36 @@
 	grid-column-gap: 1.5rem;
 	grid-row-gap: 1.5rem;
 }
+
+/* For when you still haven't added any plants to your personal collection */
+
+.noPlantsYet {
+	padding: 3rem 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;	
+	position: relative;
+}
+
+.noPlantsYet span {
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.8rem;
+	margin-bottom:4rem;
+}
+
+.noPlantsYet a:link, 
+.noPlantsYet a:visited {
+	text-decoration:none;
+	font-weight: 700;
+	color: var(--lightest);
+	background-color: var(--light-accent);
+	padding: 6px 18px;
+	border-radius: 5px;
+	font-size: 1.8rem;
+}
+
+.noPlantsYet a:hover {
+	background-color: var(--accent);
+	color: var(--lightest);
+	cursor: pointer;
+}

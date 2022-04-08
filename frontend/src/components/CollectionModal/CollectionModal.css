@@ -12,11 +12,12 @@
 
 .modalImage {
 	width: 30%;
-	border-right: 2px solid var(--light-accent);
+	border-right: 2px dotted var(--light);
 	padding-right: 20px;
 }
 	.modalImage img {
 		width: 100%;
+		border-radius: 10px;
 	}
 
 .modalInfo {
@@ -26,12 +27,18 @@
 }
 
 .modalInfo h2 {
-	color: var(--accent);
+	color: var(--darkest);
+	font-family: 'Poppins', sans-serif;
+	font-size: 2.5rem;
+	line-height: 3.5rem;
 }
 
 .modalInfo h3 {
-	color: var(--dark);
-	margin-bottom: 20px;
+	color: var(--mediumlight);
+	font-size:1.6rem;
+	font-family: 'Poppins', sans-serif;
+	font-style: italic;
+	margin-bottom: 3rem;
 }
 
 .modalImage ul,
@@ -41,9 +48,12 @@
 
 .modalImage li,
 .modalInfo li {
-	margin-bottom: 10px;
+	margin-bottom: 1.5rem;
 	display: flex;
 	justify-content: start;
+	font-size: 1.6rem;
+	font-family: 'Lato', sans-serif;
+	
 }
 
 .modalContent h4 {
@@ -55,15 +65,49 @@
 	display:inline-block;
 	padding-left: 2rem;
 	padding-right: 10px;
-	min-width: 2rem;
+	min-width: 3rem;
+	font-size: 1.8rem;
+	color: var(--dark);
 }
 
 .modalInfo .altIcons.double {
 	padding-left: 0;
-	width: 4rem;
+	width: 5rem;
 }
 
+.modalImage .altIcons {
+	display:inline-block;
+	font-size: 1.8rem;
+	color: var(--dark);
+	margin-right: 1rem;
+}
+
+.modalCareLevel .careLevelText {
+	font-size: 1.4rem;
+	line-height: 2.6rem;
+	font-weight: 600;
+	font-style: italic;
+	color: var(--mediumlight);
+}
 
 .plantIrrigation span::after {
 	content: ' ';
+}
+
+.modalPetFriendly span.altIcons {
+	background-color:var(--light-accent);
+	line-height: 2.6rem;
+	width: 2.6rem;
+	display:inline-block;
+	text-align: center;
+	border-radius: 50%;
+	color:var(--lightest);
+	margin-right: 1rem;
+}
+
+.modalPetFriendly {
+	color: var(--light-accent);
+	font-size: 1.6rem;
+	line-height: 2.6rem;
+	font-weight: 700;
 }
