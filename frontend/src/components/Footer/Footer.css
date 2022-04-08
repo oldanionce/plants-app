@@ -68,6 +68,17 @@
 		margin: 2rem 0;
 	}
 
+	.footerDiv a.button svg {
+		transition: transform .2s;
+		transform: scale(1);
+		transform-origin: left center;
+	}
+
+	.footerDiv a.button:hover svg {
+		transform: scale(1.25);
+		transform-origin: left center;
+	}
+
 .footer_copy {
 	width: 15%;
 	border-right: 1px solid var(--dark);
@@ -83,7 +94,7 @@
 
 .footer_credits {
 	width: 45%;
-	padding-left: 3reM;
+	padding-left: 3rem;
 }
 
 .footer_credits ol {
@@ -106,4 +117,15 @@
 
 .footer_credits a:hover {
 	color: var(--light-accent);
+}
+
+.footer_credits a svg {
+	transition: transform .2s;
+	transform: scale(1);
+	transform-origin: left center;
+}
+
+.footer_credits a:hover svg {
+	transform: scale(1.25);
+	transform-origin: left center;
 }

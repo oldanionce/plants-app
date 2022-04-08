@@ -8,6 +8,7 @@ import Navigation from '../components/Navigation/Navigation.js';
 import Search from '../components/Search/Search.js';
 import Filter from '../components/Filter/Filter.js';
 import Footer from '../components/Footer/Footer';
+import Loader from '../components/Loader/Loader';
 
 export default function Collection() {
 	const navigate = useNavigate();
@@ -155,7 +156,8 @@ export default function Collection() {
 			</header>
 
 			<main className='container collectionDiv'>
-				<div className='content'>
+				<div className={isLoading ? 'content isLoading' : 'content'}>
+          			<Loader></Loader>
 					<div className='gridHeader'>
 						<Filter
 							handleSort={handleSort}

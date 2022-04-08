@@ -25,14 +25,15 @@ const customStyles = {
 		transform: 'translate(-50%, -50%)',
 		padding: 0,
 		borderRadius: '10px',
-		border: '1px solid var(--medium)',
+		border: '1px solid var(--darkest)',
 		backgroundColor: 'var(--lightest)',
 		zIndex: 4,
 	},
 	overlay: {
 		zIndex: 3,
 		opacity: 1,
-		backgroundColor: 'var(--light)',
+		// backgroundColor: 'var(--light)',
+		backgroundColor: 'rgba(0, 0, 0, 0.3)',
 	},
 };
 
@@ -51,6 +52,7 @@ export default function CollectionItem({
 	alertDuplicatedModalIsOpen,
 }) {
 	const [modalIsOpen, setIsOpen] = useState(false);
+	let root = document.getElementById('root');
 
 	function openModal() {
 		setNickname('');
@@ -63,6 +65,14 @@ export default function CollectionItem({
 		setIsOpen(false);
 		setAlertDuplicatedModalOpen(false);
 		setAlertEmptyModalIsOpen(false);
+	}	
+
+	function afterOpenModal() {	
+		root.style.filter = 'blur(5px)';
+	}
+
+	function afterCloseModal() {	
+		root.style.filter = '';
 	}
 
 	return (
@@ -93,9 +103,12 @@ export default function CollectionItem({
 			</li>
 			<Modal
 				isOpen={modalIsOpen}
+				onAfterOpen={afterOpenModal}
+				onAfterClose={afterCloseModal}
 				onRequestClose={closeModal}
 				style={customStyles}
-				contentLabel={plant.scientificName}>
+				contentLabel={plant.scientificName}
+				ariaHideApp={false}>
 				<button className='modalCloseModal' key={plant._id} onClick={closeModal}>
 					{closeIcon}
 				</button>

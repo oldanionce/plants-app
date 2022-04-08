@@ -3,9 +3,9 @@ import './AlertDuplicatedModal.css';
 export default function AlertDuplicatedModal() {
 	return (
 		<>
-			<div class='modalContent'>
-				<div class='modalAlert'>
-					<h2>You already have a plant with that nickname!</h2>
+			<div className='alertModalContent'>
+				<div className='modalAlert'>
+					<h2>¡Ya tienes una planta con ese nombre!</h2>
 				</div>
 			</div>
 		</>

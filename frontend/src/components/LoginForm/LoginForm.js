@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuthentication } from '../../AuthenticationContext';
 import './LoginForm.css';
 
@@ -11,8 +11,8 @@ export default function LoginForm() {
 	// Hooks
 	const { login } = useAuthentication();
 	const navigate = useNavigate();
-	const location = useLocation();
-	const from = location.state?.from?.pathname || '/';
+	// const location = useLocation();
+	// const from = location.state?.from?.pathname || '/';
 
 	// Input Handlers
 	const handleInputChange = e => {

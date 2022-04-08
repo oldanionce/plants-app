@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './RegisterForm.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuthentication } from '../../AuthenticationContext';
@@ -18,13 +17,14 @@ const customStyles = {
 		padding: 0,
 		border: 'none',
 		borderRadius: '10px',
-		backgroundColor: 'var(--dark)',
+		backgroundColor: 'var(--light)',
 		boxShadow: '0 3px 6px rgba(0, 0, 0, 0.10), 0 3px 6px rgba(0, 0, 0, 0.05)',
 		opacity: 1,
 		zIndex: 4,
 	},
 	overlay: {
-		backgroundColor: 'var(--lightest)',
+		// backgroundColor: 'var(--lightest)',
+		backgroundColor: 'rgba(0, 0, 0, 0.3)',
 		zIndex: 3,
 		opacity: 1,
 	},
@@ -80,6 +80,7 @@ export default function Register() {
 
 	// Modal Login, in case you click the link to log in from this component
 	const [modalIsOpen, setIsOpen] = useState(false);
+	let root = document.getElementById('root');
 
 	function openModal() {
 		setIsOpen(true);
@@ -87,6 +88,14 @@ export default function Register() {
 
 	function closeModal() {
 		setIsOpen(false);
+	}
+
+	function afterOpenModal() {	
+		root.style.filter = 'blur(5px)';
+	}
+
+	function afterCloseModal() {	
+		root.style.filter = '';
 	}
 
 	// in case we click the "register" text link FROM WITHIN the login form,
@@ -142,9 +151,12 @@ export default function Register() {
 		</div>
 			<Modal
 				isOpen={modalIsOpen}
+				onAfterOpen={afterOpenModal}
+				onAfterClose={afterCloseModal}
 				onRequestClose={closeModal}
 				style={customStyles}
-				contentLabel='Log In'>
+				contentLabel='Log In'
+				ariaHideApp={false}>
 				<div className="clickToClose" onClick={smoothScrollandClose}></div>
 				<LoginForm></LoginForm>
 			</Modal>

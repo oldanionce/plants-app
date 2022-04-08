@@ -49,15 +49,15 @@
 .loginForm .input__message {
 	margin-top: 1.5rem;
 	font-weight: 700;
-	color: var(--lightest);
+	color: var(--darkest);
 	font-size: 1.5rem;
 }
 
 .loginForm .input__message span {
 	color: var(--light-accent);
-	text-decoration: underline;
+	text-decoration: none;
 }
 
-.loginForm .input__message a:hover {
-	color: var(--accent);
+.clickToClose:hover + .loginForm .input__message span {
+	text-decoration: underline;
 }

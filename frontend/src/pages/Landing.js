@@ -14,7 +14,6 @@ export default function Landing() {
 			<Navigation></Navigation>
 			<Intro></Intro>
 			<Features></Features>
-			{/* <Event></Event> */}
 			{!authData && <RegisterForm></RegisterForm>}
 			<Footer></Footer>
 		</>

@@ -1,6 +1,6 @@
 
 import { useLocation} from 'react-router-dom';
-import PlantagotchiLogo from '../../logo.svg';
+import PlantagotchiLogo from '../../images/logo.svg';
 import "./Logo.css";
 
 export default function Logo() {

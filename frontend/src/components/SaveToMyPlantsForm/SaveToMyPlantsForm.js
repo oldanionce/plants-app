@@ -2,7 +2,7 @@ import './SaveToMyPlantsForm.css';
 
 export default function SaveToMyPlantsForm({ addToMyPlants, id, handleNicknameChange, nickname }) {
 	return (
-		<div class='modalForm'>
+		<div className='modalForm'>
 			<form>
 				<div>
 					<input
@@ -11,6 +11,7 @@ export default function SaveToMyPlantsForm({ addToMyPlants, id, handleNicknameCh
 						onChange={handleNicknameChange}
 						name='saveToMyPlants'
 						placeholder='Escoge un nombre para tu planta'
+						onKeyDown={e => e.key === 'Enter' && addToMyPlants(id)}
 					/>
 					<button type='button' onClick={() => addToMyPlants(id)}>
 						Guardar

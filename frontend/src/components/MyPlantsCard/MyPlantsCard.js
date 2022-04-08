@@ -16,31 +16,22 @@ import { useLocation } from "react-router-dom";
 import "./MyPlantsCard.css";
 
 const careLevelIcon = <FontAwesomeIcon icon={faLeaf} />;
-const locationInteriorIcon = <FontAwesomeIcon icon={faHouse} />;
-const locationExteriorIcon = <FontAwesomeIcon icon={faSun} />;
 const irrigationIcon = <FontAwesomeIcon icon={faDroplet} />;
 const trashIcon = <FontAwesomeIcon icon={faTrash} />;
 const soilIcon = <FontAwesomeIcon icon={faSeedling} />;
 const petFriendlyIcon = <FontAwesomeIcon icon={faPaw} />;
-const temperatureIcon = <FontAwesomeIcon icon={faTemperatureHalf} />;
 
 export default function MyPlantsCard({
   id,
   imageUrl,
   commonName,
-  interiorExterior,
   careLevel,
   petFriendly,
-  addToMyPlants,
   deleteFromMyPlants,
-  // only needed for Collection
-  scientificName,
-  location,
   irrigation,
   irrigationSummer,
   irrigationWinter,
   soil,
-  //only needed for myPlants
   nickname,
 }) {
   let careLevelInfo = [];
@@ -65,7 +56,7 @@ export default function MyPlantsCard({
 
   return (
     <>
-      {/* {petFriendly === true ? <div className ='card__petfriendly'><span className="altIcons" title="Apta para mascotas">{petFriendlyIcon}</span></div> : ""} */}
+      {petFriendly === true ? <div className ='card__petfriendly'><span className="altIcons" title="Apta para mascotas">{petFriendlyIcon}</span></div> : ""}
       <div className="card__image">
         <img src={`/images/${imageUrl}.jpg`} alt={commonName} />
       </div>

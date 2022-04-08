@@ -4,8 +4,13 @@
 	position: relative;
 	background-color: var(--medium-green);
 	border-radius: 2rem;
+	box-shadow: rgba(29,40,18, 0.2) 0px 6px 12px -2px, rgba(29,40,18, 0.2) 0px 3px 7px -3px;
+	transition: transform .2s;
 }
 
 .myPlantsCard:hover {
 	cursor: pointer;
+	/* box-shadow: rgba(29,40,18, 0.3) 0px 10px 16px -2px, rgba(29,40,18, 0.3) 0px 7px 11px -3px; */
+	box-shadow: rgba(29,40,18, 0.2) 0px 8px 14px -2px, rgba(29,40,18, 0.2) 0px 5px 9px -3px;
+	transform: scale(1.04);
 }

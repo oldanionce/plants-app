@@ -1,0 +1,36 @@
+/* Handle loader visibility */
+.content .loader {
+	display:none;
+}
+
+.content.isLoading .gridHeader,
+.content.isLoading .grid__container {
+	display:none;
+}
+
+.content.isLoading .loader {
+	display: block;
+}
+
+
+/* loader styles and animation */
+.isLoading {
+	display: flex;
+	justify-content: center;
+}
+
+.loader {
+	padding-top: 10rem;
+}
+
+.loader img {
+	width: 10rem;
+	height: auto;
+	animation: bouncing-loader 0.5s ease-out infinite alternate;
+}
+
+@keyframes bouncing-loader {
+	to {
+	  transform: translate3d(0, -2rem, 0);
+	}
+  }

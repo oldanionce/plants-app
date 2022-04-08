@@ -1,13 +1,22 @@
 .myPlantsCard .card__petfriendly {
 	position: absolute;
-	top: -1px;
-	right: -1px;
+	top:-1px;
+	right:-1px;
 	border-top-right-radius: 2rem;
-	overflow: hidden;
-	width: 6rem;
-	height: 6rem;
-	z-index: 2;
-	display: block;
+	overflow:hidden;
+	width:6rem;
+	height:6rem;
+	z-index:2;
+	display:block;
+}
+.myPlantsCard .card__petfriendly span {
+	background-color: var(--accent);
+	display:block;
+	transform:rotate(45deg);
+	text-align:center;
+	color: var(--lightest);
+	width:150%;
+	padding: 0.5rem 0;
 }
 
 .myPlantsCard .card__image {
@@ -23,7 +32,8 @@
 }
 
 .myPlantsCard .card__info {
-	background-color: var(--medium);
+	/* background-color: var(--medium); */
+	background: var(--medium) linear-gradient(0deg, rgba(29,40,18,0.2) 0%, var(--medium) 40%);
 	border-bottom-left-radius: 2rem;
 	border-bottom-right-radius: 2rem;
 	color: var(--lightest);
@@ -41,8 +51,16 @@
 }
 
 .myplants-actions .deleteButton:hover {
-	transform:scale(1.5);
+	/* transform:scale(1.8) rotate(-15deg); */
+	animation: bouncing-delete 0.5s ease-out infinite alternate;
 }
+
+@keyframes bouncing-delete {
+	to {
+	  transform: scale(1.8);
+	}
+  }
+
 
 .myPlantsCard h2 {
 	margin: 0 0 0.3rem;
@@ -61,18 +79,16 @@
 	max-width: 100%;
 }
 
-button.reminder {
-	background-color: var(--dark);
-	color: var(--lightest);
-	font-family: 'Poppins', sans-serif;
-	font-weight: bold;
-	padding: 5px 15px;
-	border: none;
-	border-radius: 5px;
-}
-
 .atcb_icon svg {
 	fill: var(--lightest);
+}
+
+.myplants-actions button.atcb_button {
+	box-shadow: none;
+}
+
+.myplants-actions button.atcb_button:hover {
+	background-color: var(--darkest);
 }
 
 ul ul {
