@@ -5,7 +5,11 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "nodemon ./index.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "npm run install:client:deps && npm run build:client && npm run copy:files",
+		"build:client": "cd ./frontend && npm run build && cd ../",
+		"install:client:deps": "cd ./frontend && yarn && cd ../",
+		"copy:files": "rm -rf ./public && mkdir ./public && cp -Rv ./frontend/build/* ./public"
 	},
 	"repository": {
 		"type": "git",
