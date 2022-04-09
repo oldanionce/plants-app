@@ -53,6 +53,18 @@ body {
 	min-height: 100vh;	
 }
 
+/* Close button for modals */
+.clickToClose {
+	position: absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	display:block;
+	height: 7rem;
+	z-index: 5;
+	cursor: pointer;
+}
+
 
 /* --------------------------------------------------------------------------------------------------
 	LAYOUT
@@ -131,24 +143,50 @@ body {
 		box-shadow: 0 0 0 30px var(--lightest) inset !important;
 	}
 
-	.clickToClose {
-		/* border: 1px solid red; */
-		position: absolute;
-		bottom:0;
-		left:0;
-		right:0;
-		display:block;
-		height: 7rem;
-		z-index: 5;
-		cursor: pointer;
-	}
-
 
 /* ----------------------------------
 	MEDIA QUERIES
 ---------------------------------- */
 
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.content {max-width: 700px;}
+	.collectionGrid,
+	.myPlantsGrid {
+		padding: 0 2rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.content {max-width: 950px;}
+	.collectionGrid,
+	.myPlantsGrid {
+		padding: 0 2rem;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}	
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.content {max-width: 1160px;}
+	.collectionGrid,
+	.myPlantsGrid {
+		padding: 0 2rem;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-	.content {max-width: 1300px;}
+	.content {max-width: 1380px;}
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+	.content {max-width: 1500px;}
 }

@@ -1,13 +1,17 @@
 import "./Features.css";
+import Features01 from '../../images/screen01.jpg';
+import Features02 from '../../images/screen02.jpg';
 
 export default function Features() {
   return (
     <div className="featuresDiv container">
       <div className="content">
-        <img
-          alt="plants app features"
-          src="https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg"
-        ></img>
+        <div className="featuresPic">
+          <img
+            alt="plants app features"
+            src={Features01}
+          ></img>
+        </div>
         <div className="featuresText">
           <h2>Tu ABC de plantas</h2>
           <span>
@@ -26,10 +30,12 @@ export default function Features() {
             mantener tus plantas regadas y sanas siempre que sea necesario!
           </span>
         </div>
-        <img
-          alt="plants app features"
-          src="https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg"
-        ></img>
+        <div className="featuresPic">
+          <img
+            alt="plants app features"
+            src={Features02}
+          ></img>
+        </div>
       </div>
     </div>
   );
