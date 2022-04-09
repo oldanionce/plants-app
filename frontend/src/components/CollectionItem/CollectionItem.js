@@ -107,6 +107,7 @@ export default function CollectionItem({
 				onAfterClose={afterCloseModal}
 				onRequestClose={closeModal}
 				style={customStyles}
+				bodyOpenClassName="collectionCardOpen"
 				contentLabel={plant.scientificName}
 				ariaHideApp={false}>
 				<button className='modalCloseModal' key={plant._id} onClick={closeModal}>

@@ -38,6 +38,7 @@
 
 html {
 	font-size: 10px;
+	height: 100%;
 }
 
 body {
@@ -148,6 +149,27 @@ body {
 	MEDIA QUERIES
 ---------------------------------- */
 
+@media (max-width: 768px) {
+	.collectionCardOpen {
+		overflow: hidden;
+	}
+	.collectionCardOpen .ReactModal__Content {
+		position: absolute !important;
+		top:0 !important;
+		left:0 !important;
+		transform:none !important;
+		width: 100% !important;
+		height: 100% !important;
+		display: block !important;
+		overflow: auto !important;
+		background-color: var(--darkest) !important;
+		border-radius: 0 !important;
+	}
+	.collectionCardOpen .ReactModal__Content .modalContent  {
+		background-color:var(--lightest) !important;
+	}
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 	.content {max-width: 700px;}
@@ -157,17 +179,97 @@ body {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 	}
+	.footerDiv .content::before {
+		background-position: 40% 30%;
+		background-origin: content-box;
+		background-size: 40%;
+	}
+	.footer_copy.column {
+		display: none;
+	}
+	.footer_title {
+		width: calc(65% - 2rem);
+	}
+	.footer_title .footer_copy {
+		display: block;
+		padding:0;
+	}
+	.footerDiv .content {
+		flex-direction: row;
+	}
+	.footer_credits {
+		width: 35%;
+		padding-top: 0;
+		padding-left: 3rem;
+	}
+	
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 	.content {max-width: 950px;}
+	nav {
+		flex-direction: row;
+		padding: 0;
+	}
+	.collectionHeader .content,
+	.myPlantsHeader .content {
+		flex-direction: row;
+		padding-right:2rem;
+	}
+	.collectionHeader h1 {
+		margin-bottom:0;
+	}
+	.gridHeader,
+	.gridFooter {
+		flex-direction: row;
+	}
 	.collectionGrid,
 	.myPlantsGrid {
 		padding: 0 2rem;
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 	}	
+	.modalContent {
+		flex-direction: row;
+	}
+	.modalImage {
+		width: 30%;
+		border-right: 2px dotted var(--light);
+		padding-right: 20px;
+		border-bottom: none;
+		padding-bottom: 0;
+		margin-bottom:0;
+		align-items: flex-start;
+	}
+	.modalImage img {
+		width: 100%;
+	}
+	.footerDiv .content::before {
+		background-position: 35% 40%;
+		background-origin: content-box;
+		background-size: 30%;
+	}
+	.footer_credits ol {
+		column-count: 2;
+	}
+	.footer_title .footer_copy {
+		display: none;
+	}
+	.footer_title {
+		width: calc(40% - 2rem);
+		padding-right: 0;
+	}
+	.footer_credits {
+		width: 45%;
+	}
+	.footer_copy.column {
+		display:block;
+		width: 15%;
+	}
+	.footer_copy.column p {
+		text-align: right;
+	}
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -189,4 +291,5 @@ body {
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) { 
 	.content {max-width: 1500px;}
+	.navigationDiv {padding:0;}
 }

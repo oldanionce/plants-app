@@ -2,7 +2,7 @@
 
 .modalContent {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-between;
 	max-width: 850px;
     padding: 20px;
@@ -11,17 +11,23 @@
 }
 
 .modalImage {
-	width: 30%;
-	border-right: 2px dotted var(--light);
-	padding-right: 20px;
+	width: 100%;
+	border-bottom: 2px dotted var(--light);
+	padding-bottom: 1rem;
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 	.modalImage img {
-		width: 100%;
+		width: 50%;
 		border-radius: 10px;
+		margin-bottom: 1rem;
 	}
 
 .modalInfo {
-	width: 60%;
+	/* width: 60%; */
 	padding-left: 20px;
 	margin-right: 5%;
 }

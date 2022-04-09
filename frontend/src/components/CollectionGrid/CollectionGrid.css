@@ -29,6 +29,7 @@
 
 .collectionHeader .content {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	padding: 2.5rem 0;
@@ -42,6 +43,7 @@
 	display: inline-block;
 	flex-grow: 1;
 	text-indent: 2rem;
+	margin-bottom:4rem;
 }
 
 .collectionGrid {
@@ -49,7 +51,7 @@
 	margin: 0;
 	padding: 0 2rem;
 	display:grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: 1fr;
 	grid-column-gap: 1.5rem;
 	grid-row-gap: 1.5rem;
 }

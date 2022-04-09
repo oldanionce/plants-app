@@ -1,7 +1,13 @@
 nav {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	padding: 0 0 2rem 0;
+}
+
+.navigationDiv {
+	padding:0 1rem;
 }
 
 .navigationDiv ul {

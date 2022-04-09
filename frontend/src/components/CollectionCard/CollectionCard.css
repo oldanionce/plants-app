@@ -27,6 +27,7 @@
 }
 
 .collectionCard .card__image img {
+	width: 100%;
 	max-width: 100%;
 	border-top-left-radius: 2rem;
 	border-top-right-radius: 2rem;
