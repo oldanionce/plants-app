@@ -57,7 +57,9 @@ app.use('/api/myplants', userRouter);
 app.use('/api/collection', collectionRouter);
 app.use('/api/auth', authRouter);
 app.use('/images', express.static('./plant-images'));
-
+app.get('/*', function (req, res) {
+	res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 //Method to catch not Found error
 app.use(function (req, res, next) {
 	next(createError(404));
