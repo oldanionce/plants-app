@@ -1,9 +1,10 @@
 .introDiv {
-	padding: 5rem;
+	padding: 2rem;
 }
 
 .intro {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -11,8 +12,8 @@
 /* Logo */
 
 .intro .logo {
-  width: 40rem;
-  height: 40rem;
+  width: 200px;
+  height: 200px;
 }
 
 .intro .logo img {
@@ -44,16 +45,16 @@
 .intro h1 {
 	font-family: 'ABeeZee', sans-serif;
 	color: var(--dark);
-	font-size: 8rem;
-	line-height: 8rem;
+	font-size: 5rem;
+	line-height: 5rem;
 	text-align: center;
 }
 
 .intro h2 {
 	font-family: Poppins, sans-serif;
 	color: var(--light);
-	font-size: 4rem;
-  	line-height: 5rem; 
+	font-size: 2.5rem;
+  	line-height: 3rem; 
   	margin-bottom: 2rem;
 	  text-align: center;
 }

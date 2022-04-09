@@ -118,6 +118,7 @@ export default function MyPlants() {
 			onAfterClose={afterCloseModal}
 			onRequestClose={closeModal}
 			style={customStyles}
+			bodyOpenClassName="helpCardOpen"
 			contentLabel='Log In'
 			ariaHideApp={false}>
 				<button className='modalCloseModal' onClick={closeModal}>

@@ -20,12 +20,12 @@ export default function HelpModal() {
 					<li className='help_step01'>
 						<img src={Step01} alt='Paso 1' />
 						<h4>Haz click en "Añadir recordatorio"</h4>
-						<span class='next'>{arrowRightIcon}</span>
+						<span className='next'>{arrowRightIcon}</span>
 					</li>
 					<li className='help_step02'>
 						<img src={Step02} alt='Paso 2' />
 						<h4>Selecciona tu calendario favorito</h4>
-						<span class='next'>{arrowRightIcon}</span>
+						<span className='next'>{arrowRightIcon}</span>
 					</li>
 					<li className='help_step03'>
 						<img src={Step03} alt='Paso 3' />

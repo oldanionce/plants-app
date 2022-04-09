@@ -3,7 +3,7 @@ const ErrorResponse = require("../utils/errorResponse");
 const errorHandler = (err, req, res, next) => {
   const error = { ...err };
   error.message = err.message;
-  console.log(err); //Log for dev
+  // console.log(err); //Log for dev
 
   //Mongoose bad ObjectId
   if (err.name === "CastError") {

@@ -1,12 +1,13 @@
 .search-input {
-		width: 400px;
-		padding: 0 2rem;
-		height: 4rem;
-		line-height: 4rem;
-		border: none;
-		border-radius: 3rem;
-		background-color: var(--lightest);
-		font-family: 'Poppins', sans-serif;
-		font-size: 1.5rem;
-		color: var(--accent);
+	width: 400px;
+	max-width: 90%;
+	padding: 0 2rem;
+	height: 4rem;
+	line-height: 4rem;
+	border: none;
+	border-radius: 3rem;
+	ackground-color: var(--lightest);
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.5rem;
+	color: var(--accent);
 }

@@ -38,7 +38,7 @@
 .collectionHeader h1 {
 	color: var(--lightest);
 	font-family: 'Trocchi', serif;
-	font-size: 5rem;
+	font-size: 3.5rem;
 	line-height: auto;
 	display: inline-block;
 	flex-grow: 1;
