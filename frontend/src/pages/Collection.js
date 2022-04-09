@@ -9,6 +9,7 @@ import Search from '../components/Search/Search.js';
 import Filter from '../components/Filter/Filter.js';
 import Footer from '../components/Footer/Footer';
 import Loader from '../components/Loader/Loader';
+import { faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
 
 export default function Collection() {
 	const navigate = useNavigate();
@@ -16,11 +17,12 @@ export default function Collection() {
 
 	const [plants, setPlants] = useState([]);
 	const [filterPlants, setFilterPlants] = useState([]);
+
 	const [currentPage, setCurrentPage] = useState(1);
 	const [plantsPerPage] = useState(8);
 	const [input, setInput] = useState('');
 	const [isLoading, setLoading] = useState(true);
-	const [orderedAZ, setorderedAZ] = useState(true);
+	const [orderedAZ, setorderedAZ] = useState(0);
 	const [isPetFriendly, setIsPetFriendly] = useState(true);
 
 	// DATA: Fetching the Plants Collection
@@ -64,28 +66,67 @@ export default function Collection() {
 
 	const handleSort = () => {
 		const sortedPlants = [...plants];
-		if (orderedAZ) {
+		if (orderedAZ === 0 || orderedAZ === 2) {
 			setFilterPlants(
 				sortedPlants.sort((a, b) => (a.scientificName > b.scientificName ? 1 : -1))
 			);
-			setorderedAZ(false);
+			setorderedAZ(1);
 		} else {
 			setFilterPlants(
 				sortedPlants.sort((a, b) => (a.scientificName > b.scientificName ? -1 : 1))
 			);
-			setorderedAZ(true);
+			setorderedAZ(2);
 		}
 	};
 
 	const handleCare = e => {
-		const newPlants = [...plants];
+		if (orderedAZ === 0) {
+			const newPlants = [...plants];
+			if (e.target.value === 'Dificultad:') {
+				setFilterPlants(newPlants);
+			} else {
+				let careValue = parseInt(e.target.value);
+				setFilterPlants(newPlants.filter(plant => plant.careLevel === careValue));
+			}
+		}
 
-		if (e.target.value === 'Dificultad:') {
-			setFilterPlants(newPlants);
-		} else {
-			let careValue = parseInt(e.target.value);
+		if (orderedAZ === 1) {
+			const newPlants = [...plants];
+			setFilterPlants(
+				newPlants.sort((a, b) => (a.scientificName > b.scientificName ? 1 : -1))
+			);
 
-			setFilterPlants(newPlants.filter(plant => plant.careLevel === careValue));
+			if (e.target.value === 'Dificultad:') {
+				return;
+			} else {
+				const newPlants = [...plants];
+				let careValue = parseInt(e.target.value);
+				setFilterPlants(
+					newPlants
+						.sort((a, b) => (a.scientificName > b.scientificName ? 1 : -1))
+						.filter(plant => plant.careLevel === careValue)
+				);
+			}
+		}
+
+		if (orderedAZ === 2) {
+			const newPlants = [...plants];
+			setFilterPlants(
+				newPlants.sort((a, b) => (a.scientificName > b.scientificName ? -1 : 1))
+			);
+
+			if (e.target.value === 'Dificultad:') {
+				return;
+			} else {
+				const newPlants = [...plants];
+
+				let careValue = parseInt(e.target.value);
+				setFilterPlants(
+					newPlants
+						.sort((a, b) => (a.scientificName > b.scientificName ? -1 : 1))
+						.filter(plant => plant.careLevel === careValue)
+				);
+			}
 		}
 	};
 
@@ -157,7 +198,7 @@ export default function Collection() {
 
 			<main className='container collectionDiv'>
 				<div className={isLoading ? 'content isLoading' : 'content'}>
-          			<Loader></Loader>
+					<Loader></Loader>
 					<div className='gridHeader'>
 						<Filter
 							handleSort={handleSort}

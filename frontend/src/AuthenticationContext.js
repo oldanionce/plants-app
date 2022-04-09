@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 export const AuthenticationContext = React.createContext();
 
 const AuthenticationProvider = ({ children }) => {
-	const [authData, setAuthData] = useState({});
+	const [authData, setAuthData] = useState(null);
 
 	async function getLoggedUser() {
 		const response = await fetch(`/api/auth/getuser`, {
