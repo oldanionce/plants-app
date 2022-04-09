@@ -1,23 +1,24 @@
 .featuresDiv .content {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 1fr);
-	padding: 3rem 0;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	z-index: 2;
-}
+	display: flex;
+	flex-direction: column;
+	  padding: 2rem;
+	  position: relative;
+	  z-index: 2;
+	}
+	.image1 { order:1; }
+	.text1 { order:2; }
+	.image2 { order:3; }
+	.text2 { order:4; }
 
 .featuresText {
 	text-align: center;
 	font-family: 'Poppins', sans-serif;
-	font-size: 1.8rem;
-	line-height: 3rem;
+	font-size: 1.5rem;
+	line-height: 2.5rem;
 	margin: auto;
 	position: relative;
 	width: 100%;
-	height: 100%;
+	padding: 3rem 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -26,7 +27,7 @@
 
 .featuresText span {
 	display: block; 
-	max-width: 50ch;
+	max-width: 35ch;
 }
 
 .featuresText h2 {
@@ -34,12 +35,13 @@
 	background-color: var(--light-accent);
 	padding: 1rem 2rem;
 	margin-bottom: 20px;
-	font-size: 3rem;
+	font-size: 2rem;
 	font-family: 'ABeeZee', sans-serif;
 }
 
 .featuresDiv img {
 	max-width: 100%;
+	object-fit: cover;
 	border-radius: 3rem;
 	position: relative;
 	z-index:1;
@@ -47,19 +49,4 @@
 
 .featuresPic {
 	position: relative;
-}
-
-.featuresPic::after {
-	content: '';
-	position: absolute;
-	border-radius: 2rem;
-	top: 1.5rem;
-	left: 1.5rem;
-	right: 1.5rem;
-	bottom: 2rem;
-	width: calc(100%-3rem);
-	height: calc(100%-4rem);
-	display: block;
-	z-index: 2;
-	border: 1px solid var(--light);
 }

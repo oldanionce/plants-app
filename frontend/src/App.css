@@ -145,15 +145,26 @@ body {
 	}
 
 
-/* ----------------------------------
-	MEDIA QUERIES
----------------------------------- */
+/* -----------------------------------------
+	MEDIA QUERIES - SPECIAL CORRECTIONS
+---------------------------------------- */
 
+/* Modals weren't responsive so this is a temporary fix, 
+forcing some styles over the custom inline styles defined
+in both:
+	- CollectionItem
+	- HelpModal
+*/
 @media (max-width: 768px) {
-	.collectionCardOpen {
+	body {
+		overflow-x:hidden;
+	}
+	.collectionCardOpen,
+	.helpCardOpen {
 		overflow: hidden;
 	}
-	.collectionCardOpen .ReactModal__Content {
+	.collectionCardOpen .ReactModal__Content,
+	.helpCardOpen .ReactModal__Content {
 		position: absolute !important;
 		top:0 !important;
 		left:0 !important;
@@ -162,23 +173,56 @@ body {
 		height: 100% !important;
 		display: block !important;
 		overflow: auto !important;
-		background-color: var(--darkest) !important;
 		border-radius: 0 !important;
 	}
-	.collectionCardOpen .ReactModal__Content .modalContent  {
+	.collectionCardOpen .ReactModal__Content {background-color: var(--darkest) !important;}
+	.helpCardOpen .ReactModal__Content {background-color: var(--lightest) !important;}
+	.collectionCardOpen .ReactModal__Content .modalContent {
 		background-color:var(--lightest) !important;
 	}
+	.helpCardOpen .ReactModal__Content .helpModal  {
+		padding-top:4rem;
+	}
+	.helpSteps li {
+		padding: 1rem 0 5rem 0;
+	}
+	.helpSteps li span.next {
+		position: absolute;
+		left:50%;
+		bottom: 0;
+		transform: translate(-50%, -50%);
+	}
+	.helpSteps li span.next svg {
+		transform: rotate(90deg);
+	}
 }
+
+/* -----------------------------------------
+	MEDIA QUERIES
+---------------------------------------- */
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 	.content {max-width: 700px;}
+	
+	.navigationDiv,
+	.navigationLanding {
+		padding-bottom:2rem;
+	}
+	
+	.intro .logo {
+		width: 200px;
+		height: 200px;
+	}
+	
 	.collectionGrid,
 	.myPlantsGrid {
-		padding: 0 2rem;
-		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 	}
+	.search-input {
+		margin: 0 auto;
+	}
+	
 	.footerDiv .content::before {
 		background-position: 40% 30%;
 		background-origin: content-box;
@@ -208,9 +252,62 @@ body {
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 	.content {max-width: 950px;}
+	
+	.registerFormDiv .form {
+		max-width: 400px;
+	}
+	.loginForm .form {
+		max-width: 300px;
+	}
+
 	nav {
 		flex-direction: row;
 		padding: 0;
+	}
+	.navigationDiv {padding:0 2rem;}
+	.navigationLanding {padding: 2rem;}
+	
+	.intro {
+		flex-direction: row;
+	}
+	.intro h1 {
+		font-size: 6rem;
+		line-height: 6rem;
+	}
+	.intro .logo {
+		width: 300px;
+		height: 300px;
+	}	
+	.logo-container h1 {
+		font-size: 4rem;
+	}
+	.intro h2 {
+		font-size: 3rem;
+		line-height: 4rem; 
+	}
+
+	.featuresDiv .content {
+		display: grid; 
+		grid-template-columns: 1fr 1fr; 
+		grid-template-rows: 1fr 1fr; 
+		grid-template-areas: 
+			  "image1 text1"
+			  "text2 image2"; 
+		padding: 2rem;
+		position: relative;
+		z-index: 2;
+	}
+	.image1 { grid-area: image1; }
+	.text1 { grid-area: text1; }
+	.text2 { grid-area: text2; }
+	.image2 { grid-area: image2; } 
+	.featuresText {
+		height: 100%;
+	}	
+
+	.collectionHeader h1,
+	.myPlantsHeader h1 {
+		font-size: 5rem;
 	}
 	.collectionHeader .content,
 	.myPlantsHeader .content {
@@ -226,10 +323,9 @@ body {
 	}
 	.collectionGrid,
 	.myPlantsGrid {
-		padding: 0 2rem;
-		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 	}	
+
 	.modalContent {
 		flex-direction: row;
 	}
@@ -245,6 +341,29 @@ body {
 	.modalImage img {
 		width: 100%;
 	}
+
+	.helpSteps {
+		display: grid; 
+		grid-template-columns: 1fr 1fr 1fr; 
+		grid-template-areas: 
+		  "step01 step02 step03"
+		  "step04 step04 step04";
+	  }
+	.help_step01 { grid-area: step01; }
+	.help_step02 { grid-area: step02; }
+	.help_step03 { grid-area: step03; }
+	.help_step04 { grid-area: step04; }
+	.helpSteps li {padding: 0 4rem 0 1rem;}
+	.helpSteps li {
+		padding: 0 4rem 0 1rem;
+	}
+	.helpSteps li span.next {
+		position: absolute;
+		right:0;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
 	.footerDiv .content::before {
 		background-position: 35% 40%;
 		background-origin: content-box;
@@ -273,12 +392,49 @@ body {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
+@media (min-width: 992px) {	
 	.content {max-width: 1160px;}
+
+	.introDiv {
+		padding: 3.5rem;
+	}
+	.intro h1 {
+		font-size: 7rem;
+		line-height: 7rem;
+	}
+	.intro h2 {
+		font-size: 4rem;
+		line-height: 5rem; 
+	}
+
+	.featuresText h2 {
+		font-size: 2.6rem;
+	}
+	.featuresText {
+		font-size: 1.8rem;
+		line-height: 3rem;
+	}
+	.featuresText span {
+		max-width: 50ch;
+		padding: 0 1rem;
+	}
+	.featuresPic::before {
+		content: '';
+		position: absolute;
+		border-radius: 2rem;
+		top: 15px;
+		left: 15px;
+		right: 15px;
+		bottom: 20px;
+		width: calc(100%-30px);
+		height: calc(100%-40px);
+		display: block;
+		z-index: 2;
+		border: 1px solid var(--light);
+	}
+
 	.collectionGrid,
 	.myPlantsGrid {
-		padding: 0 2rem;
-		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 	}
 }
@@ -286,10 +442,31 @@ body {
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 	.content {max-width: 1380px;}
+
+	.introDiv {
+		padding: 4rem 5rem;
+	}
+	.intro h1 {
+		font-size: 8rem;
+		line-height: 8rem;
+	}
+	.intro .logo {
+		width: 35rem;
+		height: 35rem;
+	}
+	
+	.featuresText h2 {
+		font-size: 3rem;
+	}
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) { 
 	.content {max-width: 1500px;}
-	.navigationDiv {padding:0;}
+	
+	.intro .logo {
+		width: 40rem;
+		height: 40rem;
+	  }
+	
 }

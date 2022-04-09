@@ -29,7 +29,7 @@ export default function CollectionCard({
 	const weblocation = useLocation();
 
 	return (
-		<div class="collectionCard_inner">
+		<div className="collectionCard_inner">
 			{petFriendly === true ? <div className ='card__petfriendly'><span className="altIcons" title="Apta para mascotas">{petFriendlyIcon}</span></div> : ""}
 			<div className ='card__image'>
 				<img src={`/images/${imageUrl}.jpg`} alt={commonName} />

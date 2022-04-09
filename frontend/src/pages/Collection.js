@@ -17,9 +17,9 @@ export default function Collection() {
 
 	const [plants, setPlants] = useState([]);
 	const [filterPlants, setFilterPlants] = useState([]);
-
 	const [currentPage, setCurrentPage] = useState(1);
-	const [plantsPerPage] = useState(8);
+	const [plantsPerPage] = useState(12);
+	
 	const [input, setInput] = useState('');
 	const [isLoading, setLoading] = useState(true);
 	const [orderedAZ, setorderedAZ] = useState(0);

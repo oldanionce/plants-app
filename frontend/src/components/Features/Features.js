@@ -6,13 +6,13 @@ export default function Features() {
   return (
     <div className="featuresDiv container">
       <div className="content">
-        <div className="featuresPic">
+        <div className="featuresPic image1">
           <img
             alt="plants app features"
             src={Features01}
           ></img>
         </div>
-        <div className="featuresText">
+        <div className="featuresText text1">
           <h2>Tu ABC de plantas</h2>
           <span>
             Plantagotchi tiene toda la información que necesitas para cuidar tu
@@ -21,7 +21,7 @@ export default function Features() {
             ¡No te preocupes más, aquí nos tienes!
           </span>
         </div>
-        <div className="featuresText">
+        <div className="featuresText text2">
           <h2>La mejor función de calendario</h2>
           <span>
             Y lo más importante, tus plantas no morirán (o al menos tendrán una
@@ -30,7 +30,7 @@ export default function Features() {
             mantener tus plantas regadas y sanas siempre que sea necesario!
           </span>
         </div>
-        <div className="featuresPic">
+        <div className="featuresPic image2">
           <img
             alt="plants app features"
             src={Features02}
