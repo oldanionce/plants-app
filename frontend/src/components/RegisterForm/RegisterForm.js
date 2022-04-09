@@ -74,7 +74,7 @@ export default function Register() {
 
 		if (response.status === 200) {
 			login({ email: data.email, name: data.name });
-			navigate('/myplants', { replace: true });
+			navigate('/collection', { replace: true });
 		}
 	}
 
@@ -90,11 +90,11 @@ export default function Register() {
 		setIsOpen(false);
 	}
 
-	function afterOpenModal() {	
+	function afterOpenModal() {
 		root.style.filter = 'blur(5px)';
 	}
 
-	function afterCloseModal() {	
+	function afterCloseModal() {
 		root.style.filter = '';
 	}
 
@@ -102,53 +102,53 @@ export default function Register() {
 	// this will close the login modal and scroll down to the register
 	function smoothScrollandClose() {
 		closeModal();
-		var element = document.querySelector("#registerForm");
-		element.scrollIntoView({ behavior: 'smooth', block: 'start'});
+		var element = document.querySelector('#registerForm');
+		element.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	}
 
 	return (
 		<>
-		<div id="registerForm" className='container registerFormDiv'>
-			<div className='container__form'>
-				<form className='form'>
-					<input
-						name='name__input'
-						type='text'
-						placeholder='nombre'
-						value={inputName}
-						onChange={handleInputChange}
-					/>
-					<input
-						type='email'
-						name='email__input'
-						placeholder='dirección email'
-						value={inputEmail}
-						onChange={handleInputChange}
-					/>
-					<input
-						type='password'
-						placeholder='contraseña'
-						name='password__input'
-						value={inputPassword}
-						onChange={handleInputChange}
-					/>
-					<input
-						type='password'
-						placeholder='confirmar contraseña'
-						name='password__input2'
-						value={inputPassword2}
-						onChange={handleInputChange}
-					/>
+			<div id='registerForm' className='container registerFormDiv'>
+				<div className='container__form'>
+					<form className='form'>
+						<input
+							name='name__input'
+							type='text'
+							placeholder='nombre'
+							value={inputName}
+							onChange={handleInputChange}
+						/>
+						<input
+							type='email'
+							name='email__input'
+							placeholder='dirección email'
+							value={inputEmail}
+							onChange={handleInputChange}
+						/>
+						<input
+							type='password'
+							placeholder='contraseña'
+							name='password__input'
+							value={inputPassword}
+							onChange={handleInputChange}
+						/>
+						<input
+							type='password'
+							placeholder='confirmar contraseña'
+							name='password__input2'
+							value={inputPassword2}
+							onChange={handleInputChange}
+						/>
 
-					<button type='button' onClick={register}>
-						crear cuenta
-					</button>
-					<p className='input__message'>
-						¿Ya te has registrado? <span onClick={openModal}> Entra</span>
-					</p>
-				</form>
+						<button type='button' onClick={register}>
+							crear cuenta
+						</button>
+						<p className='input__message'>
+							¿Ya te has registrado? <span onClick={openModal}> Entra</span>
+						</p>
+					</form>
+				</div>
 			</div>
-		</div>
 			<Modal
 				isOpen={modalIsOpen}
 				onAfterOpen={afterOpenModal}
@@ -157,7 +157,7 @@ export default function Register() {
 				style={customStyles}
 				contentLabel='Log In'
 				ariaHideApp={false}>
-				<div className="clickToClose" onClick={smoothScrollandClose}></div>
+				<div className='clickToClose' onClick={smoothScrollandClose}></div>
 				<LoginForm></LoginForm>
 			</Modal>
 		</>
