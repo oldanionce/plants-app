@@ -21,6 +21,7 @@
 	font-family: Poppins;
 	font-size: 1.8rem;
 	line-height: 4rem;
+	cursor: pointer;
 }
 
 .loginForm input {
