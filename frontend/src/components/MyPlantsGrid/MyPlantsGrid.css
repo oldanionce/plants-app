@@ -29,6 +29,7 @@
 
 .myPlantsHeader .content {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	padding: 2.5rem 0;
@@ -79,7 +80,7 @@
 	margin: 0;
 	padding: 1rem 2rem 4rem 2rem;
 	display:grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: 1fr;
 	grid-column-gap: 1.5rem;
 	grid-row-gap: 1.5rem;
 }

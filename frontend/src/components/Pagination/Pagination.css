@@ -1,5 +1,6 @@
 .gridHeader {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin: 2rem 0;
     align-items: center;
@@ -7,6 +8,7 @@
 
 .gridFooter {
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     margin: 2rem 0 4rem;
     align-items: center;

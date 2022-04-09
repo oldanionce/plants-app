@@ -13,6 +13,9 @@ export default function Footer() {
         <div className="column footer_title">
           <h5>Plantagotchi</h5>
           <a className="button" href="https://github.com/anionce/plants-app" rel="noreferrer" target="_blank">ver el proyecto en Github {linkIcon}</a>
+          <div className="footer_copy">
+            <p>&copy; {year}</p>
+          </div>
         </div>
         <div className="column footer_copy">
           <p>&copy; {year}</p>
