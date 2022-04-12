@@ -1,12 +1,7 @@
 # PLANTAGOTCHI
 Long life to your plants!
 
-Our plant application was created using:
-
--Frontend: React
--Backend: Express
--Styles: CSS
--DB: MongoDB
+Our plant application was created using **MERN** stack
 
 **Features**
 
